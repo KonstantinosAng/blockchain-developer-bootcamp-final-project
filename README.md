@@ -16,8 +16,8 @@ A crypto lottery WEB3 website using NextJS, TailwindCSS, Solidity, Typescript an
 - `📁 crypto-lottery-contract`: a solidity app for the smart contract
 - `📁 ui`: a stub React component library shared by the `crypto-lottery` app
 - `📁 eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `📁 tsconfig`: `tsconfig.json`s used throughout the monorepo
-- `📁 tailwindcss-config`: `tailwind.config.js`s used throughout the monorepo
+- `📁 tsconfig`: `tsconfig.json`'s used throughout the monorepo
+- `📁 tailwindcss-config`: `tailwind.config.js`'s used throughout the monorepo
 ### Utilities
 
 This turborepo has some additional tools already setup for you:
