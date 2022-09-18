@@ -4,13 +4,15 @@
 
 A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [TypeScript](https://www.typescriptlang.org/) and [ThirdWeb](https://thirdweb.com/).
 
-<hr style="border: 1px solid gray" />
+[//]: # (below line is for horizontal line DO NOT DELETE)
+#
 
 <div align="center">
   <p><a href=""> DEMO </a></p>
 </div>
 
-<hr style="border: 1px solid gray" />
+[//]: # (below line is for horizontal line DO NOT DELETE)
+#
 
 <br />
 
@@ -22,6 +24,7 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 - `📁 eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `📁 tsconfig`: `tsconfig.json`'s used throughout the monorepo
 - `📁 tailwindcss-config`: `tailwind.config.js`'s used throughout the monorepo
+
 ### <img src="./images/utility.png" alt="front" width="20px" /> Utilities
 
 This turborepo has some additional tools already setup for you:
@@ -34,7 +37,8 @@ This turborepo has some additional tools already setup for you:
 - [Solidity](https://docs.soliditylang.org/en/v0.8.17/) for the smart contract.
 - [ThirdWeb](https://thirdweb.com/) for releasing and deploying the smart contract.
 
-<hr/>
+[//]: # (below line is for horizontal line DO NOT DELETE)
+#
 
 ### <img src="./images/requirement.png" alt="front" width="20px" /> Prerequisites
 
@@ -43,7 +47,8 @@ Install these globally on your computer
 - `yarn ^1.22.5`
 - `node.js v16.17.0`
 
-<hr/>
+[//]: # (below line is for horizontal line DO NOT DELETE)
+#
 
 ### <img src="./images/ux.png" alt="front" width="20px" /> Frontend (apps/crypto-lottery)
 
@@ -79,7 +84,8 @@ cd crypto-lottery
 yarn run dev
 ```
 
-<hr/>
+[//]: # (below line is for horizontal line DO NOT DELETE)
+#
 
 ### <img src="./images/agreement.png" alt="front" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
 
@@ -112,7 +118,8 @@ npx thirdweb@latest release
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ```
 
-<hr />
+[//]: # (below line is for horizontal line DO NOT DELETE)
+#
 
 ### <img src="./images/new-release.png" alt="front" width="20px" /> Releases
 
@@ -122,6 +129,7 @@ My [Releases](https://thirdweb.com/0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010/Lo
 
 My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/)
 
-<hr />
+[//]: # (below line is for horizontal line DO NOT DELETE)
+#
 
 ##### * Created for the as the final project of the [ConsenSys blockchain developer bootcamp](https://consensys.net/academy/bootcamp/)
