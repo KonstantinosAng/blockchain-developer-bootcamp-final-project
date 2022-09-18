@@ -2,7 +2,7 @@
 
 ## <img src="./packages/ui/assets/polygon.svg" alt="polygon" width="30px" /> <a href="https://constantine.dev" > Crypto Lottery </a>
 
-A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS]((https://nextjs.org)), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [TypeScript](https://www.typescriptlang.org/) and [ThirdWeb](https://thirdweb.com/).
+A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [TypeScript](https://www.typescriptlang.org/) and [ThirdWeb](https://thirdweb.com/).
 
 [//]: # (## Demo)
 
