@@ -4,11 +4,15 @@
 
 A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [TypeScript](https://www.typescriptlang.org/) and [ThirdWeb](https://thirdweb.com/).
 
-<hr/>
+<hr style="border: 1px solid gray" />
 
 <div align="center">
-  <h1><a href=""> DEMO </a></h1>
+  <p><a href=""> DEMO </a></p>
 </div>
+
+<hr style="border: 1px solid gray" />
+
+<br />
 
 ### <img src="./images/apps.png" alt="front" width="20px" /> Apps and Packages
 
