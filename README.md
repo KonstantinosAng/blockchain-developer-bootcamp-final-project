@@ -10,27 +10,28 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 
 #### The buyer can:
 
-
+```md
 > Buy tickets.
 
 > Refund all tickets before the lottery ends.
 
 > Withdraw winnings.
+```
 
 #### The lottery bank can:
+```md
+> Draw winner ticket.
 
-    > Draw winner ticket.
+> Withdraw commission.
 
-    > Withdraw commission.
+> Restart draw.
 
-    > Restart draw.
+> Calculate current winning reward.
 
-    > Calculate current winning reward.
+> Find the winner.
 
-    > Find the winner.
-
-    > Calculate remaining tickets. 
-
+> Calculate remaining tickets. 
+```
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
