@@ -9,7 +9,7 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 
 <div align="center">
 
-[<img alt="demo" width="100px" src="./images/demo.png" />](https://google.com)
+[<img alt="demo" width="100px" src="./images/demo.png" />](https://constantine.dev)
 
 </div>
 
