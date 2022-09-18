@@ -1,6 +1,6 @@
 # ConsenSys Academy Final Project
 
-## <img src="./packages/ui/assets/polygon.svg" alt="polygon" width="30px" /> <a href="https://constantine.dev" > Crypto Lottery </a>
+## <img src="./images/polygon.svg" alt="polygon" width="36px" /> <a href="https://constantine.dev" > Crypto Lottery </a>
 
 A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [TypeScript](https://www.typescriptlang.org/) and [ThirdWeb](https://thirdweb.com/).
 
@@ -10,7 +10,7 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 [//]: # (  <h1><a href="https://constantine.dev:8080/cryptoLottery"> DEMO </a></h1>)
 [//]: # (</div>)
 
-### Apps and Packages
+### <img src="./images/apps.png" alt="front" width="20px" /> Apps and Packages
 
 - `📁 crypto-lottery`: a [Next.js](https://nextjs.org) app for the ui
 - `📁 crypto-lottery-contract`: a [Solidity](https://docs.soliditylang.org/en/v0.8.17/) app for the smart contract
@@ -18,27 +18,32 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 - `📁 eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `📁 tsconfig`: `tsconfig.json`'s used throughout the monorepo
 - `📁 tailwindcss-config`: `tailwind.config.js`'s used throughout the monorepo
-### Utilities
+### <img src="./images/utility.png" alt="front" width="20px" /> Utilities
 
 This turborepo has some additional tools already setup for you:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-- [TailwindCSS](https://tailwindcss.com/) for css styling
+- [TypeScript](https://www.typescriptlang.org/) for static type checking.
+- [ESLint](https://eslint.org/) for code linting.
+- [Prettier](https://prettier.io) for code formatting.
+- [TailwindCSS](https://tailwindcss.com/) for css styling.
+- [NextJS](https://nextjs.org) for routing and Server Side Rendering.
+- [Solidity](https://docs.soliditylang.org/en/v0.8.17/) for the smart contract.
+- [ThirdWeb](https://thirdweb.com/) for releasing and deploying the smart contract.
 
 <hr/>
 
-### Prerequisites
+### <img src="./images/requirement.png" alt="front" width="20px" /> Prerequisites
+
+Install these globally on your computer
 
 - `yarn ^1.22.5`
 - `node.js v16.17.0`
 
 <hr/>
 
-### Frontend (apps/crypto-lottery)
+### <img src="./images/ux.png" alt="front" width="20px" /> Frontend (apps/crypto-lottery)
 
-#### Install Dependencies
+ &mdash; Install Dependencies
 
 ```bash
 yarn install or npm install
@@ -72,7 +77,7 @@ yarn run dev
 
 <hr/>
 
-### Smart Contract (apps/crypto-lottery-contract)
+### <img src="./images/agreement.png" alt="front" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
 
 1. Install Dependencies
 
@@ -105,11 +110,11 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 
 <hr />
 
-### Releases
+### <img src="./images/new-release.png" alt="front" width="20px" /> Releases
 
 My [Releases](https://thirdweb.com/0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010/Lottery)
 
-### Deployments
+### <img src="./images/deployment.png" alt="front" width="20px" /> Deployments
 
 My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/)
 
