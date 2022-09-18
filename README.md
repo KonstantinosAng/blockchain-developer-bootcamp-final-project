@@ -2,7 +2,7 @@
 
 ## <img src="./packages/ui/assets/polygon.svg" alt="polygon" width="30px" /> <a href="https://constantine.dev" > Crypto Lottery </a>
 
-A crypto lottery WEB3 website using NextJS, TailwindCSS, Solidity, Typescript and ThirdWeb.
+A crypto lottery WEB3 [turborepo](https://turborepo.org/) using NextJS, TailwindCSS, Solidity, Typescript and ThirdWeb.
 
 [//]: # (## Demo)
 
@@ -13,8 +13,8 @@ A crypto lottery WEB3 website using NextJS, TailwindCSS, Solidity, Typescript an
 ### Apps and Packages
 
 - `📁 crypto-lottery`: a [Next.js](https://nextjs.org) app for the ui
-- `📁 crypto-lottery-contract`: a solidity app for the smart contract
-- `📁 ui`: a stub React component library shared by the `crypto-lottery` app
+- `📁 crypto-lottery-contract`: a [Solidity](https://docs.soliditylang.org/en/v0.8.17/) app for the smart contract
+- `📁 ui`: a stub [React](https://reactjs.org/) component library shared by the `crypto-lottery` app
 - `📁 eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `📁 tsconfig`: `tsconfig.json`'s used throughout the monorepo
 - `📁 tailwindcss-config`: `tailwind.config.js`'s used throughout the monorepo
