@@ -1,6 +1,6 @@
-# ConsenSys Academy Final Project
+# blockchain-developer-bootcamp-final-project
 
-## <img src="./images/polygon.svg" alt="polygon" width="36px" /> <a href="https://constantine.dev" > Crypto Lottery </a>
+## <img src="./images/polygon.svg" alt="polygon" width="36px" /> <a href="https://constantine.dev" > ConsenSys Academy Final Project - Crypto Lottery </a>
 
 A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), [ReactJS](https://reactjs.org/), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [Truffle](https://trufflesuite.com/)  and [ThirdWeb](https://thirdweb.com/).
 
@@ -151,6 +151,9 @@ npx thirdweb@latest release
 ```bash
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ```
+
+[//]: # (below line is for horizontal line DO NOT DELETE)
+#
 
 ### <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
 
