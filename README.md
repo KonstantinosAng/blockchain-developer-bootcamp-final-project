@@ -43,7 +43,7 @@ Install these globally on your computer
 
 ### <img src="./images/ux.png" alt="front" width="20px" /> Frontend (apps/crypto-lottery)
 
- &mdash; Install Dependencies
+#### Install Dependencies
 
 ```bash
 yarn install or npm install
@@ -79,30 +79,30 @@ yarn run dev
 
 ### <img src="./images/agreement.png" alt="front" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
 
-1. Install Dependencies
+#### Install Dependencies
 
 ```bash
 cd crypto-lottery/apps/crypto-lottery-contract
 yarn install or npm install
 ```
 
-2. Deploy the smart contract in [Thirdweb](https://thirdweb.com/):
+#### Deploy the smart contract in [Thirdweb](https://thirdweb.com/):
 
 ```bash
 npx thirdweb@latest release
 ```
 
-3. Open the thirdweb link and check the Mumbai(MATIC) Testnet to release the contract.
+1. Open the thirdweb link and check the Mumbai(MATIC) Testnet to release the contract.
 
-4. Use these Polygon Faucets to obtain some money for the polygon testnet gas fees:
+2. Use these Polygon Faucets to obtain some money for the polygon testnet gas fees:
 
    - [Polygon Faucets](https://faucet.polygon.technology/)
    - [Polygon Faucets](https://mumbaifaucet.com)
    - [Polygon Faucets](https://stakely.io/en/faucet/polygon-matic)
 
-5. After releasing and getting some money, click on Deploy Now and select Mumbai(MATIC) Testnet.
+3. After releasing and getting some money, click on Deploy Now and select Mumbai(MATIC) Testnet.
 
-6. Copy the deployed Contract's address (below the contract's name), create a .env.local file as the .env.example file and paste the value in this variable:
+4. Copy the deployed Contract's address (below the contract's name), create a .env.local file as the .env.example file and paste the value in this variable:
 
 ```bash
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
