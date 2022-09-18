@@ -1,7 +1,37 @@
 {
   "name": "web3-lottery",
-  "version": "0.0.0",
+  "displayName": "Web3-Lottery",
+  "version": "0.1.0",
+  "publisher": "Konstantinos Angelopoulos",
+  "license": "MIT",
+  "homepage": "/",
   "private": true,
+  "author": {
+    "email": "kwstantinos.agelopoulos@outlook.com",
+    "name": "Konstantinos Angelopoulos",
+    "url": "https://constantine.dev"
+  },
+  "maintainers": [
+    {
+      "email": "kwstantinos.agelopoulos@outlook.com",
+      "name": "Konstantinos Angelopoulos"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KonstantinosAng/blockchain-developer-bootcamp-final-project"
+  },
+  "bugs": {
+    "url": "https://github.com/KonstantinosAng/blockchain-developer-bootcamp-final-project/issues",
+    "email": "kwstantinos.agelopoulos@outlook.com"
+  },
+  "keywords": [
+    "web3",
+    "crypto",
+    "lottery",
+    "solidity",
+    "nextjs"
+  ],
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -21,7 +51,7 @@
     "turbo": "latest"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.17.0"
   },
   "dependencies": {},
   "packageManager": "yarn@1.22.5"
