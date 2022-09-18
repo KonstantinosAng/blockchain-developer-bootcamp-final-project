@@ -1,5 +1,5 @@
 import type { NextPage } from "next"
-import { Header, Login, LoadingWrapper } from "ui"
+import { Header, Login, LoadingWrapper, Box, H1 } from "ui"
 import { useAddress, useDisconnect, useMetamask, useContract, useAccount } from "@thirdweb-dev/react"
 
 const Home: NextPage = () => {
@@ -13,6 +13,11 @@ const Home: NextPage = () => {
     <LoadingWrapper loading={isLoading}>
       <div className="bg- bg-basicBackground flex min-h-screen flex-col">
         <Header address={address} disconnect={disconnect} />
+        <Box>
+          <Box>
+            <H1> test </H1>
+          </Box>
+        </Box>
       </div>
     </LoadingWrapper>
   ) : (

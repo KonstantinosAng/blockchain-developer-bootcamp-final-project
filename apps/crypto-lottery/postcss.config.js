@@ -1,3 +1,3 @@
 module.exports = {
-  ...require('../../packages/tailwindcss-config/postcss.config.js'),
+  ...require("../../packages/tailwindcss-config/postcss.config.js"),
 }

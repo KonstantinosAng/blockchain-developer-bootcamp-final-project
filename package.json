@@ -1,58 +1,62 @@
 {
-  "name": "web3-lottery",
-  "displayName": "Web3-Lottery",
-  "version": "0.1.0",
-  "publisher": "Konstantinos Angelopoulos",
-  "license": "MIT",
-  "homepage": "/",
-  "private": true,
-  "author": {
-    "email": "kwstantinos.agelopoulos@outlook.com",
-    "name": "Konstantinos Angelopoulos",
-    "url": "https://constantine.dev"
-  },
-  "maintainers": [
-    {
-      "email": "kwstantinos.agelopoulos@outlook.com",
-      "name": "Konstantinos Angelopoulos"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/KonstantinosAng/blockchain-developer-bootcamp-final-project"
-  },
-  "bugs": {
-    "url": "https://github.com/KonstantinosAng/blockchain-developer-bootcamp-final-project/issues",
-    "email": "kwstantinos.agelopoulos@outlook.com"
-  },
-  "keywords": [
-    "web3",
-    "crypto",
-    "lottery",
-    "solidity",
-    "nextjs"
-  ],
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.8",
-    "eslint-config-custom": "*",
-    "postcss": "^8.4.16",
-    "prettier": "latest",
-    "tailwindcss": "^3.1.8",
-    "turbo": "latest"
-  },
-  "engines": {
-    "node": ">=16.17.0"
-  },
-  "dependencies": {},
-  "packageManager": "yarn@1.22.5"
+	"name": "web3-lottery",
+	"displayName": "Web3-Lottery",
+	"version": "0.1.0",
+	"publisher": "Konstantinos Angelopoulos",
+	"license": "MIT",
+	"homepage": "/",
+	"private": true,
+	"author": {
+		"email": "kwstantinos.agelopoulos@outlook.com",
+		"name": "Konstantinos Angelopoulos",
+		"url": "https://constantine.dev"
+	},
+	"maintainers": [
+		{
+			"email": "kwstantinos.agelopoulos@outlook.com",
+			"name": "Konstantinos Angelopoulos"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/KonstantinosAng/blockchain-developer-bootcamp-final-project"
+	},
+	"bugs": {
+		"url": "https://github.com/KonstantinosAng/blockchain-developer-bootcamp-final-project/issues",
+		"email": "kwstantinos.agelopoulos@outlook.com"
+	},
+	"keywords": [
+		"web3",
+		"crypto",
+		"lottery",
+		"solidity",
+		"nextjs"
+	],
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev --parallel",
+		"lint": "turbo run lint",
+		"check-format": "turbo run check-format --scope=crypto-lottery",
+		"format-ui": "turbo run format --scope=crypto-lottery",
+		"check-lint": "turbo run check-lint --scope=crypto-lottery",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"server": "turbo run server --scope=crypto-lottery"
+	},
+	"devDependencies": {
+		"autoprefixer": "10.4.8",
+		"eslint-config-custom": "*",
+		"postcss": "8.4.16",
+		"prettier": "latest",
+		"tailwindcss": "3.1.8",
+		"turbo": "latest"
+	},
+	"engines": {
+		"node": ">=16.17.0"
+	},
+	"dependencies": {},
+	"packageManager": "yarn@1.22.5"
 }
