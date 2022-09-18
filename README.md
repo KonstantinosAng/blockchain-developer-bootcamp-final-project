@@ -16,9 +16,6 @@ A crypto lottery WEB3 website using NextJS, TailwindCSS, Solidity, Typescript an
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 - `tailwindcss-config`: `tailwind.config.js`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
 ### Utilities
 
 This turborepo has some additional tools already setup for you:
@@ -26,15 +23,24 @@ This turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [TailwindCSS](https://tailwindcss.com/) for css styling
 
-## Frontend
+## Frontend (apps/crypto-lottery)
+
+Create a .env.local file on the root of the apps/crypto-lottery app, based on the .env.example file
+
+```bash
+BROWSER=none
+NEXT_TELEMETRY_DISABLED=1
+NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
+```
 
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```bash
-cd web3-lottery
+cd crypto-lottery
 yarn run build
 ```
 
@@ -43,21 +49,21 @@ yarn run build
 To develop all apps and packages, run the following command:
 
 ```bash
-cd web3-lottery
+cd crypto-lottery
 yarn run dev
 ```
 
-## Smart Contract
+## Smart Contract (apps/crypto-lottery-contract)
 
 1. Deploy the smart contract in [Thirdweb](https://thirdweb.com/):
 
 ```bash
-cd web3-lottery/apps/crypto-lottery-contract
+cd crypto-lottery/apps/crypto-lottery-contract
 yarn install or npm install
 npx thirdweb@latest release
 ```
 
-1. Open the thirdweb link and check the Mumbai(MATIC) Testnet to relase the contract.
+1. Open the thirdweb link and check the Mumbai(MATIC) Testnet to release the contract.
 
 1. Use these Polygon Faucets to obtain some money for the polygon testnet gas fees:
 
