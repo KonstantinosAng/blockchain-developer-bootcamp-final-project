@@ -8,12 +8,11 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 #
 
 <div align="center">
-  <h3 style="fontSize: 18px">
-    <a href="https://google.com">
-      <img src="./images/demo.png" alt="demo" width="80px" />
-    </a>
-  </h3>
+
+[<img alt="demo" width="100px" src="./images/demo.png" />](https://google.com)
+
 </div>
+
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
