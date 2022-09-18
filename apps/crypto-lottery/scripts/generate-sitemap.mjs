@@ -11,11 +11,11 @@ async function generate() {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         ${pages
 					.map(page => {
-						const path = page.replace("pages", "").replace(".js", "")
+						const path = page.replace("pages", "").replace(".tsx", "")
 						const route = path === "/index" ? "" : path
 						return `
               <url>
-                  <loc>${`https://constantine.dev:${route}`}</loc>
+                  <loc>${`https://constantine.dev${route}`}</loc>
               </url>
             `
 					})
