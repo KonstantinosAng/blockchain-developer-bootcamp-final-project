@@ -8,7 +8,11 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 #
 
 <div align="center">
-  <h3 style="fontSize: 18px"><a href=""> DEMO </a></h3>
+  <h3 style="fontSize: 18px">
+    <a href="https://google.com">
+      <img src="./images/demo.png" alt="demo" width="80px" />
+    </a>
+  </h3>
 </div>
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
@@ -16,7 +20,7 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 
 <br />
 
-### <img src="./images/apps.png" alt="front" width="20px" /> Apps and Packages
+### <img src="./images/apps.png" alt="apps" width="20px" /> Apps and Packages
 
 - `📁 crypto-lottery`: a [Next.js](https://nextjs.org) app for the ui
 - `📁 crypto-lottery-contract`: a [Solidity](https://docs.soliditylang.org/en/v0.8.17/) app for the smart contract
@@ -25,7 +29,7 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 - `📁 tsconfig`: `tsconfig.json`'s used throughout the monorepo
 - `📁 tailwindcss-config`: `tailwind.config.js`'s used throughout the monorepo
 
-### <img src="./images/utility.png" alt="front" width="20px" /> Utilities
+### <img src="./images/utility.png" alt="utility" width="20px" /> Utilities
 
 This turborepo has some additional tools already setup for you:
 
@@ -40,7 +44,7 @@ This turborepo has some additional tools already setup for you:
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
 
-### <img src="./images/requirement.png" alt="front" width="20px" /> Prerequisites
+### <img src="./images/requirement.png" alt="requirement" width="20px" /> Prerequisites
 
 Install these globally on your computer
 
@@ -50,7 +54,7 @@ Install these globally on your computer
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
 
-### <img src="./images/ux.png" alt="front" width="20px" /> Frontend (apps/crypto-lottery)
+### <img src="./images/ux.png" alt="ux" width="20px" /> Frontend (apps/crypto-lottery)
 
 #### Install Dependencies
 
@@ -87,7 +91,7 @@ yarn run dev
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
 
-### <img src="./images/agreement.png" alt="front" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
+### <img src="./images/agreement.png" alt="agreement" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
 
 #### Install Dependencies
 
@@ -121,11 +125,11 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
 
-### <img src="./images/new-release.png" alt="front" width="20px" /> Releases
+### <img src="./images/new-release.png" alt="new-release" width="20px" /> Releases
 
 My [Releases](https://thirdweb.com/0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010/Lottery)
 
-### <img src="./images/deployment.png" alt="front" width="20px" /> Deployments
+### <img src="./images/deployment.png" alt="deployment" width="20px" /> Deployments
 
 My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/)
 
