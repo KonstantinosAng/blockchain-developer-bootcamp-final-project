@@ -1,0 +1,11 @@
+{
+	"extends": ["web-recommended"],
+	"formatters": ["summary", "html"],
+	"parsers": ["html"],
+	"connector": "jsdom",
+	"hints": {
+		"axe/aria": "warning",
+		"ssllabs": "off"
+	},
+	"hintsTimeout": 120000
+}

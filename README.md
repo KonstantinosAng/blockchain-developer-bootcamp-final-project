@@ -1,18 +1,21 @@
-# Turborepo starter
+# Crypto Lottery
 
-This is an official Yarn v1 starter turborepo.
+A crypto lottery WEB3 website using NextJS, TailwindCSS, Solidity, Typescript and ThirdWeb.
 
-## What's inside?
+## Demo
 
-This turborepo uses [Yarn](https://classic.yarnpkg.com/) as a package manager. It includes the following packages/apps:
+<div align="center">
+  <h1><a href="https://constantine.dev:8080/cryptoLottery"> DEMO </a></h1>
+</div>
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
+- `crypto-lottery`: a [Next.js](https://nextjs.org) app for the ui
+- `crypto-lottery-contract`: a solidity app for the smart contract
+- `ui`: a stub React component library shared by the `crypto-lottery` app
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- `tailwindcss-config`: `tailwind.config.js`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
@@ -24,12 +27,14 @@ This turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 
+## Frontend
+
 ### Build
 
 To build all apps and packages, run the following command:
 
-```
-cd my-turborepo
+```bash
+cd web3-lottery
 yarn run build
 ```
 
@@ -37,37 +42,41 @@ yarn run build
 
 To develop all apps and packages, run the following command:
 
-```
-cd my-turborepo
+```bash
+cd web3-lottery
 yarn run dev
 ```
 
-### Remote Caching
+## Smart Contract
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+1. Deploy the smart contract in [Thirdweb](https://thirdweb.com/):
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-npx turbo link
+```bash
+cd web3-lottery/apps/crypto-lottery-contract
+yarn install or npm install
+npx thirdweb@latest release
 ```
 
-## Useful Links
+1. Open the thirdweb link and check the Mumbai(MATIC) Testnet to relase the contract.
 
-Learn more about the power of Turborepo:
+1. Use these Polygon Faucets to obtain some money for the polygon testnet gas fees:
 
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+   - [Polygon Faucets](https://faucet.polygon.technology/)
+   - [Polygon Faucets](https://mumbaifaucet.com)
+   - [Polygon Faucets](https://stakely.io/en/faucet/polygon-matic)
+
+1. After releasing and getting some money, click on Deploy Now and select Mumbai(MATIC) Testnet.
+
+1. Copy the deployed Contract's address (below the contract's name), create a .env.local file as the .env.example file and paste the value in this variable:
+
+```bash
+NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
+```
+
+### Releases
+
+My releases -> [Releases](https://thirdweb.com/0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010/Lottery)
+
+### Deployments
+
+My deployments -> [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/)

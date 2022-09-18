@@ -1,0 +1,15 @@
+version: '2.2'
+services:
+  portfolio:
+    # network_mode: "host"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: portfolio
+    container_name: portfolio
+    restart: always
+    ports:
+      - 1237:3000
+    # environment:
+    # env_file:
+    #   - ./.env

@@ -1,0 +1,35 @@
+{
+  "name": "crypto-lottery",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@thirdweb-dev/react": "2.9.7",
+    "@thirdweb-dev/sdk": "2.4.9",
+    "ethers": "5.7.0",
+    "next": "12.3.0",
+    "next-transpile-modules": "9.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "ui": "*"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.16",
+    "@types/react": "18.0.19",
+    "@types/react-dom": "18.0.6",
+    "autoprefixer": "10.4.8",
+    "eslint": "8.23.0",
+    "eslint-config-custom": "*",
+    "eslint-config-next": "12.3.0",
+    "postcss": "8.4.16",
+    "prettier-plugin-tailwindcss": "0.1.13",
+    "tailwindcss": "3.1.8",
+    "tsconfig": "*",
+    "typescript": "4.8.3"
+  }
+}

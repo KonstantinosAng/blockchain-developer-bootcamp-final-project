@@ -2,14 +2,54 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
+    },
+    "crypto-lottery#build": {
+      "dependsOn": [
+        "^build",
+        "$BROWSER",
+        "$NEXT_TELEMETRY_DISABLED",
+        "$NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS"
+      ]
+    },
+    "test": {
+      "dependsOn": [
+        "^lint",
+        "^build"
+      ],
+      "outputs": [
+        "coverage/**"
+      ]
     },
     "lint": {
+      "dependsOn": [
+        "^build",
+        "$BROWSER",
+        "$NEXT_TELEMETRY_DISABLED",
+        "$NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS"
+      ],
       "outputs": []
+    },
+    "deploy": {
+      "dependsOn": [
+        "^build",
+        "^test"
+      ]
     },
     "dev": {
       "cache": false
-    }
+    },
+    "globalDependencies": [
+      ".env",
+      ".env.local",
+      ".env.production.local",
+      ".env.development.local"
+    ]
   }
 }
