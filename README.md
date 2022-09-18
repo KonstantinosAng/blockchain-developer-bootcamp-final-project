@@ -4,7 +4,8 @@
 
 A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [TypeScript](https://www.typescriptlang.org/) and [ThirdWeb](https://thirdweb.com/).
 
-## Demo
+<hr/>
+
 <div align="center">
   <h1><a href=""> DEMO </a></h1>
 </div>
