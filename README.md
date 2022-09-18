@@ -115,4 +115,4 @@ My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c77
 
 <hr />
 
-###### Created for the as the final project of the ConsenSys blockchain developer bootcamp
+##### * Created for the as the final project of the [ConsenSys blockchain developer bootcamp](https://consensys.net/academy/bootcamp/)
