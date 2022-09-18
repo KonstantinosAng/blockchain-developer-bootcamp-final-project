@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: Castoro-Italic;
+  font-style: normal;
+  src: url("../fonts/Castoro-Italic.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Castoro-Regular;
+  font-style: normal;
+  src: url("../fonts/Castoro-Regular.ttf");
+  font-display: swap;
+}
+
+* {
+  font-family: Castoro-Regular, sans-serif;
+}
+
+@supports (scroll-behavior: smooth) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
