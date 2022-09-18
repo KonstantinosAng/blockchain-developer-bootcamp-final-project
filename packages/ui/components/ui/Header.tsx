@@ -1,5 +1,5 @@
 import Image from "next/future/image"
-import Logo from "../../assets/winner.png"
+import Logo from "ui/assets/winner.png"
 import { NavButton } from "./NavButton"
 import { Bars3BottomRightIcon } from "@heroicons/react/24/solid"
 
@@ -8,7 +8,7 @@ interface Props {
   disconnect?: () => void
 }
 
-export const Header = ({ address, disconnect, ...rest }: Props) => {
+export const Header = ({ address, disconnect, ...rest }: Props): JSX.Element => {
   return (
     <header className="grid grid-cols-2 items-center justify-between p-5 md:grid-cols-5" {...rest}>
       <div className="flex items-center space-x-2">

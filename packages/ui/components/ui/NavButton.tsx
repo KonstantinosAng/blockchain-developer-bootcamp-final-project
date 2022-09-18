@@ -4,7 +4,7 @@ interface Props {
   onClick?: () => void
 }
 
-export const NavButton = ({ title, isActive, onClick, ...rest }: Props) => {
+export const NavButton = ({ title, isActive, onClick, ...rest }: Props): JSX.Element => {
   return (
     <button onClick={onClick} className={`${isActive && "bg-blue-600"} rounded py-2 px-4 font-bold text-white hover:bg-blue-500`} {...rest}>
       {title}

@@ -1,6 +1,6 @@
 import type { NextPage } from "next"
 import { Header, Login, LoadingWrapper } from "ui"
-import { useAddress, useDisconnect, useMetamask, useContract } from "@thirdweb-dev/react"
+import { useAddress, useDisconnect, useMetamask, useContract, useAccount } from "@thirdweb-dev/react"
 
 const Home: NextPage = () => {
   const address = useAddress()
