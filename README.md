@@ -4,6 +4,34 @@
 
 A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), [ReactJS](https://reactjs.org/), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [Truffle](https://trufflesuite.com/)  and [ThirdWeb](https://thirdweb.com/).
 
+A Polygon (MATIC) based app where any user can log in with his MetaMask wallet and buy lottery tickets. The duration of the lottery is 30 minutes. The more tickets a user have the more chances he has to win the prize.
+
+### Actions
+
+#### The buyer can:
+
+
+> Buy tickets.
+
+> Refund all tickets before the lottery ends.
+
+> Withdraw winnings.
+
+#### The lottery bank can:
+
+    > Draw winner ticket.
+
+    > Withdraw commission.
+
+    > Restart draw.
+
+    > Calculate current winning reward.
+
+    > Find the winner.
+
+    > Calculate remaining tickets. 
+
+
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
 
