@@ -2,7 +2,7 @@
 
 ## <img src="./images/polygon.svg" alt="polygon" width="36px" /> <a href="https://constantine.dev" > Crypto Lottery </a>
 
-A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [TypeScript](https://www.typescriptlang.org/) and [ThirdWeb](https://thirdweb.com/).
+A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), [ReactJS](https://reactjs.org/), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [Truffle](https://trufflesuite.com/)  and [ThirdWeb](https://thirdweb.com/).
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
@@ -35,9 +35,11 @@ This turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking.
 - [ESLint](https://eslint.org/) for code linting.
 - [Prettier](https://prettier.io) for code formatting.
-- [TailwindCSS](https://tailwindcss.com/) for css styling.
 - [NextJS](https://nextjs.org) for routing and Server Side Rendering.
+- [ReactJS](https://reactjs.org/) for building the UI components.
+- [TailwindCSS](https://tailwindcss.com/) for css styling.
 - [Solidity](https://docs.soliditylang.org/en/v0.8.17/) for the smart contract.
+- [Truffle](https://trufflesuite.com/) for the solidity tests.
 - [ThirdWeb](https://thirdweb.com/) for releasing and deploying the smart contract.
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
@@ -120,6 +122,9 @@ npx thirdweb@latest release
 ```bash
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ```
+
+### <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
+
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
