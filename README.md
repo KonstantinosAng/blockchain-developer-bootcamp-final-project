@@ -4,11 +4,10 @@
 
 A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [TypeScript](https://www.typescriptlang.org/) and [ThirdWeb](https://thirdweb.com/).
 
-[//]: # (## Demo)
-
-[//]: # (<div align="center">)
-[//]: # (  <h1><a href="https://constantine.dev:8080/cryptoLottery"> DEMO </a></h1>)
-[//]: # (</div>)
+## Demo
+<div align="center">
+  <h1><a href=""> DEMO </a></h1>
+</div>
 
 ### <img src="./images/apps.png" alt="front" width="20px" /> Apps and Packages
 
