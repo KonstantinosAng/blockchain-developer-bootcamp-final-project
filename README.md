@@ -8,7 +8,7 @@ A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https:/
 #
 
 <div align="center">
-  <h1 style="border: 0"><a href=""> DEMO </a></h1>
+  <h2 style="fontSize: 18px"><a href=""> DEMO </a></h2>
 </div>
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
