@@ -1,16 +1,14 @@
-import React from "react"
+import { ReactNode } from "react"
 
 interface Props {
-  className?: string
-  children?: JSX.Element | string
+	className?: string
+	children?: ReactNode | string
 }
 
-const Grid = ({ className, children, ...rest }: Props) => {
-  return (
-    <div className={`grid ${className ?? ""}`} {...rest}>
-      {children}
-    </div>
-  )
+export const Grid = ({ className, children, ...rest }: Props) => {
+	return (
+		<div className={`grid ${className ?? ""}`} {...rest}>
+			{children}
+		</div>
+	)
 }
-
-export default Grid

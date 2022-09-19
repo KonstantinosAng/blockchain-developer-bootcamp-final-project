@@ -1,16 +1,14 @@
-import React from "react"
+import { ReactNode } from "react"
 
 interface Props {
-  className?: string
-  children?: JSX.Element | string
+	className?: string
+	children?: ReactNode | string
 }
 
-const Flex = ({ className, children, ...rest }: Props) => {
-  return (
-    <div className={`flex ${className ?? ""}`} {...rest}>
-      {children}
-    </div>
-  )
+export const Flex = ({ className, children, ...rest }: Props) => {
+	return (
+		<div className={`flex ${className ?? ""}`} {...rest}>
+			{children}
+		</div>
+	)
 }
-
-export default Flex

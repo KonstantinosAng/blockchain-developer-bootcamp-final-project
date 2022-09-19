@@ -1,9 +1,10 @@
-import React from "react"
+import { ReactNode } from "react"
 
 interface Props {
-  children?: JSX.Element | string
+	children?: ReactNode | string
+	className?: string
 }
 
-export const Box = ({ children, ...rest }: Props) => {
-  return <div {...rest}>{children}</div>
+export const Box = ({ children, ...rest }: Props): JSX.Element => {
+	return <div {...rest}>{children}</div>
 }

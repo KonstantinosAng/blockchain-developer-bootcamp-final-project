@@ -16,6 +16,16 @@
   font-display: swap;
 }
 
+@layer components {
+	.stats {
+		@apply bg-blue-800 text-slate-100 p-4 flex-1 rounded-md border-2 border-slate-300 shadow-lg drop-shadow-lg
+	}
+
+	.stats-container {
+		@apply bg-blue-800 p-5 rounded-lg border border-slate-300 shadow-lg drop-shadow-lg
+	}
+}
+
 * {
   font-family: Castoro-Regular, sans-serif;
 }
