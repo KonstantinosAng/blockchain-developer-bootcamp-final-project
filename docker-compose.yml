@@ -1,12 +1,12 @@
 version: '2.2'
 services:
-  portfolio:
+  crypto-lottery:
     # network_mode: "host"
     build:
       context: .
       dockerfile: Dockerfile
-    image: portfolio
-    container_name: portfolio
+    image: crypto-lottery
+    container_name: crypto-lottery
     restart: always
     ports:
       - 1237:3000
