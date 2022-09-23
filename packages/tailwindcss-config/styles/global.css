@@ -30,6 +30,19 @@
   font-family: Castoro-Regular, sans-serif;
 }
 
+.input-quantity[type=number] {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+	margin: 0;
+}
+
+.input-quantity[type=number]::-webkit-inner-spin-button,
+.input-quantity[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
 @supports (scroll-behavior: smooth) {
   * {
     scroll-behavior: smooth;

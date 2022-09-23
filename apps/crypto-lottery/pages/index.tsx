@@ -1,30 +1,30 @@
 import type { NextPage } from "next"
 import { useState } from "react"
-import { HeaderBar, Login, LoadingWrapper, Box, H5, H12, H9, H13, Flex, Input, Button, CountDown } from "ui"
-import { useAddress, useDisconnect, useMetamask, useContract, useContractData } from "@thirdweb-dev/react"
-import { ethers } from "ethers"
-import { currency } from "../constants"
+import { HeaderBar, LoadingWrapper, Box, H5, H12, H9, H13, Flex, Input, Button, CountDown } from "ui"
+import { useDisconnect } from "@thirdweb-dev/react"
+import { currency, loaderSize } from "../constants"
+import { SmartContract } from "@thirdweb-dev/sdk"
+import Label from "ui/components/ui/Label"
+import { useContractStore } from "../hooks/useContractStore"
+import { ContractStoreStateProps } from "../stores/contractStore"
 
-const Home: NextPage = () => {
-	const address = useAddress()
+interface HomeProps {
+	contract: SmartContract
+}
+
+const Home: NextPage = ({ contract }: HomeProps) => {
 	const disconnect = useDisconnect()
-	const login = useMetamask()
 	const [quantity, setQuantity] = useState<number>(1)
+	const remainingTickets = useContractStore((state: ContractStoreStateProps) => state.remainingTickets)
+	const currentWinningReward = useContractStore((state: ContractStoreStateProps) => state.currentWinningReward)
+	const ticketPrice = useContractStore((state: ContractStoreStateProps) => state.ticketPrice)
+	const ticketCommission = useContractStore((state: ContractStoreStateProps) => state.ticketCommission)
+	const expiration = useContractStore((state: ContractStoreStateProps) => state.expiration)
+	const address = useContractStore((state: ContractStoreStateProps) => state.address)
 
-	const loaderSize = 25
-
-	const { contract, isLoading } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
-	const { data: remainingTickets, isLoading: ticketsLoading } = useContractData(contract, "RemainingTickets")
-	const { data: currentWinningReward, isLoading: currentWinningRewardLoading } = useContractData(contract, "CurrentWinningReward")
-	const { data: ticketPrice, isLoading: ticketPriceLoading } = useContractData(contract, "ticketPrice")
-	const { data: ticketCommission, isLoading: ticketCommissionLoading } = useContractData(contract, "ticketCommission")
-	const { data: expiration, isLoading: expirationLoading } = useContractData(contract, "expiration")
-
-	const formatValue = (value: string | number) => ethers.utils.formatEther(value)
-
-	return address ? (
+	return (
 		<Flex className="bg-basicBackground min-h-screen flex-col">
-			<LoadingWrapper loading={isLoading}>
+			<LoadingWrapper loading={!contract}>
 				<HeaderBar address={address} disconnect={disconnect} />
 				<Box className="m-5 items-start justify-center space-y-5 md:flex md:flex-row md:space-x-5 md:space-y-0">
 					<Box className="stats-container">
@@ -32,14 +32,14 @@ const Home: NextPage = () => {
 						<Flex className="justify-between space-x-2 p-2">
 							<Box className="stats">
 								<H12> Total Pool </H12>
-								<LoadingWrapper size={loaderSize} loading={currentWinningRewardLoading}>
-									<H9>{`${currentWinningReward ? formatValue(currentWinningReward?.toString()) : "-"} ${currency}`}</H9>
+								<LoadingWrapper size={loaderSize} loading={!currentWinningReward}>
+									<H9>{`${currentWinningReward ?? "-"} ${currency}`}</H9>
 								</LoadingWrapper>
 							</Box>
 							<Box className="stats">
 								<H12>Tickets Remaining</H12>
-								<LoadingWrapper size={loaderSize} loading={ticketsLoading}>
-									<H9>{remainingTickets?.toNumber()}</H9>
+								<LoadingWrapper size={loaderSize} loading={!remainingTickets}>
+									<H9>{remainingTickets ?? "-"}</H9>
 								</LoadingWrapper>
 							</Box>
 						</Flex>
@@ -49,14 +49,17 @@ const Home: NextPage = () => {
 						<Box className="stats-container">
 							<Flex className="items-center justify-between pb-2 text-white">
 								<H12>Price per ticket</H12>
-								<LoadingWrapper size={loaderSize} loading={ticketPriceLoading}>
-									<H9>{`${ticketPrice ? formatValue(ticketPrice?.toString()) : "-"} ${currency}`}</H9>
+								<LoadingWrapper size={loaderSize} loading={!ticketPrice}>
+									<H9>{`${ticketPrice ?? "-"} ${currency}`}</H9>
 								</LoadingWrapper>
 							</Flex>
 							<Flex className="items-center space-x-2 rounded-md border border-slate-300 bg-blue-600 p-4 text-slate-100">
-								<H9>TICKETS</H9>
+								<Label name="quantity">
+									<H9>TICKETS</H9>
+								</Label>
 								<Input
-									className="flex w-full bg-transparent text-right outline-none"
+									name="quantity"
+									className="input-quantity flex w-full bg-transparent text-right outline-none"
 									type="number"
 									min={1}
 									max={10}
@@ -67,12 +70,14 @@ const Home: NextPage = () => {
 							<Box className="mt-5 space-y-2">
 								<Flex className="items-center justify-between italic text-pink-300">
 									<H12 className="font-extrabold">Total cost of tickets</H12>
-									<H12>{ticketPrice ? Number(formatValue(ticketPrice?.toString())) * quantity : "-"}</H12>
+									<LoadingWrapper size={loaderSize} loading={!ticketPrice}>
+										<H12>{ticketPrice ? Number(ticketPrice) * quantity : "-"}</H12>
+									</LoadingWrapper>
 								</Flex>
 								<Flex className="items-center justify-between italic text-pink-300">
 									<H13>Service fees</H13>
-									<LoadingWrapper size={loaderSize} loading={ticketCommissionLoading}>
-										<H13>{`${ticketCommission ? formatValue(ticketCommission?.toString()) : "-"} ${currency}`}</H13>
+									<LoadingWrapper size={loaderSize} loading={!ticketCommission}>
+										<H13>{`${ticketCommission ?? "-"} ${currency}`}</H13>
 									</LoadingWrapper>
 								</Flex>
 								<Flex className="items-center justify-between italic text-pink-300">
@@ -80,9 +85,9 @@ const Home: NextPage = () => {
 									<H13>TBC</H13>
 								</Flex>
 							</Box>
-							<LoadingWrapper size={loaderSize} loading={expirationLoading}>
+							<LoadingWrapper size={loaderSize} loading={!expiration || !remainingTickets}>
 								<Button
-									disabled={expiration?.toString() < Date.now().toString() || remainingTickets?.toNumber() <= 0}
+									disabled={expiration < Date.now().toString() || remainingTickets <= 0}
 									className="mt-5 w-full rounded-md bg-gradient-to-br from-orange-500 to-emerald-600 px-10 py-5 font-semibold text-white shadow-xl disabled:cursor-not-allowed disabled:from-gray-600 disabled:to-gray-600 disabled:text-gray-100"
 								>
 									Buy tickets
@@ -93,8 +98,6 @@ const Home: NextPage = () => {
 				</Box>
 			</LoadingWrapper>
 		</Flex>
-	) : (
-		<Login login={login} />
 	)
 }
 

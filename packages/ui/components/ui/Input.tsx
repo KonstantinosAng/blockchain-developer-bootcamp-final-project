@@ -4,6 +4,7 @@ interface Props {
 	min?: number
 	max?: number
 	value?: number
+	name?: string
 	onChange?: (event: Event) => void
 }
 
