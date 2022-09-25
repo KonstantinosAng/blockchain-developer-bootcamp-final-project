@@ -18,6 +18,18 @@
 				"$NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS",
 				"$NODE_ENV",
 				"$PORT"
+			],
+			"outputs": [
+				".next/**"
+			]
+		},
+		"start": {
+			"dependsOn": [
+				"^build"
+			],
+			"outputs": [
+				"dist/**",
+				".next/**"
 			]
 		},
 		"test": {

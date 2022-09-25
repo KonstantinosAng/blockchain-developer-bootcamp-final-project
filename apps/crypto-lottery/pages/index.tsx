@@ -1,4 +1,3 @@
-import type { NextPage } from "next"
 import { useState } from "react"
 import { HeaderBar, LoadingWrapper, Box, H5, H12, H9, H13, Flex, Input, Button, CountDown } from "ui"
 import { useDisconnect } from "@thirdweb-dev/react"
@@ -12,7 +11,7 @@ interface HomeProps {
 	contract: SmartContract
 }
 
-const Home: NextPage = ({ contract }: HomeProps) => {
+const Home = ({ contract }: HomeProps) => {
 	const disconnect = useDisconnect()
 	const [quantity, setQuantity] = useState<number>(1)
 	const remainingTickets = useContractStore((state: ContractStoreStateProps) => state.remainingTickets)

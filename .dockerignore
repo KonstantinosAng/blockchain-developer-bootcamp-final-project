@@ -1,15 +1,7 @@
-node_modules/
-charts/
-.circleci/
-.github/
+*/**/node_modules/
 Dockerfile
-Dockerfile.dev
-Dockerfile.ghActions
-Dockerfile.circleCi
 .git/
-img/
-.actions/
-.env.example
+imagesg/
 .gitignore
 .dockerignore
 .editorconfig

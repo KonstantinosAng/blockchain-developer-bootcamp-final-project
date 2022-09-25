@@ -7,7 +7,7 @@ interface StoreProviderProps {
 	stores: null
 }
 
-let store: { getState?: () => {} } | undefined
+let store: any
 
 function initStore(name: string, storeState: any, isPersist: boolean) {
 	return isPersist
@@ -25,7 +25,7 @@ function initStore(name: string, storeState: any, isPersist: boolean) {
 		  )
 }
 
-export const initializeStore = (preloadedState: object, stores = {}) => {
+export const initializeStore = (preloadedState: object, stores: any = {}) => {
 	let _store = store
 	// After navigating to a page with an initial Zustand state, merge that state
 	// with the current state in the store, and create a new store
@@ -70,6 +70,6 @@ export const StoreProvider = ({ children, stores }: StoreProviderProps) => {
 }
 
 export const useStore = (storeName: string, selector: Function, eqFn?: Function) => {
-	const createdStores = useContext(StoreContext)
+	const createdStores: any = useContext(StoreContext)
 	return createdStores[storeName](selector, eqFn)
 }
