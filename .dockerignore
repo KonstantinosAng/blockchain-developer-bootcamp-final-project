@@ -1,8 +1,6 @@
 */**/node_modules/
 Dockerfile
-.git/
-imagesg/
-.gitignore
+images/
 .dockerignore
 .editorconfig
 .eslintignore
@@ -17,7 +15,7 @@ jest.config.js
 .todo
 .unimportedrc.json
 CODE-OF-CONDUCT.md
-LICENSE
 README.md
 yarn-error.log
+npm-debug.log
 .env

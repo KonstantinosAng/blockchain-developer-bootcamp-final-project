@@ -45,7 +45,14 @@
 		"format-ui": "turbo run format --scope=crypto-lottery",
 		"check-lint": "turbo run check-lint --scope=crypto-lottery",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"server": "turbo run server --scope=crypto-lottery"
+		"server": "turbo run server --scope=crypto-lottery",
+		"docker:build": "docker build -t crypto-lottery .",
+		"docker:run": "docker run -d -p 3000:1237 --name crypto-lottery-app crypto-lottery",
+		"docker:stop": "docker stop crypto-lottery-app",
+		"docker:compose:build": "docker-compose build",
+		"docker:compose:up": "docker-compose up -d",
+		"docker:compose:down": "docker-compose down",
+		"docker:bash": "docker exec -it crypto-lottery-app /bin/sh"
 	},
 	"devDependencies": {
 		"autoprefixer": "10.4.8",

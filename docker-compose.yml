@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: crypto-lottery
-    container_name: crypto-lottery
+    container_name: crypto-lottery-app
     restart: always
     ports:
       - 1237:3000
