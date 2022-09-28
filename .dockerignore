@@ -15,7 +15,7 @@ jest.config.js
 .todo
 .unimportedrc.json
 CODE-OF-CONDUCT.md
-README.md
+*/**/README.md
 yarn-error.log
 npm-debug.log
 .env

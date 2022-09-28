@@ -1,57 +1,44 @@
-# # Stage 1: Build dependencies
-# FROM node:16.13.1-alpine as base
-# WORKDIR /app
-# COPY package.json yarn.lock ./
-# RUN apk add --no-cache --virtual build-base \
-#     jpeg-dev \
-#     cairo-dev \
-#     giflib-dev \
-#     pango-dev \
-#     python3 \
-#     make \
-#     g++ && yarn install && apk del build-base \
-#     jpeg-dev \
-#     cairo-dev \
-#     giflib-dev \
-#     pango-dev \
-#     python3 \
-#     make \
-#     g++
-
-# # Stage 2: Build app
-# FROM base as builder
-# COPY . .
-# RUN yarn build && npm prune --production
-
-# # Stage 3: Serve app
-# LABEL author="Konstantinos Angelopoulos"
-# EXPOSE 1237
-# CMD yarn start
-
+# Stage 1: Make apps distinct
 FROM node:alpine AS builder
 RUN apk update
-# Set working directory
 WORKDIR /app
 RUN yarn global add turbo
 COPY . .
-RUN turbo prune --scope=web --docker
+RUN turbo prune --scope=crypto-lottery --docker
 
-# Add lockfile and package.json's of isolated subworkspace
+# Stage 2: Isntall dependencies
 FROM node:alpine AS installer
-RUN apk update
+RUN apk update && apk add --no-cache git openssh
 WORKDIR /app
+# Add lockfile and package.json's of isolated subworkspace
+COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/yarn.lock ./yarn.lock
+# First install the dependencies (as they change less often)
 RUN yarn install
 
-FROM node:alpine AS sourcer
-RUN apk update
-WORKDIR /app
-COPY --from=installer /app/ .
+
+# Stage 3: Build the project
 COPY --from=builder /app/out/full/ .
-COPY .gitignore .gitignore
-RUN yarn turbo run build test --scope=web --includeDependencies --no-deps
+COPY --from=builder /app/packages/tailwindcss-config ./packages/tailwindcss-config
+COPY turbo.json turbo.json
+
+RUN yarn turbo run build --scope=crypto-lottery --no-deps
+
+FROM node:alpine AS runner
+WORKDIR /app
+
+# Don't run production as root
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+USER nextjs
+
+COPY --from=installer --chown=nextjs:nodejs /app/apps/crypto-lottery/next.config.js ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/crypto-lottery/package.json ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/crypto-lottery/.next ./.next
+COPY --from=installer --chown=nextjs:nodejs /app/node_modules ./node_modules/
+COPY --from=installer --chown=nextjs:nodejs /app/packages/ui/ ./packages/ui/
 
 LABEL author="Konstantinos Angelopoulos"
 EXPOSE 1237
-cmd yarn start
+CMD yarn start
