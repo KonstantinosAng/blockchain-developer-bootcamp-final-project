@@ -1,12 +1,11 @@
 # Stage 1: Make apps distinct
 FROM node:alpine AS builder
-RUN apk update
+RUN apk update && yarn global add turbo
 WORKDIR /app
-RUN yarn global add turbo
 COPY . .
 RUN turbo prune --scope=crypto-lottery --docker
 
-# Stage 2: Isntall dependencies
+# Stage 2: Isntall dependencies and Build the project
 FROM node:alpine AS installer
 RUN apk update && apk add --no-cache git openssh
 WORKDIR /app
@@ -17,20 +16,18 @@ COPY --from=builder /app/out/yarn.lock ./yarn.lock
 # First install the dependencies (as they change less often)
 RUN yarn install
 
-
-# Stage 3: Build the project
 COPY --from=builder /app/out/full/ .
 COPY --from=builder /app/packages/tailwindcss-config ./packages/tailwindcss-config
 COPY turbo.json turbo.json
 
 RUN yarn turbo run build --scope=crypto-lottery --no-deps
 
+# Stage 3: Run the project
 FROM node:alpine AS runner
 WORKDIR /app
 
 # Don't run production as root
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 USER nextjs
 
 COPY --from=installer --chown=nextjs:nodejs /app/apps/crypto-lottery/next.config.js ./
