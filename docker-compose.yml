@@ -1,4 +1,4 @@
-version: '2.2'
+version: '3'
 services:
   crypto-lottery:
     # network_mode: "host"
@@ -12,4 +12,4 @@ services:
       - 1237:3000
     # environment:
     # env_file:
-    #   - ./.env
+    #   - ./.env.production.local

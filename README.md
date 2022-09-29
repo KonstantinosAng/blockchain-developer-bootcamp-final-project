@@ -41,7 +41,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 > Calculate remaining tickets.
 ```
 
-[//]: # (below line is for horizontal line DO NOT DELETE)
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
 <div align="center">
@@ -51,7 +51,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 </div>
 
 
-[//]: # (below line is for horizontal line DO NOT DELETE)
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
 <br />
@@ -69,27 +69,28 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 
 This turborepo has some additional tools already setup for you:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking.
-- [ESLint](https://eslint.org/) for code linting.
-- [Prettier](https://prettier.io) for code formatting.
-- [NextJS](https://nextjs.org) for routing and Server Side Rendering.
-- [ReactJS](https://reactjs.org/) for building the UI components.
-- [TailwindCSS](https://tailwindcss.com/) for css styling.
-- [Solidity](https://docs.soliditylang.org/en/v0.8.17/) for the smart contract.
-- [Truffle](https://trufflesuite.com/) for the solidity tests.
-- [ThirdWeb](https://thirdweb.com/) for releasing and deploying the smart contract.
+- [`TypeScript`](https://www.typescriptlang.org/) for static type checking.
+- [`ESLint`](https://eslint.org/) for code linting.
+- [`Prettier`](https://prettier.io) for code formatting.
+- [`NextJS`](https://nextjs.org) for routing and Server Side Rendering.
+- [`ReactJS`](https://reactjs.org/) for building the UI components.
+- [`TailwindCSS`](https://tailwindcss.com/) for css styling.
+- [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/) for the smart contract.
+- [`Truffle`](https://trufflesuite.com/) for the solidity tests.
+- [`ThirdWeb`](https://thirdweb.com/) for releasing and deploying the smart contract.
+- [`Docker`](https://www.docker.com/) for containerizing and running the app.
 
-[//]: # (below line is for horizontal line DO NOT DELETE)
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
 ### <img src="./images/requirement.png" alt="requirement" width="20px" /> Prerequisites
 
 Install these globally on your computer
 
-- `yarn ^1.22.5`
-- `node.js v16.17.0`
+- [`yarn ^1.22.5`](https://yarnpkg.com/)
+- [`node.js v16.17.0`](https://nodejs.org/en/)
 
-[//]: # (below line is for horizontal line DO NOT DELETE)
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
 ### <img src="./images/ux.png" alt="ux" width="20px" /> Frontend (apps/crypto-lottery)
@@ -113,8 +114,15 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 To build all apps and packages, run the following command:
 
 ```bash
-cd crypto-lottery
 yarn run build
+```
+
+#### Run app
+
+To run all apps and packages (after building them), run the following command:
+
+```bash
+yarn run start
 ```
 
 #### Develop
@@ -122,11 +130,50 @@ yarn run build
 To develop all apps and packages, run the following command:
 
 ```bash
-cd crypto-lottery
 yarn run dev
 ```
 
-[//]: # (below line is for horizontal line DO NOT DELETE)
+or using [`Docker`](https://www.docker.com/)
+
+```bash
+yarn docker:build:dev && yarn docker:run:dev
+```
+
+### <img src="./images/docker.png" alt="ux" width="20px" /> `Docker`
+
+To build a production ready docker image, run the following command:
+
+```bash
+yarn docker:build
+```
+
+To run a production ready docker image after building it, run the following command:
+
+```bash
+yarn docker:run
+```
+
+Then open your browser at [`http://localhost:1237`](http://localhost:1237).
+
+To build and run a production ready docker image in the background, run the following command:
+
+```bash
+yarn docker:compose:up
+```
+
+To stop a production ready docker image from the background, run the following command:
+
+```bash
+yarn docker:compose:down
+```
+
+To open a bash terminal inside the running docker image, run the following command:
+
+```bash
+yarn docker:bash
+```
+
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
 ### <img src="./images/agreement.png" alt="agreement" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
@@ -134,11 +181,11 @@ yarn run dev
 #### Install Dependencies
 
 ```bash
-cd crypto-lottery/apps/crypto-lottery-contract
+cd apps/crypto-lottery/apps/crypto-lottery-contract
 yarn install or npm install
 ```
 
-#### Deploy the smart contract in [Thirdweb](https://thirdweb.com/):
+#### Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/):
 
 ```bash
 npx thirdweb@latest release
@@ -148,9 +195,9 @@ npx thirdweb@latest release
 
 2. Use these Polygon Faucets to obtain some money for the polygon testnet gas fees:
 
-   - [Polygon Faucets](https://faucet.polygon.technology/)
-   - [Polygon Faucets](https://mumbaifaucet.com)
-   - [Polygon Faucets](https://stakely.io/en/faucet/polygon-matic)
+    - [`Polygon Faucets`](https://faucet.polygon.technology/)
+    - [`Polygon Faucets`](https://mumbaifaucet.com)
+    - [`Polygon Faucets`](https://stakely.io/en/faucet/polygon-matic)
 
 3. After releasing and getting some money, click on Deploy Now and select Mumbai(MATIC) Testnet.
 
@@ -160,7 +207,7 @@ npx thirdweb@latest release
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ```
 
-[//]: # (below line is for horizontal line DO NOT DELETE)
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
 ### <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
@@ -180,4 +227,4 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 <!-- # -->
 
-##### * Created for the as the final project of the [ConsenSys blockchain developer bootcamp](https://consensys.net/academy/bootcamp/)
+##### * Created for the as the final project of the [`ConsenSys blockchain developer bootcamp`](https://consensys.net/academy/bootcamp/)

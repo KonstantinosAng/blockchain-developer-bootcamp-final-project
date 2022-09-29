@@ -48,6 +48,8 @@
 		"server": "turbo run server --scope=crypto-lottery",
 		"docker:build": "docker build -t crypto-lottery .",
 		"docker:run": "docker run -d -p 3000:1237 --name crypto-lottery-app crypto-lottery",
+		"docker:build:dev": "docker build -f ./Dockerfile.dev -t crypto-lottery .",
+		"docker:run:dev": "docker run --env-file ./apps/crypto-lottery/.env.local -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true --name crypto-lottery-app crypto-lottery",
 		"docker:stop": "docker stop crypto-lottery-app",
 		"docker:compose:build": "docker-compose build",
 		"docker:compose:up": "docker-compose up -d",

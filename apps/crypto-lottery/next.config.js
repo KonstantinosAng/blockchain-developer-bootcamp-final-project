@@ -7,4 +7,11 @@ module.exports = withTM({
 	swcMinify: true,
 	compress: true,
 	// experimental: { images: { layoutRaw: true } },
+	// webpackDevMiddleware: config => {
+	// 	config.watchOptions = {
+	// 		poll: 1000,
+	// 		aggregateTimeout: 300,
+	// 	}
+	// 	return config
+	// },
 })
