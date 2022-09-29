@@ -1,6 +1,13 @@
 # blockchain-developer-bootcamp-final-project
 
-## <img src="./images/polygon.svg" alt="polygon" width="36px" /> <a href="https://constantine.dev" > ConsenSys Academy Final Project - Crypto Lottery </a>
+<p align="center">
+  <a href="https://constantine.dev">
+    <picture>
+      <img src="./images/polygon.svg" width="48px" alt="polygon">
+    </picture>
+    <h1 align="center">ConsenSys Academy Final Project - Crypto Lottery</h1>
+  </a>
+</p>
 
 A crypto lottery WEB3 [turborepo](https://turborepo.org/) using [NextJS](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), [ReactJS](https://reactjs.org/), [TailwindCSS](https://tailwindcss.com/), [Solidity](https://docs.soliditylang.org/en/v0.8.17/), [Truffle](https://trufflesuite.com/)  and [ThirdWeb](https://thirdweb.com/).
 
@@ -19,6 +26,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 ```
 
 #### The lottery bank can:
+
 ```md
 > Draw winner ticket.
 
@@ -30,7 +38,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 
 > Find the winner.
 
-> Calculate remaining tickets. 
+> Calculate remaining tickets.
 ```
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
