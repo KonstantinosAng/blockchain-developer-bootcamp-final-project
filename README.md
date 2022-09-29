@@ -5,7 +5,7 @@
     <picture>
       <img src="./images/polygon.svg" width="48px" alt="polygon">
     </picture>
-    <h1 align="center">ConsenSys Academy Final Project - Crypto Lottery</h1>
+    <h1 style="font-weight: bold" align="center">ConsenSys Academy Final Project - Crypto Lottery</h1>
   </a>
 </p>
 
