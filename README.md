@@ -166,8 +166,8 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ### <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
 
 
-[//]: # (below line is for horizontal line DO NOT DELETE)
-#
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
+<!-- # -->
 
 <!-- ### <img src="./images/new-release.png" alt="new-release" width="20px" /> Releases -->
 
@@ -177,7 +177,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 
 <!-- My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/) -->
 
-[//]: # (below line is for horizontal line DO NOT DELETE)
-#
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
+<!-- # -->
 
 ##### * Created for the as the final project of the [ConsenSys blockchain developer bootcamp](https://consensys.net/academy/bootcamp/)
