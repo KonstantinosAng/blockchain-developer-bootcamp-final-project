@@ -169,13 +169,13 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
 
-### <img src="./images/new-release.png" alt="new-release" width="20px" /> Releases
+<!-- ### <img src="./images/new-release.png" alt="new-release" width="20px" /> Releases -->
 
-My [Releases](https://thirdweb.com/0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010/Lottery)
+<!-- My [Releases](https://thirdweb.com/0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010/Lottery) -->
 
-### <img src="./images/deployment.png" alt="deployment" width="20px" /> Deployments
+<!-- ### <img src="./images/deployment.png" alt="deployment" width="20px" /> Deployments -->
 
-My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/)
+<!-- My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/) -->
 
 [//]: # (below line is for horizontal line DO NOT DELETE)
 #
