@@ -136,10 +136,16 @@ yarn run dev
 or using [`Docker`](https://www.docker.com/)
 
 ```bash
-yarn docker:build:dev && yarn docker:run:dev
+yarn docker:build:dev
 ```
 
-### <img src="./images/docker.png" alt="ux" width="20px" /> `Docker`
+and then
+
+```bash
+docker run --env-file ./apps/crypto-lottery/.env.local -it --rm -v ${PWD}/packages/ui:/app/packages/ui -v ${PWD}/apps/crypto-lottery:/app/apps/crypto-lottery -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true --name crypto-lottery-app crypto-lottery
+```
+
+### <img src="./images/docker.png" alt="ux" width="20px" /> Docker
 
 To build a production ready docker image, run the following command:
 
