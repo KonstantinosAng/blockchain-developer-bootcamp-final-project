@@ -1,8 +1,8 @@
 import { useContract, useContractData } from "@thirdweb-dev/react"
 import { cloneElement, ReactElement, useEffect } from "react"
-import { useContractStore } from "../hooks/useContractStore"
-import { ContractStoreStateProps } from "../stores/contractStore"
-import formatValue from "../utils/formatValue"
+import { useContractStore } from "@hooks/useContractStore"
+import { ContractStoreStateProps } from "@stores/contractStore"
+import formatValue from "@utils/formatValue"
 
 interface Props {
 	children?: ReactElement

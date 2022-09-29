@@ -1,8 +1,8 @@
 import { ReactElement, cloneElement, useEffect } from "react"
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react"
-import { Login } from "ui"
-import { useMetaMaskStore } from "../hooks/useMetaMaskStore"
-import { MetamaskStoreStateProps } from "../stores/metaMaskStore"
+import Login from "@pages/Login"
+import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
+import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 
 interface Props {
 	children?: ReactElement
@@ -11,7 +11,6 @@ interface Props {
 const MetaMaskProvider = ({ children }: Props) => {
 	const login = useMetamask()
 	const disconnect = useDisconnect()
-
 	const setLogin = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setLogin)
 	const setDisconnect = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setDisconnect)
 	const address = useAddress()

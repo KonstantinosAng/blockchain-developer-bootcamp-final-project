@@ -26,7 +26,14 @@ module.exports = {
         800: "800px",
         850: "850px",
         900: "900px",
+				1000: "1000px",
         1100: "1100px",
+        1200: "1200px",
+				1300: "1300px",
+        1400: "1400px",
+        1500: "1500px",
+				1800: "1800px",
+        2000: "2000px",
         "3xl": "2600px",
         smHeight: { raw: "(max-height: 736px)" },
         xsHeight: { raw: "(max-height: 500px)" },
@@ -40,7 +47,7 @@ module.exports = {
         ],
       },
       colors: {
-        basicBackground: "#1d183d",
+        basicBackground: "#0d082d",
         headerBackground: "#222050"
       }
     },

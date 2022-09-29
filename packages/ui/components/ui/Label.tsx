@@ -9,4 +9,4 @@ const Label = ({ children, name }: Props) => {
 	return <label htmlFor={name}>{children}</label>
 }
 
-export default Label
+export { Label }

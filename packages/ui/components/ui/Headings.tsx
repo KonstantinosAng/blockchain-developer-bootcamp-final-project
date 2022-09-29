@@ -89,7 +89,7 @@ const H10 = ({ children, className, ...rest }: Props): JSX.Element => {
 
 const H11 = ({ children, className, ...rest }: Props): JSX.Element => {
 	return (
-		<h6 className={`${className ?? ""} text-base ${common}`} {...rest}>
+		<h6 className={`${className ?? ""} text-base`} {...rest}>
 			{children}
 		</h6>
 	)
@@ -97,7 +97,7 @@ const H11 = ({ children, className, ...rest }: Props): JSX.Element => {
 
 const H12 = ({ children, className, ...rest }: Props): JSX.Element => {
 	return (
-		<h6 className={`${className ?? ""} text-sm ${common}`} {...rest}>
+		<h6 className={`${className ?? ""} text-sm`} {...rest}>
 			{children}
 		</h6>
 	)
@@ -105,7 +105,7 @@ const H12 = ({ children, className, ...rest }: Props): JSX.Element => {
 
 const H13 = ({ children, className, ...rest }: Props): JSX.Element => {
 	return (
-		<h6 className={`${className ?? ""} text-xs ${common}`} {...rest}>
+		<h6 className={`${className ?? ""} text-xs`} {...rest}>
 			{children}
 		</h6>
 	)
