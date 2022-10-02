@@ -65,7 +65,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 - `📁 crypto-lottery`: a [`Next.js`](https://nextjs.org) app for the ui
 - `📁 crypto-lottery-contract`: a [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/) app for the smart contract
 - `📁 ui`: a stub [`React`](https://reactjs.org/) component library shared by the `crypto-lottery` app
-- `📁 eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `📁 eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`) used throughout the monorepo
 - `📁 tsconfig`: `tsconfig.json`'s used throughout the monorepo
 - `📁 tailwindcss-config`: `tailwind.config.js`'s used throughout the monorepo
 
