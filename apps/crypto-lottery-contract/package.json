@@ -4,10 +4,10 @@
   "license": "MIT",
   "dependencies": {
     "@openzeppelin/contracts": "4.7.3",
-    "@truffle/hdwallet-provider": "^2.0.16",
-    "dotenv": "^16.0.3"
+    "dotenv": "16.0.3"
   },
   "devDependencies": {
+    "@truffle/hdwallet-provider": "2.0.16",
     "eslint-config-custom": "*"
   }
 }
