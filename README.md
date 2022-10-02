@@ -13,9 +13,11 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
 
 A Polygon (MATIC) based app where any user can log in with his MetaMask wallet and buy lottery tickets. The duration of the lottery is 30 minutes. The more tickets a user have the more chances he has to win the prize.
 
-### Actions
+## Actions
 
-#### The buyer can:
+<br />
+
+### ***`Buyer actions`***
 
 ```md
 > Buy tickets.
@@ -25,7 +27,9 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 > Withdraw winnings.
 ```
 
-#### The lottery bank can:
+<br />
+
+### ***`Lottery bank actions`***
 
 ```md
 > Draw winner ticket.
@@ -56,7 +60,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 
 <br />
 
-### <img src="./images/apps.png" alt="apps" width="20px" /> Apps and Packages
+## <img src="./images/apps.png" alt="apps" width="20px" /> Apps and Packages
 
 - `📁 crypto-lottery`: a [`Next.js`](https://nextjs.org) app for the ui
 - `📁 crypto-lottery-contract`: a [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/) app for the smart contract
@@ -65,7 +69,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 - `📁 tsconfig`: `tsconfig.json`'s used throughout the monorepo
 - `📁 tailwindcss-config`: `tailwind.config.js`'s used throughout the monorepo
 
-### <img src="./images/utility.png" alt="utility" width="20px" /> Utilities
+## <img src="./images/utility.png" alt="utility" width="20px" /> Utilities
 
 This turborepo has some additional tools already setup for you:
 
@@ -83,7 +87,7 @@ This turborepo has some additional tools already setup for you:
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-### <img src="./images/requirement.png" alt="requirement" width="20px" /> Prerequisites
+## <img src="./images/requirement.png" alt="requirement" width="20px" /> Prerequisites
 
 Install these globally on your computer
 
@@ -93,9 +97,9 @@ Install these globally on your computer
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-### <img src="./images/ux.png" alt="ux" width="20px" /> Frontend (apps/crypto-lottery)
+## <img src="./images/ux.png" alt="ux" width="20px" /> Frontend (apps/crypto-lottery)
 
-#### Install Dependencies
+### Install Dependencies
 
 ```bash
 yarn install or npm install
@@ -109,7 +113,7 @@ NEXT_TELEMETRY_DISABLED=1
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ```
 
-#### Build
+### Build
 
 To build all apps and packages, run the following command:
 
@@ -117,7 +121,7 @@ To build all apps and packages, run the following command:
 yarn run build
 ```
 
-#### Run app
+### Run app
 
 To run all apps and packages (after building them), run the following command:
 
@@ -125,7 +129,7 @@ To run all apps and packages (after building them), run the following command:
 yarn run start
 ```
 
-#### Develop
+### Develop
 
 To develop all apps and packages, run the following command:
 
@@ -145,7 +149,7 @@ and then
 docker run --env-file ./apps/crypto-lottery/.env.local -it --rm -v ${PWD}/packages/ui:/app/packages/ui -v ${PWD}/apps/crypto-lottery:/app/apps/crypto-lottery -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true --name crypto-lottery-app crypto-lottery
 ```
 
-### <img src="./images/docker.png" alt="ux" width="20px" /> Docker
+## <img src="./images/docker.png" alt="ux" width="20px" /> Docker
 
 To build a production ready docker image, run the following command:
 
@@ -182,18 +186,19 @@ yarn docker:bash
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-### <img src="./images/agreement.png" alt="agreement" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
+## <img src="./images/agreement.png" alt="agreement" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
 
-#### Install Dependencies
+### Install Dependencies
 
 ```bash
-cd apps/crypto-lottery/apps/crypto-lottery-contract
+cd apps/crypto-lottery-contract
 yarn install or npm install
 ```
 
-#### Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/):
+### Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/):
 
 ```bash
+cd apps/crypto-lottery-contract
 npx thirdweb@latest release
 ```
 
@@ -216,7 +221,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-### <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
+## <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
 
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
