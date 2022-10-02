@@ -17,6 +17,7 @@
     "postcss": "8.4.16",
     "prettier-plugin-tailwindcss": "0.1.13",
     "react": "18.2.0",
+    "tailwindcss-config": "*",
     "tailwindcss": "3.1.8",
     "tsconfig": "*",
     "typescript": "4.8.3"

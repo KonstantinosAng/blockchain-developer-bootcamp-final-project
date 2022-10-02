@@ -21,7 +21,9 @@
     "next": "12.3.0",
     "next-transpile-modules": "9.0.0",
     "react": "18.2.0",
+    "react-countdown": "2.3.2",
     "react-dom": "18.2.0",
+    "react-hot-toast": "2.4.0",
     "ui": "*",
     "zustand": "4.1.1"
   },
@@ -37,6 +39,7 @@
     "postcss": "8.4.16",
     "prettier-plugin-tailwindcss": "0.1.13",
     "tailwindcss": "3.1.8",
+    "tailwindcss-config": "*",
     "tsconfig": "*",
     "typescript": "4.8.3"
   }

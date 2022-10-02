@@ -11,10 +11,20 @@ module.exports = withTM({
 	devIndicators: {
 		buildActivityPosition: "bottom-right",
 	},
+	// serverRuntimeConfig: {
+	// Will only be available on the server side
+	// mySecret: "secret",
+	// secondSecret: process.env.SECOND_SECRET, // Pass through env variables
+	// },
+	// publicRuntimeConfig: {
+	// Will be available on both server and client
+	// staticFolder: "/static",
+	// },
 	webpack: (config, { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }) => {
 		// Important: return the modified config
 		return config
 	},
+	/* For docker development */
 	webpackDevMiddleware: config => {
 		config.watchOptions = {
 			poll: 1000,

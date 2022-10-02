@@ -24,6 +24,15 @@
 	.stats-container {
 		@apply bg-teal-600 bg-opacity-10 p-7 rounded-lg shadow-lg drop-shadow-lg md:w-2/5 md:max-w-4xl
 	}
+
+	.countdown {
+		@apply p-8 text-center text-white rounded-lg bg-teal-600 bg-opacity-20
+	}
+
+	.countdown-label {
+		@apply text-white text-center uppercase mt-4
+	}
+
 }
 
 * {
