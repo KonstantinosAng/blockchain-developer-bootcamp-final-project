@@ -1,4 +1,4 @@
-import { useContract, useContractData } from "@thirdweb-dev/react"
+import { useContract, useContractData, useContractCall } from "@thirdweb-dev/react"
 import { cloneElement, ReactElement, useEffect } from "react"
 import { useContractStore } from "@hooks/useContractStore"
 import { ContractStoreStateProps } from "@stores/contractStore"
@@ -16,6 +16,7 @@ const ContractProvider = ({ children, address }: Props) => {
 	const setTicketCommission = useContractStore((state: ContractStoreStateProps) => state.setTicketCommission)
 	const setExpiration = useContractStore((state: ContractStoreStateProps) => state.setExpiration)
 	const setAddress = useContractStore((state: ContractStoreStateProps) => state.setAddress)
+	const setBuyTickets = useContractStore((state: ContractStoreStateProps) => state.setBuyTickets)
 
 	const { contract } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
 	const { data: remainingTickets } = useContractData(contract, "RemainingTickets")
@@ -24,6 +25,8 @@ const ContractProvider = ({ children, address }: Props) => {
 	const { data: ticketCommission } = useContractData(contract, "ticketCommission")
 	const { data: expiration } = useContractData(contract, "expiration")
 
+	const { mutateAsync: buyTickets } = useContractCall(contract, "BuyTickets")
+
 	useEffect(() => {
 		setRemainingTickets(remainingTickets?.toNumber())
 		setCurrentWinningReward(formatValue(currentWinningReward?.toString()))
@@ -31,6 +34,7 @@ const ContractProvider = ({ children, address }: Props) => {
 		setTicketCommission(formatValue(ticketCommission?.toString()))
 		setExpiration(expiration?.toString())
 		setAddress(address)
+		setBuyTickets(buyTickets)
 	}, [
 		setTicketCommission,
 		setExpiration,
@@ -38,12 +42,14 @@ const ContractProvider = ({ children, address }: Props) => {
 		setRemainingTickets,
 		setCurrentWinningReward,
 		setTicketPrice,
+		setBuyTickets,
 		remainingTickets,
 		currentWinningReward,
 		ticketPrice,
 		ticketCommission,
 		expiration,
 		address,
+		buyTickets,
 	])
 
 	return children ? cloneElement(children, { contract }) : null

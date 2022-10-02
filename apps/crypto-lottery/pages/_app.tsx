@@ -1,4 +1,4 @@
-import "../../../packages/tailwindcss-config/styles/global.css"
+import "tailwindcss-config/styles/global.css"
 import Head from "next/head"
 import favicon from "ui/assets/ethereum.png"
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react"
@@ -6,6 +6,7 @@ import { StoreProvider, useHydrate } from "@lib/store"
 import ContractProvider from "@lib/contractProvider"
 import MetaMaskProvider from "@lib/MetaMaskProvider"
 import stores from "@stores/index"
+import { Toaster } from "react-hot-toast"
 
 function MyApp({ Component, pageProps }: any) {
 	const createdStores = useHydrate(pageProps?.initialZustandState, stores)
@@ -36,6 +37,7 @@ function MyApp({ Component, pageProps }: any) {
 						</ContractProvider>
 					</MetaMaskProvider>
 				</StoreProvider>
+				<Toaster />
 			</ThirdwebProvider>
 		</main>
 	)

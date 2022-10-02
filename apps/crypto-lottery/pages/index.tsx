@@ -14,7 +14,7 @@ const Home = ({ contract }: HomeProps) => {
 			<LoadingWrapper loading={!contract}>
 				<HeaderBar />
 				<Box className="my-16 mx-5 items-start justify-center space-y-5 md:flex md:flex-row md:space-x-5 md:space-y-0">
-					<Pool />
+					<Pool contract={contract} />
 					<BuyTickets />
 				</Box>
 			</LoadingWrapper>
