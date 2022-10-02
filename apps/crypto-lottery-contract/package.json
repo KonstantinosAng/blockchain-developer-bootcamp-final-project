@@ -2,9 +2,13 @@
   "name": "crypto_lottery_contract",
   "version": "0.1.0",
   "license": "MIT",
+  "scripts": {
+    "ganache": "ganache --wallet.seed myCustomSeed"
+  },
   "dependencies": {
     "@openzeppelin/contracts": "4.7.3",
-    "dotenv": "16.0.3"
+    "dotenv": "16.0.3",
+    "ganache": "7.4.3"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "2.0.16",
