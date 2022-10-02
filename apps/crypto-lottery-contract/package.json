@@ -1,12 +1,13 @@
 {
   "name": "crypto_lottery_contract",
   "version": "0.1.0",
+  "license": "MIT",
   "dependencies": {
     "@openzeppelin/contracts": "4.7.3",
-    "ui": "*"
+    "@truffle/hdwallet-provider": "^2.0.16",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
-    "tsconfig": "*"
+    "eslint-config-custom": "*"
   }
 }

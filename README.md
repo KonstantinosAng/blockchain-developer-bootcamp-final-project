@@ -238,4 +238,4 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 <!-- # -->
 
-##### * Created for the as the final project of the [`ConsenSys blockchain developer bootcamp`](https://consensys.net/academy/bootcamp/)
+### * Created as the final project of the [`ConsenSys blockchain developer bootcamp`](https://consensys.net/academy/bootcamp/)
