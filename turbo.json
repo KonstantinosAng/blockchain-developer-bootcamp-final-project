@@ -23,6 +23,15 @@
 				".next/**"
 			]
 		},
+		"crypto-lottery-contract": {
+			"dependsOn": [
+				"^build",
+				"$MNEMONIC"
+			],
+			"outputs": [
+				"build/**"
+			]
+		},
 		"start": {
 			"dependsOn": [
 				"^build"
@@ -87,6 +96,7 @@
 		"$NEXT_TELEMETRY_DISABLED",
 		"$NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS",
 		"$NODE_ENV",
-		"$PORT"
+		"$PORT",
+		"$MNEMONIC"
 	]
 }
