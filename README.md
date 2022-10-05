@@ -97,7 +97,7 @@ Install these globally on your computer
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/ux.png" alt="ux" width="20px" /> Frontend (apps/crypto-lottery)
+## <img src="./images/ux.png" alt="ux" width="20px" /> Frontend `(apps/crypto-lottery)`
 
 ### Install Dependencies
 
@@ -186,7 +186,7 @@ yarn docker:bash
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/agreement.png" alt="agreement" width="20px" /> Smart Contract (apps/crypto-lottery-contract)
+## <img src="./images/agreement.png" alt="agreement" width="20px" /> Smart Contract `(apps/crypto-lottery-contract)`
 
 ### Install Dependencies
 
@@ -194,6 +194,39 @@ yarn docker:bash
 cd apps/crypto-lottery-contract
 yarn install or npm install
 ```
+
+### Run locally with [`Ganache`](https://trufflesuite.com/ganache/)
+
+First start up ganache, by downloading it and running it on your computer or by installing the ganache-cli and running the following command
+
+```bash
+yarn ganache:start
+```
+
+After starting ganache, you will have a local blockchain running on your pc.
+
+Run this command to deploy the contract on the local blockchain
+
+```bash
+cd apps/crypto-lottery-contract
+yarn truffle:migrate
+```
+
+Connect your metamask to the local network, by clicking on add network
+
+```bash
+Network Name = Localhost
+New RPC URL = http://127.0.0.1:8545
+Chain ID = 1337
+Currency Symbol = ETH
+```
+
+Add a ganache account to access some funds
+
+```bash
+Copy a private key from a ganache account and click on MetaMask import account
+```
+
 
 ### Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/):
 
@@ -223,6 +256,13 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 
 ## <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
 
+The tests are located in `apps/crypto-lottery-contract/test`
+
+To run the tests execute the following command
+
+```bash
+yarn truffle:test
+```
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 <!-- # -->
