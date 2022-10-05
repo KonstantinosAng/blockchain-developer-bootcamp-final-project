@@ -1,6 +1,6 @@
 const errorString = 'VM Exception while processing transaction: ';
 
-const tryCatch = async (promise: any, reason: string = 'revert') => {
+const tryCatchRevertError = async (promise: any, reason: string = 'revert') => {
   try {
 		return await promise;
   } catch (error: any) {
@@ -10,5 +10,5 @@ const tryCatch = async (promise: any, reason: string = 'revert') => {
 };
 
 export {
-  tryCatch
+  tryCatchRevertError
 };
