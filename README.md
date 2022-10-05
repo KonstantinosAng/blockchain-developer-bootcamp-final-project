@@ -227,8 +227,25 @@ Add a ganache account to access some funds
 Copy a private key from a ganache account and click on MetaMask import account
 ```
 
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
+#
 
-### Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/):
+## <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
+
+The tests are located in `apps/crypto-lottery-contract/test`
+
+__`All tests are written in Typescript and must end in .test.ts`__
+
+To run the tests execute the following command
+
+```bash
+yarn truffle:test
+```
+
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
+#
+
+## <img src="./images/deploy.png" alt="agreement" width="20px" /> Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/):
 
 ```bash
 cd apps/crypto-lottery-contract
@@ -249,21 +266,6 @@ npx thirdweb@latest release
 
 ```bash
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
-```
-
-<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
-#
-
-## <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
-
-The tests are located in `apps/crypto-lottery-contract/test`
-
-__`All tests are written in Typescript and must end in .test.ts`__
-
-To run the tests execute the following command
-
-```bash
-yarn truffle:test
 ```
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
