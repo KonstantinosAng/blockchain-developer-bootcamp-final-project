@@ -205,7 +205,7 @@ yarn ganache:start
 
 After starting ganache, you will have a local blockchain running on your pc.
 
-Run this command to deploy the contract on the local blockchain
+Run this command to deploy the contract migrations on the local blockchain (_**All migrations are written in `Typescript` and must end in .ts**_)
 
 ```bash
 cd apps/crypto-lottery-contract
@@ -257,6 +257,8 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ## <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
 
 The tests are located in `apps/crypto-lottery-contract/test`
+
+_**All tests are written in `Typescript` and must end in .test.ts**_
 
 To run the tests execute the following command
 
