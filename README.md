@@ -97,7 +97,7 @@ Install these globally on your computer
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/ux.png" alt="ux" width="20px" /> [Frontend](apps/crypto-lottery)
+## <img src="./images/ux.png" alt="ux" width="20px" /> [`Frontend`](apps/crypto-lottery)
 
 ### Install Dependencies
 
