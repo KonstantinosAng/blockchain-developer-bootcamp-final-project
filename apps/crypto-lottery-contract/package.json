@@ -3,28 +3,34 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
+    "truffle:compile": "truffle compile",
     "truffle:migrate": "tsc -p ./tsconfig.migrate.json --outDir migrations && truffle migrate",
-    "truffle:test": "truffle test",
+    "truffle:test": "yarn removeMigrations && truffle test && yarn tsc",
+    "removeMigrations": "node ./scripts/remove-migrations.mjs",
+    "tsc": "tsc --noEmit",
     "generate-types": "typechain --target=truffle-v5 './build/contracts/*.json'",
-    "postinstall": "truffle compile && yarn generate-types",
-    "coverage": "truffle run coverage"
+    "postinstall": "truffle compile && yarn generate-types"
   },
   "dependencies": {
     "@openzeppelin/contracts": "4.7.3",
-    "dotenv": "16.0.3",
-    "ganache": "7.4.3"
+    "dotenv": "16.0.3"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "2.0.16",
+    "@truffle/resolver": "9.0.17",
     "@typechain/truffle-v5": "8.0.1",
     "@types/bn.js": "5.1.1",
     "@types/chai": "4.3.3",
     "@types/mocha": "10.0.0",
+    "@types/node": "18.8.2",
     "@types/web3": "1.2.2",
     "eslint-config-custom": "*",
+    "ganache": "7.4.3",
     "truffle-typings": "1.0.8",
+    "ts-node": "10.9.1",
     "tsconfig": "*",
     "typechain": "8.1.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "globby": "13.1.1"
   }
 }

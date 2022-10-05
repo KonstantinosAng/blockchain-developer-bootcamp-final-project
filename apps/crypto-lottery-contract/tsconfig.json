@@ -1,14 +1,8 @@
 {
 	"compilerOptions": {
-		"lib": ["ES2018", "DOM"],
-		"module": "CommonJS",
-		"moduleResolution": "node",
-		"strict": true,
-		"target": "ES2018",
-		"sourceMap": true,
-		"esModuleInterop": true
+		"types": ["@types/node", "@types/chai", "@types/mocha"],
+		"typeRoots": ["./node_modules/@types", "./types"]
 	},
-	"extends": "tsconfig/base.json",
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules"]
+	"include": ["**/*.ts", "**/*.test.ts", "**/*.d.ts", "test/Lottery.js"],
+	"extends": "tsconfig/truffle.json"
 }

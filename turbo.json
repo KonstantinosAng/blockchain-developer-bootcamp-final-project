@@ -93,6 +93,10 @@
 		"truffle:test": {
 			"dependsOn": [],
 			"outputs": []
+		},
+		"truffle:compile": {
+			"dependsOn": [],
+			"outputs": []
 		}
 	},
 	"globalDependencies": [

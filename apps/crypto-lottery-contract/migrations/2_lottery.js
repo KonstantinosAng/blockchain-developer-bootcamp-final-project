@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Migrations = artifacts.require("Migrations");
+const Lottery = artifacts.require("Lottery");
 const deploy = (deployer) => {
-    deployer.deploy(Migrations);
+    deployer.deploy(Lottery);
 };
 exports.default = deploy;

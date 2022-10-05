@@ -41,6 +41,15 @@
  * https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard/
  */
 
+require("ts-node").register({
+	files: true,
+	compilerOptions: {
+		types: ["@types/node", "@types/chai", "@types/mocha"],
+		typeRoots: ["./node_modules/@types", "./types"],
+	},
+	include: ["**/*.ts", "**/*.test.ts", "**/*.d.ts"],
+})
+
 require("dotenv").config()
 
 const { MNEMONIC } = process.env
