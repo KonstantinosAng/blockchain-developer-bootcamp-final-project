@@ -258,7 +258,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 
 The tests are located in `apps/crypto-lottery-contract/test`
 
-__`All tests are written in `Typescript` and must end in .test.ts`__
+__`All tests are written in Typescript and must end in .test.ts`__
 
 To run the tests execute the following command
 
