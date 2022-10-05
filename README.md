@@ -245,7 +245,7 @@ yarn truffle:test
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/deploy.png" alt="agreement" width="20px" /> Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/):
+## <img src="./images/deploy.png" alt="agreement" width="20px" /> Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/)
 
 ```bash
 cd apps/crypto-lottery-contract
@@ -267,6 +267,25 @@ npx thirdweb@latest release
 ```bash
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ```
+
+## <img src="./images/deploy.png" alt="agreement" width="20px" /> Deploy the frontend with Docker in a dedicated Server
+
+Create a .env.production.local file on the root of the apps/crypto-lottery app, based on the .env.example file
+
+```bash
+BROWSER=none
+NEXT_TELEMETRY_DISABLED=1
+NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
+```
+
+Run the following commands to build and run the docker image from the server's terminal
+
+```bash
+yarn docker:compose:build
+yarn docker:compose:up
+```
+
+Navigate to http://localhost:1237 from the server or expose the 1237 server's port and go to http://<serverIp>:1237 from anywhere you want.
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 <!-- # -->
