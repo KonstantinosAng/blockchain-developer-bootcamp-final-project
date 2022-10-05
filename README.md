@@ -205,7 +205,7 @@ yarn ganache:start
 
 After starting ganache, you will have a local blockchain running on your pc.
 
-Run this command to deploy the contract migrations on the local blockchain (_**All migrations are written in `Typescript` and must end in .ts**_)
+Run this command to deploy the contract migrations on the local blockchain `(All migrations are written in Typescript and must end in .ts)`
 
 ```bash
 cd apps/crypto-lottery-contract
