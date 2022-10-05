@@ -23,7 +23,7 @@
 				".next/**"
 			]
 		},
-		"crypto-lottery-contract": {
+		"crypto_lottery_contract": {
 			"dependsOn": [
 				"^build",
 				"$MNEMONIC"
@@ -85,6 +85,14 @@
 		},
 		"dev": {
 			"cache": false
+		},
+		"truffle:migrate": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"truffle:test": {
+			"dependsOn": [],
+			"outputs": []
 		}
 	},
 	"globalDependencies": [

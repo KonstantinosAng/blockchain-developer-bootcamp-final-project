@@ -54,7 +54,10 @@
 		"docker:compose:build": "docker-compose build",
 		"docker:compose:up": "docker-compose up -d",
 		"docker:compose:down": "docker-compose down",
-		"docker:bash": "docker exec -it crypto-lottery-app /bin/sh"
+		"docker:bash": "docker exec -it crypto-lottery-app /bin/sh",
+		"ganache:start": "ganache-cli",
+		"truffle:migrate": "turbo run truffle:migrate --scope=crypto_lottery_contract",
+		"truffle:test": "turbo run truffle:test --scope=crypto_lottery_contract"
 	},
 	"devDependencies": {
 		"autoprefixer": "10.4.8",

@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "ganache": "ganache --wallet.seed myCustomSeed"
+    "truffle:migrate": "truffle migrate",
+    "truffle:test": "truffle test"
   },
   "dependencies": {
     "@openzeppelin/contracts": "4.7.3",
