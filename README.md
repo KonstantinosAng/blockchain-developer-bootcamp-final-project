@@ -186,7 +186,7 @@ yarn docker:bash
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/agreement.png" alt="agreement" width="20px" /> Smart Contract `(apps/crypto-lottery-contract)`
+## <img src="./images/agreement.png" alt="agreement" width="20px" /> [`Smart Contract`](apps/crypto-lottery-contract)
 
 ### Install Dependencies
 
