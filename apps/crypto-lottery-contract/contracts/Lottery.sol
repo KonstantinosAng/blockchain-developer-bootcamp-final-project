@@ -138,6 +138,16 @@ contract Lottery {
 		expiration = block.timestamp + duration;
 	}
 
+	// @info Check the amassed ammount of winnings
+	function checkWinningsAmount() public view returns (uint256) {
+		// get the caller address
+		address payable winner = payable(msg.sender);
+		// get the caller winnings
+		uint256 reward2Transfer = winnings[winner];
+		// return the caller winning
+		return reward2Transfer;
+	}
+
 	// @info Refund all tickets
 	function RefundAll() public {
 		// check if lottery is active
