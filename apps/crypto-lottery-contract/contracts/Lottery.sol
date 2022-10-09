@@ -136,6 +136,19 @@ contract Lottery {
 	}
 
 	// @info Check if caller is winner
+	// @notice Only the lottery owner can execute this
+	function WithdrawCommission() public isLotteryOwner {
+		// get the caller address (owner address)
+		address payable operator = payable(msg.sender);
+		// get the operator commission
+		uint256 totalCommissionToTransfer = operatorTotalCommission;
+		// transfer winnings to operator address
+		operator.transfer(totalCommissionToTransfer);
+		// delete the operators commission after transferring the commission
+		operatorTotalCommission = 0;
+	}
+
+	// @info Check if caller is winner
 	function IsWinner() public view returns (bool) {
 		return winnings[msg.sender] > 0;
 	}
