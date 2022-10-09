@@ -76,6 +76,20 @@ contract Lottery {
 		emit TicketsBought(msg.sender, numOfTicketsToBuy);
 	}
 
+	// @info Restart the Lottery
+	// @notice Only the lottery owner can execute this
+	function restartLottery() public isLotteryOwner {
+		// check if lottery tickets are empty
+		require(
+			tickets.length == 0,
+			"Cannot Restart Lottery as Lottert is in play"
+		);
+		// delete tickets again in order to be sure
+		delete tickets;
+		// update lottery expiration time
+		expiration = block.timestamp + duration;
+	}
+
 	// @info Check if caller is winner
 	function IsWinner() public view returns (bool) {
 		return winnings[msg.sender] > 0;
