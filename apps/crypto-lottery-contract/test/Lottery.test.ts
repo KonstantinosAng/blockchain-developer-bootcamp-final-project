@@ -58,13 +58,13 @@ contract('Running Lottery', (accounts) => {
 		assert.equal(winnings.toString(), 0, "User winnings")
 	})
 
-	it('should not allow the operator to restart the draw if there are still tickets', async () => {
+	it('should not allow the lottery owner to restart the draw if there are still tickets', async () => {
 		await tryCatchRevertError(instance.restartLottery())
 	})
 })
 
 contract('Empty Lottery', () => {
-	it('should not allow the operator to draw a winning ticket if there are no tickets purchased', async () => {
+	it('should not allow the lottery owner to draw a winning ticket if there are no tickets purchased', async () => {
 		const instance = await Lottery.deployed();
 		await tryCatchRevertError(instance.DrawWinnerTicket())
 	})

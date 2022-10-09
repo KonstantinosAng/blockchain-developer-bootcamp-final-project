@@ -20,7 +20,7 @@ contract Lottery {
 
 	uint256 public expiration; // Timeout in case that the lottery was not carried out.
 	address public lotteryOwner; // the creator of the lottery
-	uint256 public operatorTotalCommission = 0; // the total commission balance
+	uint256 public lotteryOwnerTotalCommission = 0; // the total commission balance
 	LastWinner public lastWinner; // the last winner of the lottery
 
 	mapping(address => uint256) public winnings; // maps the winners to there winnings
@@ -38,7 +38,7 @@ contract Lottery {
 
 	// @info modifier to check if caller is the lottery owner
 	modifier isLotteryOwner() {
-		require((msg.sender == lotteryOwner), "Caller is not the lottery operator");
+		require((msg.sender == lotteryOwner), "Caller is not the lottery owner");
 		_;
 	}
 
@@ -111,8 +111,8 @@ contract Lottery {
 		winnings[winner] += (tickets.length * (ticketPrice - ticketCommission));
 		// update last winner
 		lastWinner = LastWinner(winner, winnings[winner]);
-		// update operator total commission
-		operatorTotalCommission += (tickets.length * ticketCommission);
+		// update lottery owner total commission
+		lotteryOwnerTotalCommission += (tickets.length * ticketCommission);
 		// empty tickets in order for the new lottery to start
 		delete tickets;
 		// update lottery expiration time
@@ -139,13 +139,13 @@ contract Lottery {
 	// @notice Only the lottery owner can execute this
 	function WithdrawCommission() public isLotteryOwner {
 		// get the caller address (owner address)
-		address payable operator = payable(msg.sender);
-		// get the operator commission
-		uint256 totalCommissionToTransfer = operatorTotalCommission;
-		// transfer winnings to operator address
-		operator.transfer(totalCommissionToTransfer);
+		address payable lotterOwner = payable(msg.sender);
+		// get the lottery owner commission
+		uint256 totalCommissionToTransfer = lotteryOwnerTotalCommission;
+		// transfer winnings to lottery owner address
+		lotterOwner.transfer(totalCommissionToTransfer);
 		// delete the operators commission after transferring the commission
-		operatorTotalCommission = 0;
+		lotteryOwnerTotalCommission = 0;
 	}
 
 	// @info Check if caller is winner
