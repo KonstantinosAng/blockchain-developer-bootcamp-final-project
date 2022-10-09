@@ -297,6 +297,13 @@ Navigate to http://localhost:1237 from the server or expose the 1237 server's po
 cd ../.. && npx turbo run build --filter=crypto-lottery
 ```
 
+3. Add the environment configs
+
+```bash
+NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
+```
+
+
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 <!-- # -->
 
