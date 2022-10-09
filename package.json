@@ -58,11 +58,17 @@
 		"ganache:start": "ganache-cli",
 		"truffle:migrate": "turbo run truffle:migrate --scope=crypto_lottery_contract",
 		"truffle:test": "turbo run truffle:test --scope=crypto_lottery_contract",
-		"truffle:compile": "turbo run truffle:compile --scope=crypto_lottery_contract"
+		"truffle:compile": "turbo run truffle:compile --scope=crypto_lottery_contract",
+		"changeset:version": "turbo run build && changeset version",
+		"changeset:publish": "turbo run build && changeset publish",
+		"changeset:init": "changeset init",
+		"changelog": "changelog generate"
 	},
 	"devDependencies": {
+		"@changesets/cli": "2.25.0",
 		"autoprefixer": "10.4.8",
 		"eslint-config-custom": "*",
+		"generate-changelog": "1.8.0",
 		"postcss": "8.4.16",
 		"prettier": "latest",
 		"tailwindcss": "3.1.8",

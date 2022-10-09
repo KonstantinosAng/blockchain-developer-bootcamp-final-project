@@ -287,7 +287,7 @@ yarn docker:compose:up
 
 Navigate to http://localhost:1237 from the server or expose the 1237 server's port and go to http://<serverIp>:1237 from anywhere you want.
 
-## <img src="./images/vercel.png" alt="vercel" width="24px" /> Deploy to vercel
+## <img src="./images/vercel.png" alt="vercel" width="24px" /> Deploy to [`Vercel`](https://vercel.com/)
 
 1. Point the root directory to `apps/crypto-lottery`
 
