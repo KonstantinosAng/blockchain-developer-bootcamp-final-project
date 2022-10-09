@@ -42,6 +42,11 @@ contract Lottery {
 		return tickets;
 	}
 
+	// @info return winnings for specific caller address
+	function getWinningsForAddress(address addr) public view returns (uint256) {
+		return winnings[addr];
+	}
+
 	// @info Buy tickets for the lottery
 	function BuyTickets() public payable {
 		// Check if buyer sends the correct amount of money
