@@ -294,7 +294,7 @@ Navigate to http://localhost:1237 from the server or expose the 1237 server's po
 2. Override the build command with:
 
 ```bash
-cd ../.. && npx turbo run build --filter=crypto-lottery --includeDependencies
+cd ../.. && npx turbo run build --filter=crypto-lottery
 ```
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->

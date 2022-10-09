@@ -1,10 +1,12 @@
 import { useState } from "react"
-import { Box, Button, Flex, H12, H13, H9, Input, LoadingWrapper, Label, H11, H10 } from "ui"
+import { Box, Button, Flex, H12, H9, Input, LoadingWrapper, Label, H11, H10 } from "ui"
 import { currency, loaderSize } from "@constants"
 import { useContractStore } from "@hooks/useContractStore"
 import { ContractStoreStateProps } from "@stores/contractStore"
+import toast from "react-hot-toast"
+import { parseValue } from "@utils/formatValue"
 
-type Props = {}
+interface Props {}
 
 const BuyTickets = ({ ...rest }: Props) => {
 	const [quantity, setQuantity] = useState<number>(1)
@@ -12,6 +14,27 @@ const BuyTickets = ({ ...rest }: Props) => {
 	const expiration = useContractStore((state: ContractStoreStateProps) => state.expiration)
 	const remainingTickets = useContractStore((state: ContractStoreStateProps) => state.remainingTickets)
 	const ticketCommission = useContractStore((state: ContractStoreStateProps) => state.ticketCommission)
+	const buyTickets = useContractStore((state: ContractStoreStateProps) => state.buyTickets)
+
+	const handleBuyTickets = async () => {
+		if (!ticketPrice) return
+
+		const notification = toast.loading("Buying your ticket...")
+
+		try {
+			const data = await buyTickets({
+				value: parseValue(ticketPrice, quantity),
+			})
+
+			toast.success("Tickets purchased successfully!", {
+				id: notification,
+			})
+		} catch (err) {
+			toast.error("Something went wrong! 😭", {
+				id: notification,
+			})
+		}
+	}
 
 	return (
 		<Box className="stats-container space-y-8" {...rest}>
@@ -40,6 +63,7 @@ const BuyTickets = ({ ...rest }: Props) => {
 					<Button
 						disabled={expiration < Date.now().toString() || remainingTickets <= 0}
 						className="mt-5 w-full rounded-md bg-sky-600 px-10 py-5 text-lg font-semibold text-slate-100 shadow-xl hover:bg-sky-500 disabled:cursor-not-allowed disabled:bg-gray-700"
+						onClick={() => handleBuyTickets()}
 					>
 						Buy tickets
 					</Button>
