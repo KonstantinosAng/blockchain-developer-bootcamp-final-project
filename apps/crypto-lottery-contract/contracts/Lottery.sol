@@ -25,6 +25,18 @@ contract Lottery {
 	// @info Event for buying tickets
 	event TicketsBought(address _buyerAddress, uint256 _ticketsBought);
 
+	// @info modifier to check if caller is the lottery owner
+	modifier isLotteryOwner() {
+		require((msg.sender == lotteryOwner), "Caller is not the lottery operator");
+		_;
+	}
+
+	// @info modifier to check if caller is a winner
+	modifier isWinner() {
+		require(IsWinner(), "Caller is not a winner");
+		_;
+	}
+
 	// @info return all the tickets
 	function getTickets() public view returns (address[] memory) {
 		return tickets;
@@ -62,6 +74,11 @@ contract Lottery {
 
 		// Emit event for tickets bought
 		emit TicketsBought(msg.sender, numOfTicketsToBuy);
+	}
+
+	// @info Check if caller is winner
+	function IsWinner() public view returns (bool) {
+		return winnings[msg.sender] > 0;
 	}
 
 	// @info Get current winning reward
