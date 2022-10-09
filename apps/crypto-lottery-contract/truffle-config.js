@@ -56,6 +56,14 @@ const { MNEMONIC } = process.env
 
 const HDWalletProvider = require("@truffle/hdwallet-provider")
 
+let provider = () =>
+	new HDWalletProvider({
+		mnemonic: {
+			phrase: MNEMONIC ?? "test 123 mnemonic phrase for consensys bootcamp develop",
+		},
+		providerOrUrl: "http://localhost:8545",
+	})
+
 module.exports = {
 	/**
 	 * Networks define how you connect to your ethereum client and let you set the

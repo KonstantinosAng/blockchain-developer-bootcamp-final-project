@@ -1,4 +1,4 @@
 The contract is deployed on the MUMBAI (MATIC) testnet.
 
 The address is:
-ETHERPRENEUR_ADDR: 0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea
+LOTTERY_CONTRACT_ADDRESS:

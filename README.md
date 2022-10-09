@@ -316,6 +316,12 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 <!-- My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/) -->
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
-<!-- # -->
+#
+
+## <img src="./images/metamask.svg" alt="vercel" width="24px" /> Public Address for verification
+
+```bash
+0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010
+```
 
 ##### * Created as the final project of the [`ConsenSys blockchain developer bootcamp`](https://consensys.net/academy/bootcamp/)
