@@ -135,6 +135,20 @@ contract Lottery {
 		expiration = block.timestamp + duration;
 	}
 
+	// @info Refund all tickets
+	function RefundAll() public {
+		// check if lottery is active
+		require(block.timestamp >= expiration, "the lottery not expired yet");
+		// Loop over all tickets and for each ticket buyer address transfer back the ticket amount
+		for (uint256 i = 0; i < tickets.length; i++) {
+			address payable to = payable(tickets[i]); // Get ticket buyer address
+			tickets[i] = address(0); // replace ticket address with null address
+			to.transfer(ticketPrice); // send to ticket buyer address the ticket price back to refund them
+		}
+		// empty lottery tickets
+		delete tickets;
+	}
+
 	// @info Check if caller is winner
 	// @notice Only the lottery owner can execute this
 	function WithdrawCommission() public isLotteryOwner {
