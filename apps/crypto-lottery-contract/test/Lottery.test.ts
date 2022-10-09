@@ -63,4 +63,11 @@ contract('Running Lottery', (accounts) => {
 	})
 })
 
+contract('Empty Lottery', () => {
+	it('should not allow the operator to draw a winning ticket if there are no tickets purchased', async () => {
+		const instance = await Lottery.deployed();
+		await tryCatchRevertError(instance.DrawWinnerTicket())
+	})
+})
+
 export {}

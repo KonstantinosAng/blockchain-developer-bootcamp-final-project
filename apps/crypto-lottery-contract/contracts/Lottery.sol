@@ -7,12 +7,20 @@ pragma solidity >=0.8.0 <0.9.0;
 // @author K. Angelopoulos
 // @notice You can use this contract to construct new Lotteries
 contract Lottery {
+	// Struct to keep track of the last winner
+	struct LastWinner {
+		address _lastWinnerAddress; // last winner address
+		uint256 _lastWinnerWinnings; // last winner winnings
+	}
+
 	uint256 public constant ticketPrice = 0.01 ether; // price per ticket
 	uint256 public constant maxTickets = 100; // maximum tickets per lottery
+	uint256 public constant ticketCommission = 0.001 ether; // commition per ticket for the lottery owner
 	uint256 public constant duration = 30 minutes; // The duration set for the lottery
 
 	uint256 public expiration; // Timeout in case that the lottery was not carried out.
 	address public lotteryOwner; // the creator of the lottery
+	LastWinner public lastWinner; // the last winner of the lottery
 
 	mapping(address => uint256) public winnings; // maps the winners to there winnings
 	address[] public tickets; //array of purchased Tickets
@@ -22,8 +30,10 @@ contract Lottery {
 		expiration = block.timestamp + duration; // lottery expiration time
 	}
 
-	// @info Event for buying tickets
+	// @event: BuyTickets - Event for buying tickets
 	event TicketsBought(address _buyerAddress, uint256 _ticketsBought);
+	// @event: DrawWinnerTicket - Event for drawing the winning ticket
+	event WinnerTicketDrawn(address _winnerAddress, uint256 _winnersWinnings);
 
 	// @info modifier to check if caller is the lottery owner
 	modifier isLotteryOwner() {
@@ -79,6 +89,33 @@ contract Lottery {
 
 		// Emit event for tickets bought
 		emit TicketsBought(msg.sender, numOfTicketsToBuy);
+	}
+
+	// @info Draw the winning ticket at random
+	// @notice Only the lottery owner can execute this
+	function DrawWinnerTicket() public isLotteryOwner {
+		// Check if there is at least one ticket
+		require(tickets.length > 0, "No tickets were purchased");
+		// Get the hash from the first block
+		bytes32 blockHash = blockhash(block.number - tickets.length);
+		// generate a random nonce from the first lottery block hash and the last lottery block timestamp
+		uint256 randomNumber = uint256(
+			keccak256(abi.encodePacked(block.timestamp, blockHash))
+		);
+		// calculate the mod of the randomNumber in order for the winning ticket to be in range of the bought tickets
+		uint256 winningTicket = randomNumber % tickets.length;
+		// get the address of the winner
+		address winner = tickets[winningTicket];
+		// update winnings map with {winner: winnings}
+		winnings[winner] += (tickets.length * (ticketPrice - ticketCommission));
+		// update last winner
+		lastWinner = LastWinner(winner, winnings[winner]);
+		// empty tickets in order for the new lottery to start
+		delete tickets;
+		// update lottery expiration time
+		expiration = block.timestamp + duration;
+		// Emit event for winning ticket drawn
+		emit WinnerTicketDrawn(winner, winnings[winner]);
 	}
 
 	// @info Restart the Lottery
