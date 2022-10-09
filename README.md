@@ -149,7 +149,7 @@ and then
 docker run --env-file ./apps/crypto-lottery/.env.local -it --rm -v ${PWD}/packages/ui:/app/packages/ui -v ${PWD}/apps/crypto-lottery:/app/apps/crypto-lottery -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true --name crypto-lottery-app crypto-lottery
 ```
 
-## <img src="./images/docker.png" alt="ux" width="20px" /> Docker
+## <img src="./images/docker.png" alt="docker" width="20px" /> Docker
 
 To build a production ready docker image, run the following command:
 
@@ -230,7 +230,7 @@ Copy a private key from a ganache account and click on MetaMask import account
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/test.png" alt="agreement" width="20px" /> Solidity Tests
+## <img src="./images/test.png" alt="test" width="20px" /> Solidity Tests
 
 The tests are located in `apps/crypto-lottery-contract/test`
 
@@ -245,7 +245,7 @@ yarn truffle:test
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/deploy.png" alt="agreement" width="20px" /> Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/)
+## <img src="./images/deploy.png" alt="deploy" width="20px" /> Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/)
 
 ```bash
 cd apps/crypto-lottery-contract
@@ -268,7 +268,7 @@ npx thirdweb@latest release
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ```
 
-## <img src="./images/deploy.png" alt="agreement" width="20px" /> Deploy the frontend with Docker in a dedicated Server
+## <img src="./images/deploy.png" alt="deploy" width="20px" /> Deploy the frontend with Docker in a dedicated Server
 
 Create a .env.production.local file on the root of the apps/crypto-lottery app, based on the .env.example file
 
@@ -286,6 +286,16 @@ yarn docker:compose:up
 ```
 
 Navigate to http://localhost:1237 from the server or expose the 1237 server's port and go to http://<serverIp>:1237 from anywhere you want.
+
+## <img src="./images/vercel.png" alt="vercel" width="24px" /> Deploy to vercel
+
+1. Point the root directory to `apps/crypto-lottery`
+
+2. Override the build command with:
+
+```bash
+cd ../.. && npx turbo run build --filter=crypto-lottery --includeDependencies
+```
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 <!-- # -->

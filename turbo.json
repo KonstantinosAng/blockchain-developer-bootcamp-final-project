@@ -25,7 +25,6 @@
 		},
 		"crypto_lottery_contract": {
 			"dependsOn": [
-				"^build",
 				"$MNEMONIC"
 			],
 			"outputs": [
