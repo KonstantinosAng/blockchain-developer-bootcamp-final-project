@@ -40,6 +40,10 @@ contract Lottery {
 	event TicketsBought(address _buyerAddress, uint256 _ticketsBought);
 	// @event: DrawWinnerTicket - Event for drawing the winning ticket
 	event WinnerTicketDrawn(address _winnerAddress, uint256 _winnersWinnings);
+	// @event: RefundAll - Event for restarting the lottery
+	event LotteryRestart(uint256 _newLotteryExpiration);
+	// @event: RefundAll - Event for restarting the lottery
+	event RefundAllTickets(bool _refundAllTickets);
 
 	// @info modifier to check if caller is the lottery owner
 	modifier isLotteryOwner() {
@@ -132,12 +136,14 @@ contract Lottery {
 		// check if lottery tickets are empty
 		require(
 			tickets.length == 0,
-			"Cannot Restart Lottery as Lottert is in play"
+			"Cannot Restart Lottery as Lottery is in play"
 		);
 		// delete tickets again in order to be sure
 		delete tickets;
 		// update lottery expiration time
 		expiration = block.timestamp + duration;
+		// Emit event for lottery restarting
+		emit LotteryRestart(expiration);
 	}
 
 	// @info Check the amassed ammount of winnings
@@ -166,7 +172,7 @@ contract Lottery {
 	// @info Refund all tickets
 	function RefundAll() public {
 		// check if lottery is active
-		require(block.timestamp >= expiration, "the lottery not expired yet");
+		require(block.timestamp >= expiration, "the lottery has not expired yet");
 		// Loop over all tickets and for each ticket buyer address transfer back the ticket amount
 		for (uint256 i = 0; i < tickets.length; i++) {
 			address payable to = payable(tickets[i]); // Get ticket buyer address
@@ -175,6 +181,8 @@ contract Lottery {
 		}
 		// empty lottery tickets
 		delete tickets;
+		// emit event for refunding all tickets
+		emit RefundAllTickets(true);
 	}
 
 	// @info Check if caller is winner
