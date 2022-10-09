@@ -1,3 +1,15 @@
 {
-	"buildCommand": "cd ../.. && npx turbo run build --filter=crypto-lottery"
+	"buildCommand": "cd ../.. && npx turbo run build --filter=crypto-lottery",
+	"installCommand": "yarn install",
+	"headers": [
+		{
+			"source": "/",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "s-maxage=1, stale-while-revalidate=59"
+				}
+			]
+		}
+	]
 }
