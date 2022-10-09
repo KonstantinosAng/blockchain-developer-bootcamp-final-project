@@ -1,7 +1,7 @@
 # blockchain-developer-bootcamp-final-project
 
 <p align="center">
-  <a href="https://constantine.dev">
+  <a href="https://blockchain-bootcamp.constantine.dev/">
     <picture>
       <img src="./images/polygon.svg" width="48px" alt="polygon">
     </picture>
@@ -50,7 +50,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 
 <div align="center">
 
-[<img alt="demo" width="100px" src="./images/demo.png" />](https://constantine.dev)
+[<img alt="demo" width="100px" src="./images/demo.png" />](https://blockchain-bootcamp.constantine.dev/)
 
 </div>
 
