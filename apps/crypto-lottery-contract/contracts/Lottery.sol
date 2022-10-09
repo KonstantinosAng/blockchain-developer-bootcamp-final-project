@@ -148,6 +148,19 @@ contract Lottery {
 		return reward2Transfer;
 	}
 
+	// @info Withdraw the callers winnings
+	// @notice Only a winner can execute this
+	function WithdrawWinnings() public isWinner {
+		// get the caller address
+		address payable winner = payable(msg.sender);
+		// get the caller winnings
+		uint256 reward2Transfer = winnings[winner];
+		// transfer winnings to caller
+		winner.transfer(reward2Transfer);
+		// delete the callers winnings after transferring the winnings
+		winnings[winner] = 0;
+	}
+
 	// @info Refund all tickets
 	function RefundAll() public {
 		// check if lottery is active
