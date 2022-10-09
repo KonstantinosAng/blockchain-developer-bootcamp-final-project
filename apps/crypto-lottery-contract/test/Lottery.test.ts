@@ -47,6 +47,20 @@ contract('Running Lottery', (accounts) => {
 		const ticketsRemaining = await instance.RemainingTickets()
 		assert.equal(ticketsRemaining.toString(), 89, 'No remaining tickets')
 	})
+
+	it('should allow a user to check if he is the winner', async () => {
+		const winner = await instance.IsWinner()
+		assert.equal(winner, false, "User is the winner")
+	})
+
+	it('should allow a user to check his winnings', async () => {
+		const winnings = await instance.getWinningsForAddress(BUYER)
+		assert.equal(winnings.toString(), 0, "User winnings")
+	})
+
+	it('should not allow the operator to restart the draw if there are still tickets', async () => {
+		await tryCatchRevertError(instance.restartLottery())
+	})
 })
 
 export {}
