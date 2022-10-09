@@ -61,6 +61,15 @@ contract('Running Lottery', (accounts) => {
 	it('should not allow the lottery owner to restart the draw if there are still tickets', async () => {
 		await tryCatchRevertError(instance.restartLottery())
 	})
+
+	it('should not allow a user to withdraw winnings if he is not the winner', async () => {
+		await tryCatchRevertError(instance.WithdrawWinnings())
+	})
+
+	it('should allow a user to withdraw winnings if he is the winner', async () => {
+		await instance.DrawWinnerTicket()
+		await instance.WithdrawWinnings()
+	})
 })
 
 contract('Empty Lottery', () => {
@@ -69,5 +78,20 @@ contract('Empty Lottery', () => {
 		await tryCatchRevertError(instance.DrawWinnerTicket())
 	})
 })
+
+// contract('Expired Lottery', (accounts) => {
+// 	const [BUYER] = accounts
+// 	let instance: any
+// 	let TICKET_PRICE: any
+// 	before(async () => {
+//     instance = await Lottery.deployed();
+// 		TICKET_PRICE = await instance.ticketPrice.call()
+// 		await instance.BuyTickets({ from: BUYER, value: TICKET_PRICE * 10 })
+//   });
+// 	it('should not allow a user to buy tickets if the lottery is closed', async () => {
+// 		await tryCatchRevertError(instance.DrawWinnerTicket())
+// 		await instance.BuyTickets({ from: BUYER, value: TICKET_PRICE * 10 })
+// 	})
+// })
 
 export {}
