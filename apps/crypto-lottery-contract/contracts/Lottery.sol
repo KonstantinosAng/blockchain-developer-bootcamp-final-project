@@ -20,6 +20,7 @@ contract Lottery {
 
 	uint256 public expiration; // Timeout in case that the lottery was not carried out.
 	address public lotteryOwner; // the creator of the lottery
+	uint256 public operatorTotalCommission = 0; // the total commission balance
 	LastWinner public lastWinner; // the last winner of the lottery
 
 	mapping(address => uint256) public winnings; // maps the winners to there winnings
@@ -110,6 +111,8 @@ contract Lottery {
 		winnings[winner] += (tickets.length * (ticketPrice - ticketCommission));
 		// update last winner
 		lastWinner = LastWinner(winner, winnings[winner]);
+		// update operator total commission
+		operatorTotalCommission += (tickets.length * ticketCommission);
 		// empty tickets in order for the new lottery to start
 		delete tickets;
 		// update lottery expiration time
