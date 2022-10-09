@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 pragma solidity >=0.8.0 <0.9.0;
 
@@ -7,6 +8,8 @@ pragma solidity >=0.8.0 <0.9.0;
 // @author K. Angelopoulos
 // @notice You can use this contract to construct new Lotteries
 contract Lottery {
+	using SafeMath for uint256;
+
 	// Struct to keep track of the last winner
 	struct LastWinner {
 		address _lastWinnerAddress; // last winner address
