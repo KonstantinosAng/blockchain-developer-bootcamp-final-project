@@ -19,6 +19,7 @@ const ContractProvider = ({ children, address }: Props) => {
 	const setBuyTickets = useContractStore((state: ContractStoreStateProps) => state.setBuyTickets)
 
 	const { contract } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
+
 	const { data: remainingTickets } = useContractData(contract, "RemainingTickets")
 	const { data: currentWinningReward } = useContractData(contract, "CurrentWinningReward")
 	const { data: ticketPrice } = useContractData(contract, "ticketPrice")
