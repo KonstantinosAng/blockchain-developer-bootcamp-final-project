@@ -5,7 +5,7 @@
   "scripts": {
     "truffle:compile": "truffle compile",
     "truffle:migrate": "tsc -p ./tsconfig.migrate.json --outDir migrations && truffle migrate",
-    "truffle:test": "truffle test",
+    "truffle:test": "truffle test --network development",
     "removeMigrations": "node ./scripts/remove-migrations.mjs",
     "tsc": "tsc --noEmit",
     "generate-types": "typechain --target=truffle-v5 './build/contracts/*.json'",

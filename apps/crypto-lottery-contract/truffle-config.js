@@ -48,21 +48,22 @@ require("ts-node").register({
 		typeRoots: ["./node_modules/@types", "./types"],
 	},
 	include: ["**/*.ts", "**/*.test.ts", "**/*.d.ts"],
-})
+});
 
-require("dotenv").config()
+require("dotenv").config();
 
-const { MNEMONIC } = process.env
+const { MNEMONIC } = process.env;
 
-const HDWalletProvider = require("@truffle/hdwallet-provider")
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 let provider = () =>
 	new HDWalletProvider({
 		mnemonic: {
-			phrase: MNEMONIC ?? "test 123 mnemonic phrase for consensys bootcamp develop",
+			phrase:
+				MNEMONIC ?? "test 123 mnemonic phrase for consensys bootcamp develop",
 		},
 		providerOrUrl: "http://localhost:8545",
-	})
+	});
 
 module.exports = {
 	/**
@@ -156,4 +157,4 @@ module.exports = {
 	//     }
 	//   }
 	// }
-}
+};
