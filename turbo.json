@@ -12,7 +12,9 @@
 		},
 		"crypto-lottery#build": {
 			"dependsOn": [
-				"^build",
+				"^build"
+			],
+			"env": [
 				"$BROWSER",
 				"$NEXT_TELEMETRY_DISABLED",
 				"$NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS",
@@ -24,7 +26,8 @@
 			]
 		},
 		"crypto_lottery_contract": {
-			"dependsOn": [
+			"dependsOn": [],
+			"env": [
 				"$MNEMONIC"
 			],
 			"outputs": [
@@ -86,16 +89,27 @@
 			"cache": false
 		},
 		"truffle:migrate": {
-			"dependsOn": [],
+			"dependsOn": [
+				"truffle:compile",
+				"truffle:test"
+			],
 			"outputs": []
 		},
 		"truffle:test": {
-			"dependsOn": [],
-			"outputs": []
+			"dependsOn": [
+				"truffle:compile"
+			],
+			"outputs": [],
+			"inputs": [
+				"test/**/*.test.ts"
+			]
 		},
 		"truffle:compile": {
 			"dependsOn": [],
-			"outputs": []
+			"outputs": [
+				"artifacts/**",
+				"build/contracts/**"
+			]
 		}
 	},
 	"globalDependencies": [
