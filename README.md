@@ -236,6 +236,11 @@ The tests are located in `apps/crypto-lottery-contract/test`
 
 __`All tests are written in Typescript and must end in .test.ts`__
 
+<br />
+
+### <img src="./images/ganache.svg" alt="ganache" width="20px" /> Run locally in ganache chain
+
+
 To run the tests start the ganache blockchain
 
 ```bash
@@ -247,6 +252,10 @@ and execute the following command
 ```bash
 yarn truffle:test
 ```
+
+### <img src="./images/rpcMatic.png" alt="polygon mumbai" width="20px" /> Run in Polygon's Mumbai Testnet
+
+1. Create an account in the official [`Matic/Polygon Testnet`](https://rpc.maticvigil.com/)
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
@@ -309,17 +318,19 @@ cd ../.. && npx turbo run build --filter=crypto-lottery
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 ```
 
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
+#
+
+## <img src="./images/new-release.png" alt="new-release" width="20px" /> Releases
+
+- [v1.0.0 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery)
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
-<!-- # -->
+#
 
-<!-- ### <img src="./images/new-release.png" alt="new-release" width="20px" /> Releases -->
+## <img src="./images/deployment.png" alt="deployment" width="20px" /> Deployments
 
-<!-- My [Releases](https://thirdweb.com/0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010/Lottery) -->
-
-<!-- ### <img src="./images/deployment.png" alt="deployment" width="20px" /> Deployments -->
-
-<!-- My [Deployments](https://thirdweb.com/mumbai/0xe8aB62c322cDDAf454E636A801e2F8c7772980Ea/) -->
+- [v1.0.0 (latest)](https://thirdweb.com/mumbai/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/)
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
@@ -327,7 +338,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 ## <img src="./images/metamask.svg" alt="vercel" width="24px" /> Public Address for verification
 
 ```bash
-0xcA1B3A854f4029d8fA3e9A5EA15a2065850AC010
+0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605
 ```
 
 ##### * Created as the final project of the [`ConsenSys blockchain developer bootcamp`](https://consensys.net/academy/bootcamp/)
