@@ -12,7 +12,9 @@ const MetaMaskProvider = ({ children }: Props) => {
 	const login = useMetamask()
 	const disconnect = useDisconnect()
 	const setLogin = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setLogin)
+	const setAddress = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setAddress)
 	const setDisconnect = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setDisconnect)
+	const setIsConnected = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setIsConnected)
 	const address = useAddress()
 
 	const clonedChildren = children ? cloneElement(children, { address }) : null
@@ -20,7 +22,9 @@ const MetaMaskProvider = ({ children }: Props) => {
 	useEffect(() => {
 		setLogin(login)
 		setDisconnect(disconnect)
-	}, [login, setLogin, disconnect, setDisconnect])
+		setIsConnected(!!address)
+		setAddress(address)
+	}, [login, setLogin, disconnect, setDisconnect, address, setIsConnected, setAddress])
 
 	return address ? clonedChildren : <Login login={login} />
 }

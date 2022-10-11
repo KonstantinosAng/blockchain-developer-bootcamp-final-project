@@ -7,6 +7,8 @@ import { ContractStoreStateProps } from "@stores/contractStore"
 import toast from "react-hot-toast"
 import { parseValue } from "@utils/formatValue"
 import Image from "next/future/image"
+import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
+import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 
 interface Props {}
 
@@ -18,7 +20,7 @@ const BuyTickets = ({ ...rest }: Props) => {
 	const ticketCommission = useContractStore((state: ContractStoreStateProps) => state.ticketCommission)
 	const buyTickets = useContractStore((state: ContractStoreStateProps) => state.buyTickets)
 	const lotteryTickets = useContractStore((state: ContractStoreStateProps) => state.lotteryTickets)
-	const address = useContractStore((state: ContractStoreStateProps) => state.address)
+	const address = useMetaMaskStore((state: MetamaskStoreStateProps) => state.address)
 
 	const [userTickets, setUserTickets] = useState<number>(0)
 

@@ -3,22 +3,24 @@ import { cloneElement, ReactElement, useEffect } from "react"
 import { useContractStore } from "@hooks/useContractStore"
 import { ContractStoreStateProps } from "@stores/contractStore"
 import formatValue from "@utils/formatValue"
+import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
+import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 
 interface Props {
 	children?: ReactElement
-	address?: string
 }
 
-const ContractProvider = ({ children, address }: Props) => {
+const ContractProvider = ({ children }: Props) => {
 	/* Store functions */
+	const address = useMetaMaskStore((state: MetamaskStoreStateProps) => state.address)
 	const setRemainingTickets = useContractStore((state: ContractStoreStateProps) => state.setRemainingTickets)
 	const setCurrentWinningReward = useContractStore((state: ContractStoreStateProps) => state.setCurrentWinningReward)
 	const setTicketPrice = useContractStore((state: ContractStoreStateProps) => state.setTicketPrice)
 	const setTicketCommission = useContractStore((state: ContractStoreStateProps) => state.setTicketCommission)
 	const setExpiration = useContractStore((state: ContractStoreStateProps) => state.setExpiration)
-	const setAddress = useContractStore((state: ContractStoreStateProps) => state.setAddress)
 	const setBuyTickets = useContractStore((state: ContractStoreStateProps) => state.setBuyTickets)
 	const setLotteryTickets = useContractStore((state: ContractStoreStateProps) => state.setLotteryTickets)
+	const setWinnings = useContractStore((state: ContractStoreStateProps) => state.setWinnings)
 
 	/* Contract */
 	const { contract } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
@@ -41,13 +43,12 @@ const ContractProvider = ({ children, address }: Props) => {
 		setTicketPrice(formatValue(ticketPrice?.toString()))
 		setTicketCommission(formatValue(ticketCommission?.toString()))
 		setExpiration(expiration?.toString())
-		setAddress(address)
 		setBuyTickets(buyTickets)
 		setLotteryTickets(tickets)
+		setWinnings(winnings)
 	}, [
 		setTicketCommission,
 		setExpiration,
-		setAddress,
 		setRemainingTickets,
 		setCurrentWinningReward,
 		setTicketPrice,
@@ -61,6 +62,8 @@ const ContractProvider = ({ children, address }: Props) => {
 		buyTickets,
 		tickets,
 		setLotteryTickets,
+		winnings,
+		setWinnings,
 	])
 
 	return children ? cloneElement(children, { contract }) : null

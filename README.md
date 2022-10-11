@@ -80,8 +80,6 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 > Calculate current winning reward.
 
 > Find the winner.
-
-> Calculate remaining tickets.
 ```
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->

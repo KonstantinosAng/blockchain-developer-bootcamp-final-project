@@ -17,12 +17,14 @@
     "postcss": "8.4.16",
     "prettier-plugin-tailwindcss": "0.1.13",
     "react": "18.2.0",
-    "tailwindcss-config": "*",
     "tailwindcss": "3.1.8",
+    "tailwindcss-config": "*",
     "tsconfig": "*",
     "typescript": "4.8.3"
   },
   "dependencies": {
-    "@uiball/loaders": "1.2.6"
+    "@uiball/loaders": "1.2.6",
+    "react-confetti": "6.1.0",
+    "react-use": "17.4.0"
   }
 }

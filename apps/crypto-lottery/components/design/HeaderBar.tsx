@@ -4,14 +4,14 @@ import { Flex, Box, Header, H10, H13 } from "ui"
 import NavButton from "@design/NavButton"
 import { Bars3BottomRightIcon } from "@heroicons/react/24/solid"
 import { useDisconnect } from "@thirdweb-dev/react"
-import { useContractStore } from "@hooks/useContractStore"
-import { ContractStoreStateProps } from "@stores/contractStore"
+import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
+import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 
 interface Props {}
 
 const HeaderBar = ({ ...rest }: Props): JSX.Element => {
 	const disconnect = useDisconnect()
-	const address = useContractStore((state: ContractStoreStateProps) => state.address)
+	const address = useMetaMaskStore((state: MetamaskStoreStateProps) => state.address)
 
 	return (
 		<Header className="grid grid-cols-2 items-center justify-between p-5 md:grid-cols-5" {...rest}>

@@ -1,41 +1,41 @@
 export interface ContractStoreStateProps {
-	address: string
 	remainingTickets: string
 	currentWinningReward: string
 	ticketPrice: string
 	ticketCommission: string
 	expiration: string
 	lotteryTickets: Array<string> | null
+	winnings: Number | null
 	buyTickets: () => void
 	setRemainingTickets: () => void
 	setCurrentWinningReward: () => void
 	setTicketPrice: () => void
 	setTicketCommission: () => void
 	setExpiration: () => void
-	setAddress: () => void
 	setBuyTickets: () => void
 	setLotteryTickets: () => void
+	setWinnings: () => void
 }
 
 interface InitialStateProps {
-	address: string | null
 	remainingTickets: string | null
 	currentWinningReward: string | null
 	ticketPrice: string | null
 	ticketCommission: string | null
 	expiration: string | null
 	lotteryTickets: Array<string> | null
+	winnings: number | null
 	buyTickets: () => void
 }
 
 const initialState: InitialStateProps = {
-	address: null,
 	remainingTickets: null,
 	currentWinningReward: null,
 	ticketPrice: null,
 	ticketCommission: null,
 	expiration: null,
 	lotteryTickets: null,
+	winnings: null,
 	buyTickets: () => {},
 }
 
@@ -67,11 +67,6 @@ const state = (preloadedState: object) => (set: Function, get: Function) => ({
 			expiration,
 		})
 	},
-	setAddress: (address: string) => {
-		set({
-			address,
-		})
-	},
 	setBuyTickets: (buyTickets: () => void) => {
 		set({
 			buyTickets,
@@ -80,6 +75,11 @@ const state = (preloadedState: object) => (set: Function, get: Function) => ({
 	setLotteryTickets: (lotteryTickets: Array<string>) => {
 		set({
 			lotteryTickets,
+		})
+	},
+	setWinnings: (winnings: number | null) => {
+		set({
+			winnings,
 		})
 	},
 	// increment: () => {

@@ -1,16 +1,24 @@
 export interface MetamaskStoreStateProps {
+	address: string
+	setAddress: () => void
+	isConnected: boolean | null
 	login: () => void | null
 	disconnect: () => void | null
 	setLogin: () => void
 	setDisconnect: () => void
+	setIsConnected: () => void
 }
 
 interface InitialStateProps {
+	address: string | null
+	isConnected: boolean | null
 	login: () => void | null
 	disconnect: () => void | null
 }
 
 const initialState: InitialStateProps = {
+	address: null,
+	isConnected: null,
 	login: () => {},
 	disconnect: () => {},
 }
@@ -18,6 +26,16 @@ const initialState: InitialStateProps = {
 const state = (preloadedState: object) => (set: Function, get: Function) => ({
 	...initialState,
 	...preloadedState,
+	setAddress: (address: string) => {
+		set({
+			address,
+		})
+	},
+	setIsConnected: (isConnected: boolean | null) => {
+		set({
+			isConnected,
+		})
+	},
 	setLogin: (login: Function) => {
 		set({
 			login,
