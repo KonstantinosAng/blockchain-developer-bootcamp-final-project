@@ -6,37 +6,76 @@
       <img src="./images/polygon.svg" width="48px" alt="polygon">
     </picture>
     <h1 style="font-weight: bold" align="center">ConsenSys Academy Final Project - Crypto Lottery</h1>
-  </a>
+	</a>
+</p>
+
+<p align="center">
+	<img src="https://img.shields.io/github/license/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="licence" />
+	<img src="https://img.shields.io/github/stars/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="stars" />
+	<img src="https://img.shields.io/github/forks/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="forks" />
+	<img src="https://img.shields.io/github/issues/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="issues" />
 </p>
 
 A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](https://nextjs.org), [`TypeScript`](https://www.typescriptlang.org/), [`ReactJS`](https://reactjs.org/), [`TailwindCSS`](https://tailwindcss.com/), [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/), [`Truffle`](https://trufflesuite.com/)  and [`ThirdWeb`](https://thirdweb.com/).
 
 A Polygon (MATIC) based app where any user can log in with his MetaMask wallet and buy lottery tickets. The duration of the lottery is 30 minutes. The more tickets a user have the more chances he has to win the prize.
 
-## Actions
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
+#
 
-<br />
+<details>
+  <summary style="font-size: 1.7rem" id="tableOfContents">Sections</summary>
+	<ul>
+		<li><a href="#actions">Actions</a></li>
+		<li><a href="#demo">Demo Link</a></li>
+		<li><a href="#apps">Apps and Packages</a></li>
+		<li><a href="#utilities">Utilities</a></li>
+		<li><a href="#requirements">Prerequisites</a></li>
+		<li><a href="#ui">Frontend</a></li>
+		<ul>
+			<li><a href="#docker">Docker</a></li>
+		</ul>
+		<li><a href="#contract">Contract</a></li>
+		<li><a href="#test">Solidity Tests</a></li>
+		<ul>
+			<li><a href="#test-locally">Test locally with ganache</a></li>
+			<li><a href="#test-matic">Test in polygon's mumbai testnet</a></li>
+		</ul>
+			<li><a href="#deploy-thirdweb">Deploy the smart contract in thirdweb</a></li>
+			<li><a href="#deploy-docker">Deploy the frontend with Docker in a dedicated Server</a></li>
+			<li><a href="#deploy-vercel">Deploy the frontend to Vercel</a></li>
+			<li><a href="#releases">Releases</a></li>
+			<li><a href="#deployments">Deployments</a></li>
+			<li><a href="#public-address">Public Address</a></li>
+	</ul>
 
-### ***`Buyer actions`***
+</details>
+
+<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
+#
+
+## <img src="./images/action.png" id="actions" alt="actions" width="20px" /> Actions
+
+#### ***`Buyer actions`***
 
 ```md
 > Buy tickets.
 
-> Refund all tickets before the lottery ends.
-
 > Withdraw winnings.
+
+> Check winnings amount.
 ```
 
-<br />
-
-### ***`Lottery bank actions`***
+#### ***`Lottery bank actions`***
 
 ```md
+> Refund all tickets before the lottery ends.
+
 > Draw winner ticket.
 
 > Withdraw commission.
 
-> Restart draw.
+> Restart lottery.
 
 > Calculate current winning reward.
 
@@ -50,7 +89,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 
 <div align="center">
 
-[<img alt="demo" width="100px" src="./images/demo.png" />](https://blockchain-bootcamp.constantine.dev/)
+[<img alt="demo" id="demo" width="80px" src="./images/demo.png" />](https://blockchain-bootcamp.constantine.dev/)
 
 </div>
 
@@ -58,9 +97,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-<br />
-
-## <img src="./images/apps.png" alt="apps" width="20px" /> Apps and Packages
+## <img src="./images/apps.png" id="apps" alt="apps" width="20px" /> Apps and Packages
 
 - `📁 crypto-lottery`: a [`Next.js`](https://nextjs.org) app for the ui
 - `📁 crypto-lottery-contract`: a [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/) app for the smart contract
@@ -69,7 +106,7 @@ A Polygon (MATIC) based app where any user can log in with his MetaMask wallet a
 - `📁 tsconfig`: `tsconfig.json`'s used throughout the monorepo
 - `📁 tailwindcss-config`: `tailwind.config.js`'s used throughout the monorepo
 
-## <img src="./images/utility.png" alt="utility" width="20px" /> Utilities
+## <img src="./images/utility.png" id="utilities" alt="utility" width="20px" /> Utilities
 
 This turborepo has some additional tools already setup for you:
 
@@ -87,7 +124,7 @@ This turborepo has some additional tools already setup for you:
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/requirement.png" alt="requirement" width="20px" /> Prerequisites
+## <img src="./images/requirement.png" id="requirements" alt="requirement" width="20px" /> Prerequisites
 
 Install these globally on your computer
 
@@ -97,7 +134,7 @@ Install these globally on your computer
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/ux.png" alt="ux" width="20px" /> [`Frontend`](apps/crypto-lottery)
+## <img src="./images/ux.png" id="ui" alt="ux" width="20px" /> [`Frontend`](apps/crypto-lottery)
 
 ### Install Dependencies
 
@@ -149,7 +186,7 @@ and then
 docker run --env-file ./apps/crypto-lottery/.env.local -it --rm -v ${PWD}/packages/ui:/app/packages/ui -v ${PWD}/apps/crypto-lottery:/app/apps/crypto-lottery -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true --name crypto-lottery-app crypto-lottery
 ```
 
-## <img src="./images/docker.png" alt="docker" width="20px" /> Docker
+## <img src="./images/docker.png" id="docker" alt="docker" width="20px" /> Docker
 
 To build a production ready docker image, run the following command:
 
@@ -186,7 +223,7 @@ yarn docker:bash
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/agreement.png" alt="agreement" width="20px" /> [`Smart Contract`](apps/crypto-lottery-contract)
+## <img src="./images/agreement.png" id="contract" alt="agreement" width="20px" /> [`Smart Contract`](apps/crypto-lottery-contract)
 
 ### Install Dependencies
 
@@ -230,13 +267,13 @@ Copy a private key from a ganache account and click on MetaMask import account
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/test.png" alt="test" width="20px" /> Solidity Tests
+## <img src="./images/test.png" id="test" alt="test" width="20px" /> Solidity Tests
 
 The tests are located in `apps/crypto-lottery-contract/test`
 
 __`All tests are written in Typescript and must end in .test.ts`__
 
-### <img src="./images/ganache.svg" alt="ganache" width="20px" /> Run locally in ganache chain
+### <img src="./images/ganache.svg" id="test-locally" alt="ganache" width="20px" /> Run locally in ganache chain
 
 
 To run the tests start the ganache blockchain
@@ -251,7 +288,7 @@ and execute the following command
 yarn truffle:test
 ```
 
-### <img src="./images/rpcMatic.png" alt="polygon mumbai" width="20px" /> Run in Polygon's Mumbai Testnet
+### <img src="./images/rpcMatic.png" id="test-matic" alt="polygon mumbai" width="20px" /> Run in Polygon's Mumbai Testnet
 
 1. Create an account in the official [`Matic/Polygon Testnet`](https://rpc.maticvigil.com/).
 
@@ -266,9 +303,9 @@ MATIC_RPC_ID=
 
 `Note: For the value of MNEMONIC add without the quotes, ex: MNEMONIC=lorem ipsum dolor sit amet`
 
-4. Add some matic to your account using the [`Polygon Faucets`](#deploy-the-smart-contract-in-thirdweb) above.
+1. Add some matic to your account using the [`Polygon Faucets`](#deploy) below.
 
-5. Run the following command:
+2. Run the following command:
 
 ```bash
 yarn truffle:test-matic
@@ -277,7 +314,7 @@ yarn truffle:test-matic
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/deploy.png" alt="deploy" width="20px" /> Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/)
+## <img src="./images/deploy.png" id="deploy-thirdweb" alt="deploy" width="20px" /> Deploy the smart contract in [`Thirdweb`](https://thirdweb.com/)
 
 ```bash
 cd apps/crypto-lottery-contract
@@ -300,7 +337,7 @@ npx thirdweb@latest release
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 ```
 
-## <img src="./images/deploy.png" alt="deploy" width="20px" /> Deploy the frontend with Docker in a dedicated Server
+## <img src="./images/deploy.png" id="deploy-docker" alt="deploy" width="20px" /> Deploy the frontend with Docker in a dedicated Server
 
 Create a .env.production.local file on the root of the apps/crypto-lottery app, based on the .env.example file
 
@@ -319,7 +356,7 @@ yarn docker:compose:up
 
 Navigate to http://localhost:1237 from the server or expose the 1237 server's port and go to http://<serverIp>:1237 from anywhere you want.
 
-## <img src="./images/vercel.png" alt="vercel" width="24px" /> Deploy to [`Vercel`](https://vercel.com/)
+## <img src="./images/vercel.png" id="deploy-vercel" alt="vercel" width="24px" /> Deploy the frontend to [`Vercel`](https://vercel.com/)
 
 1. Point the root directory to `apps/crypto-lottery`
 
@@ -335,18 +372,18 @@ cd ../.. && npx turbo run build --filter=crypto-lottery
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 ```
 
-## <img src="./images/new-release.png" alt="new-release" width="20px" /> Releases
+## <img src="./images/new-release.png" id="releases" alt="new-release" width="20px" /> Releases
 
 - [v1.0.0 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery)
 
-## <img src="./images/deployment.png" alt="deployment" width="20px" /> Deployments
+## <img src="./images/deployment.png" id="deployments" alt="deployment" width="20px" /> Deployments
 
 - [v1.0.0 (latest)](https://thirdweb.com/mumbai/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/)
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/metamask.svg" alt="vercel" width="24px" /> Public Address for verification
+## <img src="./images/metamask.svg" id="public-address" alt="vercel" width="24px" /> Public Address for verification
 
 ```bash
 0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605
