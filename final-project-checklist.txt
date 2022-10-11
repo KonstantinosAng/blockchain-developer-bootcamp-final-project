@@ -4,7 +4,7 @@ Please answer the following questions. Does your project:
 
 1. Follow this naming format: https://github.com/YOUR_GITHUB_USERNAME_HERE/blockchain-developer-bootcamp-final-project?  ✅YES
 
-2. Contain a README.md file which describes the project, describes the directory structure, and where the frontend project can be accessed? And has your public Ethereum address if you'd like your certification as an NFT (optional)?
+2. Contain a README.md file which describes the project, describes the directory structure, and where the frontend project can be accessed? And has your public Ethereum address if you'd like your certification as an NFT (optional)? ✅YES
 
 3. Contain smart contract(s) which:
 --Are commented to the specs described by NatSpec Solidity documentation
@@ -15,7 +15,7 @@ Please answer the following questions. Does your project:
 
 4. Contain a Markdown file named design_pattern_decisions.md and avoiding_common_attacks.md?
 
-5. Have at least five smart contract unit tests that pass?
+5. Have at least five smart contract unit tests that pass? ✅YES
 
 6. Contain a `deployed_address.txt` file which contains the testnet address and network where your contract(s) have been deployed? ✅YES
 
