@@ -236,8 +236,6 @@ The tests are located in `apps/crypto-lottery-contract/test`
 
 __`All tests are written in Typescript and must end in .test.ts`__
 
-<br />
-
 ### <img src="./images/ganache.svg" alt="ganache" width="20px" /> Run locally in ganache chain
 
 
