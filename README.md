@@ -255,7 +255,26 @@ yarn truffle:test
 
 ### <img src="./images/rpcMatic.png" alt="polygon mumbai" width="20px" /> Run in Polygon's Mumbai Testnet
 
-1. Create an account in the official [`Matic/Polygon Testnet`](https://rpc.maticvigil.com/)
+1. Create an account in the official [`Matic/Polygon Testnet`](https://rpc.maticvigil.com/).
+
+2. Create an App from the dashboard.
+
+3. Copy your MetaMask mnemonic and your app's Mumbai Testnet RPC URL and create a .env at (apps/crypto-lottery-contract) as the .env.example provided and fill in your values
+
+```bash
+MNEMONIC=
+MATIC_RPC_ID=
+```
+
+`Note: For the value of MNEMONIC add without the quotes, ex: MNEMONIC=lorem ipsum dolor sit amet`
+
+4. Add some matic to your account using the [`Polygon Faucets`](#deploy-the-smart-contract-in-thirdweb) above.
+
+5. Run the following command:
+
+```bash
+yarn truffle:test-matic
+```
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #

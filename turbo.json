@@ -28,7 +28,8 @@
 		"crypto_lottery_contract": {
 			"dependsOn": [],
 			"env": [
-				"$MNEMONIC"
+				"$MNEMONIC",
+				"$MATIC_RPC_ID"
 			],
 			"outputs": [
 				"build/**"
@@ -104,6 +105,15 @@
 				"test/**/*.test.ts"
 			]
 		},
+		"truffle:test-matic": {
+			"dependsOn": [
+				"truffle:compile"
+			],
+			"outputs": [],
+			"inputs": [
+				"test/**/*.test.ts"
+			]
+		},
 		"truffle:compile": {
 			"dependsOn": [],
 			"outputs": [
@@ -122,6 +132,7 @@
 		"$NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS",
 		"$NODE_ENV",
 		"$PORT",
-		"$MNEMONIC"
+		"$MNEMONIC",
+		"$MATIC_RPC_ID"
 	]
 }

@@ -58,6 +58,7 @@
 		"ganache:start": "ganache-cli -p 8545",
 		"truffle:migrate": "turbo run truffle:migrate --scope=crypto_lottery_contract",
 		"truffle:test": "turbo run truffle:test --scope=crypto_lottery_contract",
+		"truffle:test-matic": "turbo run truffle:test-matic --scope=crypto_lottery_contract",
 		"truffle:compile": "turbo run truffle:compile --scope=crypto_lottery_contract",
 		"changeset:version": "turbo run build && changeset version",
 		"changeset:publish": "turbo run build && changeset publish",

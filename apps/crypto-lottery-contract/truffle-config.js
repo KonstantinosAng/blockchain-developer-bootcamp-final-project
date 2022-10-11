@@ -52,18 +52,9 @@ require("ts-node").register({
 
 require("dotenv").config();
 
-const { MNEMONIC } = process.env;
+const { MNEMONIC, MATIC_RPC_ID } = process.env;
 
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-
-let provider = () =>
-	new HDWalletProvider({
-		mnemonic: {
-			phrase:
-				MNEMONIC ?? "test 123 mnemonic phrase for consensys bootcamp develop",
-		},
-		providerOrUrl: "http://localhost:8545",
-	});
 
 module.exports = {
 	/**
@@ -87,6 +78,17 @@ module.exports = {
 			host: "127.0.0.1", // Localhost (default: none)
 			port: 8545, // Standard Ethereum port (default: none)
 			network_id: "*", // Any network (default: none)
+		},
+		matic: {
+			provider: () =>
+				new HDWalletProvider(
+					MNEMONIC,
+					`https://rpc-mumbai.maticvigil.com/v1/${MATIC_RPC_ID}`
+				),
+			network_id: 80001,
+			confirmations: 2,
+			timeoutBlocks: 200,
+			skipDryRun: true,
 		},
 		//
 		// An additional network, but with some advanced options…
