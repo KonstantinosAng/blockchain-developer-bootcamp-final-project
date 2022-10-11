@@ -10,6 +10,7 @@ interface Props {
 }
 
 const ContractProvider = ({ children, address }: Props) => {
+	/* Store functions */
 	const setRemainingTickets = useContractStore((state: ContractStoreStateProps) => state.setRemainingTickets)
 	const setCurrentWinningReward = useContractStore((state: ContractStoreStateProps) => state.setCurrentWinningReward)
 	const setTicketPrice = useContractStore((state: ContractStoreStateProps) => state.setTicketPrice)
@@ -17,15 +18,21 @@ const ContractProvider = ({ children, address }: Props) => {
 	const setExpiration = useContractStore((state: ContractStoreStateProps) => state.setExpiration)
 	const setAddress = useContractStore((state: ContractStoreStateProps) => state.setAddress)
 	const setBuyTickets = useContractStore((state: ContractStoreStateProps) => state.setBuyTickets)
+	const setLotteryTickets = useContractStore((state: ContractStoreStateProps) => state.setLotteryTickets)
 
+	/* Contract */
 	const { contract } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
 
+	/* Contract Data */
 	const { data: remainingTickets } = useContractData(contract, "RemainingTickets")
 	const { data: currentWinningReward } = useContractData(contract, "CurrentWinningReward")
 	const { data: ticketPrice } = useContractData(contract, "ticketPrice")
 	const { data: ticketCommission } = useContractData(contract, "ticketCommission")
 	const { data: expiration } = useContractData(contract, "expiration")
-
+	const { data: tickets } = useContractData(contract, "getTickets")
+	const { data: winnings } = useContractData(contract, "getWinningsForAddress", address)
+	// console.log(winnings)
+	/* Contract Functions */
 	const { mutateAsync: buyTickets } = useContractCall(contract, "BuyTickets")
 
 	useEffect(() => {
@@ -36,6 +43,7 @@ const ContractProvider = ({ children, address }: Props) => {
 		setExpiration(expiration?.toString())
 		setAddress(address)
 		setBuyTickets(buyTickets)
+		setLotteryTickets(tickets)
 	}, [
 		setTicketCommission,
 		setExpiration,
@@ -51,6 +59,8 @@ const ContractProvider = ({ children, address }: Props) => {
 		expiration,
 		address,
 		buyTickets,
+		tickets,
+		setLotteryTickets,
 	])
 
 	return children ? cloneElement(children, { contract }) : null

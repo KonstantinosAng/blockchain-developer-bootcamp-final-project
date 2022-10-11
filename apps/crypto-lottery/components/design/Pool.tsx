@@ -17,7 +17,7 @@ const Pool = ({ contract, ...rest }: Props) => {
 	return (
 		<Box className="stats-container space-y-2" {...rest}>
 			<H5 className="text-center text-slate-100"> The Next Draw </H5>
-			<Flex className="justify-between space-x-2 p-2">
+			<Flex className="flex-wrap justify-between gap-2 p-2 md:flex-nowrap">
 				<Box className="stats">
 					<H12> Total Pool </H12>
 					<LoadingWrapper size={loaderSize} loading={!currentWinningReward}>

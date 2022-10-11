@@ -25,7 +25,7 @@ const CountDown = ({ contract, ...rest }: Props) => {
 			return (
 				<Box className="w-full">
 					<H9 className="text-center text-white motion-safe:animate-bounce">Ticket Sales have now CLOSED for this draw</H9>
-					<Flex className="w-full justify-evenly space-x-2">
+					<Flex className="w-full flex-wrap justify-evenly gap-x-2 md:flex-nowrap">
 						<Box className="flex-1">
 							<H5 className="countdown motion-safe:animate-pulse">{hours ?? 0}</H5>
 							<H12 className="countdown-label">hours</H12>
@@ -45,7 +45,7 @@ const CountDown = ({ contract, ...rest }: Props) => {
 			return (
 				<>
 					<H10 className="mb-4 italic text-white">Time Remaining</H10>
-					<Flex className="w-full justify-evenly space-x-2">
+					<Flex className="w-full flex-wrap justify-evenly gap-x-2 md:flex-nowrap">
 						<Box className="flex-1">
 							<H5 className="countdown">{hours ?? 0}</H5>
 							<H12 className="countdown-label">hours</H12>

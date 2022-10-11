@@ -9,22 +9,64 @@ export interface LotteryContract extends Truffle.Contract<LotteryInstance> {
   "new"(meta?: Truffle.TransactionDetails): Promise<LotteryInstance>;
 }
 
-type AllEvents = never;
+export interface LotteryRestart {
+  name: "LotteryRestart";
+  args: {
+    _newLotteryExpiration: BN;
+    0: BN;
+  };
+}
+
+export interface RefundAllTickets {
+  name: "RefundAllTickets";
+  args: {
+    _refundAllTickets: boolean;
+    0: boolean;
+  };
+}
+
+export interface TicketsBought {
+  name: "TicketsBought";
+  args: {
+    _buyerAddress: string;
+    _ticketsBought: BN;
+    0: string;
+    1: BN;
+  };
+}
+
+export interface WinnerTicketDrawn {
+  name: "WinnerTicketDrawn";
+  args: {
+    _winnerAddress: string;
+    _winnersWinnings: BN;
+    0: string;
+    1: BN;
+  };
+}
+
+type AllEvents =
+  | LotteryRestart
+  | RefundAllTickets
+  | TicketsBought
+  | WinnerTicketDrawn;
 
 export interface LotteryInstance extends Truffle.ContractInstance {
   duration(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   expiration(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
-  lastWinner(txDetails?: Truffle.TransactionDetails): Promise<string>;
+  lastWinner(
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ 0: string; 1: BN }>;
 
-  lastWinnerAmount(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+  lotteryOwner(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
-  lotteryOperator(txDetails?: Truffle.TransactionDetails): Promise<string>;
+  lotteryOwnerTotalCommission(
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
 
   maxTickets(txDetails?: Truffle.TransactionDetails): Promise<BN>;
-
-  operatorTotalCommission(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   ticketCommission(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
@@ -62,7 +104,7 @@ export interface LotteryInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
-  restartDraw: {
+  restartLottery: {
     (txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
     >;
@@ -111,17 +153,17 @@ export interface LotteryInstance extends Truffle.ContractInstance {
 
     expiration(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
-    lastWinner(txDetails?: Truffle.TransactionDetails): Promise<string>;
+    lastWinner(
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<{ 0: string; 1: BN }>;
 
-    lastWinnerAmount(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+    lotteryOwner(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
-    lotteryOperator(txDetails?: Truffle.TransactionDetails): Promise<string>;
-
-    maxTickets(txDetails?: Truffle.TransactionDetails): Promise<BN>;
-
-    operatorTotalCommission(
+    lotteryOwnerTotalCommission(
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
+
+    maxTickets(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
     ticketCommission(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
@@ -159,7 +201,7 @@ export interface LotteryInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
-    restartDraw: {
+    restartLottery: {
       (txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
       >;
