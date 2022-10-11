@@ -318,15 +318,9 @@ cd ../.. && npx turbo run build --filter=crypto-lottery
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 ```
 
-<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
-#
-
 ## <img src="./images/new-release.png" alt="new-release" width="20px" /> Releases
 
 - [v1.0.0 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery)
-
-<!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
-#
 
 ## <img src="./images/deployment.png" alt="deployment" width="20px" /> Deployments
 
