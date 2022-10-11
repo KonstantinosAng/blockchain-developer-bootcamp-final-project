@@ -378,7 +378,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 ## <img src="./images/deployment.png" id="deployments" alt="deployment" width="20px" /> Deployments
 
-- [v1.0.0 (latest)](https://thirdweb.com/mumbai/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/)
+- [v1.0.0 (latest)](https://thirdweb.com/mumbai/0x89208851Fcfb85E6d33084e4eADa4c639aCb0cbf/)
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
