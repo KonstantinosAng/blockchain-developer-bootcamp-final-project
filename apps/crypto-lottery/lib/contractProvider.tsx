@@ -21,6 +21,14 @@ const ContractProvider = ({ children }: Props) => {
 	const setBuyTickets = useContractStore((state: ContractStoreStateProps) => state.setBuyTickets)
 	const setLotteryTickets = useContractStore((state: ContractStoreStateProps) => state.setLotteryTickets)
 	const setWinnings = useContractStore((state: ContractStoreStateProps) => state.setWinnings)
+	const setWithdrawWinnings = useContractStore((state: ContractStoreStateProps) => state.setWithdrawWinnings)
+	const setLastWinner = useContractStore((state: ContractStoreStateProps) => state.setLastWinner)
+	const setLotteryOwner = useContractStore((state: ContractStoreStateProps) => state.setLotteryOwner)
+	const setLotteryOwnerTotalCommission = useContractStore((state: ContractStoreStateProps) => state.setLotteryOwnerTotalCommission)
+	const setDrawWinningTicket = useContractStore((state: ContractStoreStateProps) => state.setDrawWinningTicket)
+	const setWithdrawCommission = useContractStore((state: ContractStoreStateProps) => state.setWithdrawCommission)
+	const setRestartLottery = useContractStore((state: ContractStoreStateProps) => state.setRestartLottery)
+	const setRefundAll = useContractStore((state: ContractStoreStateProps) => state.setRefundAll)
 
 	/* Contract */
 	const { contract } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
@@ -33,10 +41,21 @@ const ContractProvider = ({ children }: Props) => {
 	const { data: expiration } = useContractData(contract, "expiration")
 	const { data: tickets } = useContractData(contract, "getTickets")
 	const { data: winnings } = useContractData(contract, "getWinningsForAddress", address)
-	// console.log(winnings)
+	const { data: lastWinner } = useContractData(contract, "lastWinner")
+	const { data: lotteryOwner } = useContractData(contract, "lotteryOwner")
+	const { data: lotteryOwnerTotalCommission } = useContractData(contract, "lotteryOwnerTotalCommission")
+
 	/* Contract Functions */
 	const { mutateAsync: buyTickets } = useContractCall(contract, "BuyTickets")
+	const { mutateAsync: withdrawWinnings } = useContractCall(contract, "WithdrawWinnings")
+	const { mutateAsync: drawWinningTicket } = useContractCall(contract, "DrawWinnerTicket")
+	const { mutateAsync: withdrawCommission } = useContractCall(contract, "WithdrawCommission")
+	const { mutateAsync: restartLottery } = useContractCall(contract, "restartLottery")
+	const { mutateAsync: refundAll } = useContractCall(contract, "RefundAll")
 
+	// console.log({ refundAll })
+
+	/* Set Store */
 	useEffect(() => {
 		setRemainingTickets(remainingTickets?.toNumber())
 		setCurrentWinningReward(formatValue(currentWinningReward?.toString()))
@@ -46,6 +65,14 @@ const ContractProvider = ({ children }: Props) => {
 		setBuyTickets(buyTickets)
 		setLotteryTickets(tickets)
 		setWinnings(winnings)
+		setWithdrawWinnings(withdrawWinnings)
+		setLastWinner(lastWinner)
+		setLotteryOwner(lotteryOwner)
+		setLotteryOwnerTotalCommission(lotteryOwnerTotalCommission)
+		setDrawWinningTicket(drawWinningTicket)
+		setWithdrawCommission(withdrawCommission)
+		setRestartLottery(restartLottery)
+		setRefundAll(refundAll)
 	}, [
 		setTicketCommission,
 		setExpiration,
@@ -64,6 +91,21 @@ const ContractProvider = ({ children }: Props) => {
 		setLotteryTickets,
 		winnings,
 		setWinnings,
+		withdrawWinnings,
+		setWithdrawWinnings,
+		lastWinner,
+		setLastWinner,
+		lotteryOwner,
+		setLotteryOwnerTotalCommission,
+		lotteryOwnerTotalCommission,
+		setDrawWinningTicket,
+		drawWinningTicket,
+		setWithdrawCommission,
+		withdrawCommission,
+		restartLottery,
+		setRestartLottery,
+		refundAll,
+		setRefundAll,
 	])
 
 	return children ? cloneElement(children, { contract }) : null

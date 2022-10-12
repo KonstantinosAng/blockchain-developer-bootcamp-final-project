@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Box, Button, Flex, H12, H9, Input, LoadingWrapper, Label, H11, H10 } from "ui"
 import Ticket from "ui/assets/tickets.png"
-import { currency, loaderSize } from "@constants"
+import { currency, getNotificationErrorMessage, loaderSize } from "@constants"
 import { useContractStore } from "@hooks/useContractStore"
 import { ContractStoreStateProps } from "@stores/contractStore"
 import toast from "react-hot-toast"
@@ -28,7 +28,7 @@ const BuyTickets = ({ ...rest }: Props) => {
 		if (!ticketPrice) return
 		if (quantity < 1) return
 
-		const notification = toast.loading("Buying your ticket...")
+		const notification = toast.loading(`Buying your ${quantity === 1 ? "ticket" : "tickets"}...`)
 
 		try {
 			await buyTickets([
@@ -42,7 +42,7 @@ const BuyTickets = ({ ...rest }: Props) => {
 			})
 		} catch (err) {
 			console.error(err)
-			toast.error("Something went wrong! 😭", {
+			toast.error(getNotificationErrorMessage(), {
 				id: notification,
 			})
 		}

@@ -33,6 +33,10 @@
 		@apply text-white text-center uppercase mt-4
 	}
 
+	.adminButton {
+		@apply flex flex-wrap items-center justify-center gap-x-2 hover:bg-opacity-50 md:block md:flex-nowrap
+	}
+
 }
 
 * {

@@ -9,16 +9,20 @@ interface Props {
 }
 
 const MetaMaskProvider = ({ children }: Props) => {
-	const login = useMetamask()
-	const disconnect = useDisconnect()
+	/* Store functions */
 	const setLogin = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setLogin)
 	const setAddress = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setAddress)
 	const setDisconnect = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setDisconnect)
 	const setIsConnected = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setIsConnected)
+
+	/* Metamask Data */
+	const login = useMetamask()
+	const disconnect = useDisconnect()
 	const address = useAddress()
 
 	const clonedChildren = children ? cloneElement(children, { address }) : null
 
+	/* Set Store */
 	useEffect(() => {
 		setLogin(login)
 		setDisconnect(disconnect)

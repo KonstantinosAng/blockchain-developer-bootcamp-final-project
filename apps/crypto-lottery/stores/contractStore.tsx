@@ -5,8 +5,17 @@ export interface ContractStoreStateProps {
 	ticketCommission: string
 	expiration: string
 	lotteryTickets: Array<string> | null
-	winnings: Number | null
+	winnings: number | null
+	lastWinner: Array<string | number> | null
+	lotteryOwner: string | null
+	lotteryOwnerTotalCommission: number | null
 	buyTickets: () => void
+	withdrawWinnings: () => void
+	drawWinningTicket: () => void
+	withdrawCommission: () => void
+	restartLottery: () => void
+	refundAll: () => void
+	setWithdrawWinnings: () => void
 	setRemainingTickets: () => void
 	setCurrentWinningReward: () => void
 	setTicketPrice: () => void
@@ -15,6 +24,13 @@ export interface ContractStoreStateProps {
 	setBuyTickets: () => void
 	setLotteryTickets: () => void
 	setWinnings: () => void
+	setLastWinner: () => void
+	setLotteryOwner: () => void
+	setLotteryOwnerTotalCommission: () => void
+	setDrawWinningTicket: () => void
+	setWithdrawCommission: () => void
+	setRestartLottery: () => void
+	setRefundAll: () => void
 }
 
 interface InitialStateProps {
@@ -25,7 +41,15 @@ interface InitialStateProps {
 	expiration: string | null
 	lotteryTickets: Array<string> | null
 	winnings: number | null
+	lastWinner: Array<string | number> | null
+	lotteryOwner: string | null
+	lotteryOwnerTotalCommission: number | null
 	buyTickets: () => void
+	withdrawWinnings: () => void
+	drawWinningTicket: () => void
+	withdrawCommission: () => void
+	restartLottery: () => void
+	refundAll: () => void
 }
 
 const initialState: InitialStateProps = {
@@ -36,7 +60,15 @@ const initialState: InitialStateProps = {
 	expiration: null,
 	lotteryTickets: null,
 	winnings: null,
+	lastWinner: null,
+	lotteryOwner: null,
+	lotteryOwnerTotalCommission: null,
 	buyTickets: () => {},
+	withdrawWinnings: () => {},
+	drawWinningTicket: () => {},
+	withdrawCommission: () => {},
+	restartLottery: () => {},
+	refundAll: () => {},
 }
 
 const state = (preloadedState: object) => (set: Function, get: Function) => ({
@@ -80,6 +112,46 @@ const state = (preloadedState: object) => (set: Function, get: Function) => ({
 	setWinnings: (winnings: number | null) => {
 		set({
 			winnings,
+		})
+	},
+	setWithdrawWinnings: (withdrawWinnings: number | null) => {
+		set({
+			withdrawWinnings,
+		})
+	},
+	setLastWinner: (lastWinner: Array<string | number> | null) => {
+		set({
+			lastWinner,
+		})
+	},
+	setLotteryOwner: (lotteryOwner: Array<string | number> | null) => {
+		set({
+			lotteryOwner,
+		})
+	},
+	setLotteryOwnerTotalCommission: (lotteryOwnerTotalCommission: number | null) => {
+		set({
+			lotteryOwnerTotalCommission,
+		})
+	},
+	setDrawWinningTicket: (drawWinningTicket: () => void) => {
+		set({
+			drawWinningTicket,
+		})
+	},
+	setWithdrawCommission: (withdrawCommission: () => void) => {
+		set({
+			withdrawCommission,
+		})
+	},
+	setRestartLottery: (restartLottery: () => void) => {
+		set({
+			restartLottery,
+		})
+	},
+	setRefundAll: (refundAll: () => void) => {
+		set({
+			refundAll,
 		})
 	},
 	// increment: () => {
