@@ -97,9 +97,7 @@
 			"outputs": []
 		},
 		"truffle:test": {
-			"dependsOn": [
-				"truffle:compile"
-			],
+			"dependsOn": [],
 			"outputs": [],
 			"inputs": [
 				"test/**/*.test.ts"
@@ -115,7 +113,9 @@
 			]
 		},
 		"truffle:compile": {
-			"dependsOn": [],
+			"dependsOn": [
+				"truffle:test"
+			],
 			"outputs": [
 				"artifacts/**",
 				"build/contracts/**"
