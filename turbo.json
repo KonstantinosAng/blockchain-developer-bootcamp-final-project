@@ -15,11 +15,11 @@
 				"^build"
 			],
 			"env": [
-				"$BROWSER",
-				"$NEXT_TELEMETRY_DISABLED",
-				"$NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS",
-				"$NODE_ENV",
-				"$PORT"
+				"BROWSER",
+				"NEXT_TELEMETRY_DISABLED",
+				"NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS",
+				"NODE_ENV",
+				"PORT"
 			],
 			"outputs": [
 				".next/**"
@@ -28,8 +28,8 @@
 		"crypto_lottery_contract": {
 			"dependsOn": [],
 			"env": [
-				"$MNEMONIC",
-				"$MATIC_RPC_ID"
+				"MNEMONIC",
+				"MATIC_RPC_ID"
 			],
 			"outputs": [
 				"build/**"
@@ -120,6 +120,10 @@
 				"artifacts/**",
 				"build/contracts/**"
 			]
+		},
+		"truffle:nft": {
+			"dependsOn": [],
+			"outputs": []
 		}
 	},
 	"globalDependencies": [
