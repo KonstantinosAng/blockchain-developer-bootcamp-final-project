@@ -106,6 +106,7 @@ const ContractProvider = ({ children }: Props) => {
 		setRestartLottery,
 		refundAll,
 		setRefundAll,
+		setLotteryOwner
 	])
 
 	return children ? cloneElement(children, { contract }) : null
