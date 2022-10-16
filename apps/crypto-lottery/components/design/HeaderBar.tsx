@@ -1,5 +1,4 @@
 import Image from "next/future/image"
-import Logo from "ui/assets/winner.png"
 import { Flex, Box, Header, H10, H13 } from "ui"
 import NavButton from "@design/NavButton"
 import { Bars3BottomRightIcon } from "@heroicons/react/24/solid"
@@ -16,7 +15,14 @@ const HeaderBar = ({ ...rest }: Props): JSX.Element => {
 	return (
 		<Header className="grid grid-cols-2 items-center justify-between p-5 md:grid-cols-5" {...rest}>
 			<Flex className="items-center space-x-2 md:col-span-2">
-				<Image src={Logo} className="rounded-full" width={80} height={80} alt="user logo" priority />
+				<Image
+					src={`https://avatars.dicebear.com/api/open-peeps/${address ?? "placeholder"}.svg`}
+					className="rounded-full"
+					width={80}
+					height={80}
+					alt="user logo"
+					priority
+				/>
 				<Box>
 					<H10 className="text-teal-600">ConsenSys Casino</H10>
 					<H13 className="truncate text-pink-600">

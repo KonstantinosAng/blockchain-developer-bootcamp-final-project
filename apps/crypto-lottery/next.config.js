@@ -7,6 +7,9 @@ module.exports = withTM({
 	swcMinify: true,
 	compress: true,
 	basePath: "",
+	images: {
+		domains: ["avatars.dicebear.com"],
+	},
 	async headers() {
 		return [
 			{
