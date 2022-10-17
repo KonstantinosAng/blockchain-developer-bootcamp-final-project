@@ -1,5 +1,5 @@
 import Modal from "react-modal"
-import { useState, Children, cloneElement, ReactComponentElement, ReactElement, useMemo } from "react"
+import { useState, useMemo } from "react"
 
 Modal.setAppElement("#__next")
 
@@ -14,11 +14,6 @@ export const useModal = (ModalContent: any): ReturnProps => {
 	const style = useMemo(
 		() => ({
 			overlay: {
-				position: "fixed",
-				top: 0,
-				left: 0,
-				right: 0,
-				bottom: 0,
 				height: "100vh",
 				width: "100vw",
 				backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -27,7 +22,6 @@ export const useModal = (ModalContent: any): ReturnProps => {
 			content: {
 				border: "0",
 				borderRadius: "4px",
-				position: "fixed",
 				top: "50%",
 				left: "50%",
 				transform: "translate(-50%, -50%)",
