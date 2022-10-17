@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "truffle:compile": "truffle compile",
+    "truffle:compile": "truffle compile && yarn generate-types",
     "truffle:migrate": "tsc -p ./tsconfig.migrate.json --outDir migrations && truffle migrate",
+    "truffle:migrateRaw": "truffle migrate",
     "truffle:test": "truffle test --network development",
     "truffle:test-matic": "truffle test --network matic",
     "removeMigrations": "node ./scripts/remove-migrations.mjs",
     "tsc": "tsc --noEmit",
+    "tsc:migrate": "tsc -p ./tsconfig.migrate.json --outDir migrations",
     "generate-types": "typechain --target=truffle-v5 './build/contracts/*.json'",
     "postinstall": "truffle compile && yarn generate-types"
   },

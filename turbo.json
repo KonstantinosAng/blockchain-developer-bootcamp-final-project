@@ -91,13 +91,14 @@
 		},
 		"truffle:migrate": {
 			"dependsOn": [
-				"truffle:compile",
-				"truffle:test"
+				"truffle:compile"
 			],
 			"outputs": []
 		},
 		"truffle:test": {
-			"dependsOn": [],
+			"dependsOn": [
+				"truffle:migrate"
+			],
 			"outputs": [],
 			"inputs": [
 				"test/**/*.test.ts"
@@ -113,15 +114,23 @@
 			]
 		},
 		"truffle:compile": {
-			"dependsOn": [
-				"truffle:test"
-			],
+			"dependsOn": [],
 			"outputs": [
 				"artifacts/**",
 				"build/contracts/**"
 			]
 		},
-		"truffle:nft": {
+		"generate-types": {
+			"dependsOn": [],
+			"outputs": [
+				"build/contracts/**"
+			]
+		},
+		"tsc:migrate": {
+			"dependsOn": [],
+			"outputs": []
+		},
+		"truffle:migrateRaw": {
 			"dependsOn": [],
 			"outputs": []
 		}
