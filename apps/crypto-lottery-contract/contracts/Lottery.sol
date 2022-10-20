@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
+
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
@@ -9,7 +10,7 @@ pragma solidity >=0.8.0 <0.9.0;
 // @title A Contract for making a Lottery
 // @author K. Angelopoulos
 // @notice You can use this contract to construct new Lotteries
-contract Lottery {
+contract Lottery is ReentrancyGuard, AccessControl {
 	using SafeMath for uint256;
 
 	// Struct to keep track of the last winner
@@ -31,7 +32,7 @@ contract Lottery {
 	mapping(address => uint256) public winnings; // maps the winners to there winnings
 	address[] public tickets; //array of purchased Tickets
 
-	constructor() {
+	constructor() ReentrancyGuard() {
 		lotteryOwner = msg.sender; // Address that deployed the contract
 		expiration = block.timestamp + duration; // lottery expiration time
 	}
@@ -158,7 +159,7 @@ contract Lottery {
 
 	// @info Withdraw the callers winnings
 	// @notice Only a winner can execute this
-	function WithdrawWinnings() public isWinner {
+	function WithdrawWinnings() public isWinner nonReentrant {
 		// get the caller address
 		address payable winner = payable(msg.sender);
 		// get the caller winnings
@@ -170,7 +171,7 @@ contract Lottery {
 	}
 
 	// @info Refund all tickets
-	function RefundAll() public {
+	function RefundAll() public isLotteryOwner {
 		// check if lottery is active
 		require(block.timestamp >= expiration, "the lottery has not expired yet");
 		// Loop over all tickets and for each ticket buyer address transfer back the ticket amount

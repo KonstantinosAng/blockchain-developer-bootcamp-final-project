@@ -16,8 +16,6 @@ contract('Running Lottery', (accounts) => {
 		await instance.BuyTickets({ from: BUYER, value: TICKET_PRICE * 10 })
   });
 
-	// const TICKET_COMMISSION = Web3.utils.toWei('0.001')
-
 	it('should allow a user to buy tickets with amount and emit an event', async () => {
 		const txt = await instance.BuyTickets({ from: BUYER, value: TICKET_PRICE })
 		const tickets = await instance.getTickets()

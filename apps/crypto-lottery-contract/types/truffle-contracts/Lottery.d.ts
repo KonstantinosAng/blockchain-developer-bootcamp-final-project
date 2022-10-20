@@ -25,6 +25,42 @@ export interface RefundAllTickets {
   };
 }
 
+export interface RoleAdminChanged {
+  name: "RoleAdminChanged";
+  args: {
+    role: string;
+    previousAdminRole: string;
+    newAdminRole: string;
+    0: string;
+    1: string;
+    2: string;
+  };
+}
+
+export interface RoleGranted {
+  name: "RoleGranted";
+  args: {
+    role: string;
+    account: string;
+    sender: string;
+    0: string;
+    1: string;
+    2: string;
+  };
+}
+
+export interface RoleRevoked {
+  name: "RoleRevoked";
+  args: {
+    role: string;
+    account: string;
+    sender: string;
+    0: string;
+    1: string;
+    2: string;
+  };
+}
+
 export interface TicketsBought {
   name: "TicketsBought";
   args: {
@@ -48,13 +84,61 @@ export interface WinnerTicketDrawn {
 type AllEvents =
   | LotteryRestart
   | RefundAllTickets
+  | RoleAdminChanged
+  | RoleGranted
+  | RoleRevoked
   | TicketsBought
   | WinnerTicketDrawn;
 
 export interface LotteryInstance extends Truffle.ContractInstance {
+  DEFAULT_ADMIN_ROLE(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
   duration(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   expiration(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+  /**
+   * Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}.
+   */
+  getRoleAdmin(
+    role: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<string>;
+
+  /**
+   * Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleGranted} event.
+   */
+  grantRole: {
+    (
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  /**
+   * Returns `true` if `account` has been granted `role`.
+   */
+  hasRole(
+    role: string,
+    account: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<boolean>;
 
   lastWinner(
     txDetails?: Truffle.TransactionDetails
@@ -67,6 +151,66 @@ export interface LotteryInstance extends Truffle.ContractInstance {
   ): Promise<BN>;
 
   maxTickets(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+  /**
+   * Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event.
+   */
+  renounceRole: {
+    (
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  /**
+   * Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleRevoked} event.
+   */
+  revokeRole: {
+    (
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  /**
+   * See {IERC165-supportsInterface}.
+   */
+  supportsInterface(
+    interfaceId: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<boolean>;
 
   ticketCommission(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
@@ -149,9 +293,54 @@ export interface LotteryInstance extends Truffle.ContractInstance {
   RemainingTickets(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   methods: {
+    DEFAULT_ADMIN_ROLE(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
     duration(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
     expiration(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+    /**
+     * Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}.
+     */
+    getRoleAdmin(
+      role: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+
+    /**
+     * Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleGranted} event.
+     */
+    grantRole: {
+      (
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    /**
+     * Returns `true` if `account` has been granted `role`.
+     */
+    hasRole(
+      role: string,
+      account: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<boolean>;
 
     lastWinner(
       txDetails?: Truffle.TransactionDetails
@@ -164,6 +353,66 @@ export interface LotteryInstance extends Truffle.ContractInstance {
     ): Promise<BN>;
 
     maxTickets(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+    /**
+     * Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event.
+     */
+    renounceRole: {
+      (
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    /**
+     * Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleRevoked} event.
+     */
+    revokeRole: {
+      (
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        role: string,
+        account: string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    /**
+     * See {IERC165-supportsInterface}.
+     */
+    supportsInterface(
+      interfaceId: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<boolean>;
 
     ticketCommission(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
