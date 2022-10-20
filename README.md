@@ -372,10 +372,12 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 ## <img src="./images/new-release.png" id="releases" alt="new-release" width="20px" /> Releases
 
-- [v1.0.0 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery)
+- [v1.0.1 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery)
+- [v1.0.0 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery/1.0.0)
 
 ## <img src="./images/deployment.png" id="deployments" alt="deployment" width="20px" /> Deployments
 
+- [v1.0.1 (latest)](https://thirdweb.com/mumbai/0x1d67A627b631ad0e96b14e30707f476FE0043bE2/)
 - [v1.0.0 (latest)](https://thirdweb.com/mumbai/0x89208851Fcfb85E6d33084e4eADa4c639aCb0cbf/)
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
