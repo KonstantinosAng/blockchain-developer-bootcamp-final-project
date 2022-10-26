@@ -15,7 +15,6 @@ import { LotteryContract } from "./Lottery";
 import { MigrationsContract } from "./Migrations";
 import { NFTFactoryContract } from "./NFTFactory";
 import { OwnableContract } from "./Ownable";
-import { TicketNFTContract } from "./TicketNFT";
 
 declare global {
   namespace Truffle {
@@ -33,7 +32,6 @@ declare global {
       require(name: "Migrations"): MigrationsContract;
       require(name: "NFTFactory"): NFTFactoryContract;
       require(name: "Ownable"): OwnableContract;
-      require(name: "TicketNFT"): TicketNFTContract;
     }
   }
 }
@@ -63,4 +61,3 @@ export { LotteryContract, LotteryInstance } from "./Lottery";
 export { MigrationsContract, MigrationsInstance } from "./Migrations";
 export { NFTFactoryContract, NFTFactoryInstance } from "./NFTFactory";
 export { OwnableContract, OwnableInstance } from "./Ownable";
-export { TicketNFTContract, TicketNFTInstance } from "./TicketNFT";

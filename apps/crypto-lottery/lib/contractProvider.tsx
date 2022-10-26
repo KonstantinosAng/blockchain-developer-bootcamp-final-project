@@ -1,4 +1,4 @@
-import { useContract, useContractData, useContractCall } from "@thirdweb-dev/react"
+import { useContract, useContractWrite, useContractRead } from "@thirdweb-dev/react"
 import { cloneElement, ReactElement, useEffect } from "react"
 import { useContractStore } from "@hooks/useContractStore"
 import { ContractStoreStateProps } from "@stores/contractStore"
@@ -8,9 +8,10 @@ import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 
 interface Props {
 	children?: ReactElement
+	address?: string
 }
 
-const ContractProvider = ({ children }: Props) => {
+const ContractProvider = ({ children, ...rest }: Props) => {
 	/* Store functions */
 	const address = useMetaMaskStore((state: MetamaskStoreStateProps) => state.address)
 	const setRemainingTickets = useContractStore((state: ContractStoreStateProps) => state.setRemainingTickets)
@@ -34,26 +35,26 @@ const ContractProvider = ({ children }: Props) => {
 	const { contract } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
 
 	/* Contract Data */
-	const { data: remainingTickets } = useContractData(contract, "RemainingTickets")
-	const { data: currentWinningReward } = useContractData(contract, "CurrentWinningReward")
-	const { data: ticketPrice } = useContractData(contract, "ticketPrice")
-	const { data: ticketCommission } = useContractData(contract, "ticketCommission")
-	const { data: expiration } = useContractData(contract, "expiration")
-	const { data: tickets } = useContractData(contract, "getTickets")
-	const { data: winnings } = useContractData(contract, "getWinningsForAddress", address)
-	const { data: lastWinner } = useContractData(contract, "lastWinner")
-	const { data: lotteryOwner } = useContractData(contract, "lotteryOwner")
-	const { data: lotteryOwnerTotalCommission } = useContractData(contract, "lotteryOwnerTotalCommission")
+	const { data: remainingTickets } = useContractRead(contract, "RemainingTickets")
+	const { data: currentWinningReward } = useContractRead(contract, "CurrentWinningReward")
+	const { data: ticketPrice } = useContractRead(contract, "ticketPrice")
+	const { data: ticketCommission } = useContractRead(contract, "ticketCommission")
+	const { data: expiration } = useContractRead(contract, "expiration")
+	const { data: tickets } = useContractRead(contract, "getTickets")
+	const { data: winnings } = useContractRead(contract, "getWinningsForAddress", address)
+	const { data: lastWinner } = useContractRead(contract, "lastWinner")
+	const { data: lotteryOwner } = useContractRead(contract, "lotteryOwner")
+	const { data: lotteryOwnerTotalCommission } = useContractRead(contract, "lotteryOwnerTotalCommission")
 
 	/* Contract Functions */
-	const { mutateAsync: buyTickets } = useContractCall(contract, "BuyTickets")
-	const { mutateAsync: withdrawWinnings } = useContractCall(contract, "WithdrawWinnings")
-	const { mutateAsync: drawWinningTicket } = useContractCall(contract, "DrawWinnerTicket")
-	const { mutateAsync: withdrawCommission } = useContractCall(contract, "WithdrawCommission")
-	const { mutateAsync: restartLottery } = useContractCall(contract, "restartLottery")
-	const { mutateAsync: refundAll } = useContractCall(contract, "RefundAll")
+	const { mutateAsync: buyTickets } = useContractWrite(contract, "BuyTickets")
+	const { mutateAsync: withdrawWinnings } = useContractWrite(contract, "WithdrawWinnings")
+	const { mutateAsync: drawWinningTicket } = useContractWrite(contract, "DrawWinnerTicket")
+	const { mutateAsync: withdrawCommission } = useContractWrite(contract, "WithdrawCommission")
+	const { mutateAsync: restartLottery } = useContractWrite(contract, "restartLottery")
+	const { mutateAsync: refundAll } = useContractWrite(contract, "RefundAll")
 
-	// console.log({ refundAll })
+	// console.log({ contract })
 
 	/* Set Store */
 	useEffect(() => {
@@ -106,10 +107,10 @@ const ContractProvider = ({ children }: Props) => {
 		setRestartLottery,
 		refundAll,
 		setRefundAll,
-		setLotteryOwner
+		setLotteryOwner,
 	])
 
-	return children ? cloneElement(children, { contract }) : null
+	return children ? cloneElement(children, { contract, ...rest }) : null
 }
 
 export default ContractProvider

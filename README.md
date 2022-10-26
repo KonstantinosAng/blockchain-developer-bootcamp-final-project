@@ -392,13 +392,27 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 ## <img src="./images/new-release.png" id="releases" alt="new-release" width="20px" /> Releases
 
-- [v1.0.1 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery)
-- [v1.0.0 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery/1.0.0)
+`NFT Factory`
+
+-
+
+`Lottery`
+
+- [v1.0.2 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery)
+- [v1.0.1](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery/1.0.1)
+- [v1.0.0](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/Lottery/1.0.0)
 
 ## <img src="./images/deployment.png" id="deployments" alt="deployment" width="20px" /> Deployments
 
-- [v1.0.1 (latest)](https://thirdweb.com/mumbai/0x1d67A627b631ad0e96b14e30707f476FE0043bE2/)
-- [v1.0.0 (latest)](https://thirdweb.com/mumbai/0x89208851Fcfb85E6d33084e4eADa4c639aCb0cbf/)
+`NFT Factory`
+
+-
+
+`Lottery`
+
+- [v1.0.2 (latest)](https://thirdweb.com/mumbai/0x7405Cd42C72F36601773172E0263976aa45b930F/)
+- [v1.0.1](https://thirdweb.com/mumbai/0x1d67A627b631ad0e96b14e30707f476FE0043bE2/)
+- [v1.0.0](https://thirdweb.com/mumbai/0x89208851Fcfb85E6d33084e4eADa4c639aCb0cbf/)
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #

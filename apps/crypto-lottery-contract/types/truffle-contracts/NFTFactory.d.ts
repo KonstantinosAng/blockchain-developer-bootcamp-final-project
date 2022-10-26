@@ -130,7 +130,7 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
     arg0: string,
     arg1: number | BN | string,
     txDetails?: Truffle.TransactionDetails
-  ): Promise<{ 0: string; 1: BN; 2: BN }>;
+  ): Promise<{ 0: string; 1: BN; 2: BN; 3: string }>;
 
   /**
    * Returns the address of the current owner.
@@ -267,7 +267,9 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
   getNFTSForAddress(
     addr: string,
     txDetails?: Truffle.TransactionDetails
-  ): Promise<{ _userAddress: string; uid: BN; tokenId: BN }[]>;
+  ): Promise<
+    { _userAddress: string; uid: BN; tokenId: BN; metaDataURL: string }[]
+  >;
 
   mint: {
     (
@@ -355,7 +357,7 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
       arg0: string,
       arg1: number | BN | string,
       txDetails?: Truffle.TransactionDetails
-    ): Promise<{ 0: string; 1: BN; 2: BN }>;
+    ): Promise<{ 0: string; 1: BN; 2: BN; 3: string }>;
 
     /**
      * Returns the address of the current owner.
@@ -492,7 +494,9 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
     getNFTSForAddress(
       addr: string,
       txDetails?: Truffle.TransactionDetails
-    ): Promise<{ _userAddress: string; uid: BN; tokenId: BN }[]>;
+    ): Promise<
+      { _userAddress: string; uid: BN; tokenId: BN; metaDataURL: string }[]
+    >;
 
     mint: {
       (

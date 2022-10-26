@@ -1,6 +1,6 @@
 import { useNFTFactoryStore } from "@hooks/useNFTFactoryStore"
 import { NFTFactoryStoreStateProps } from "@stores/nftFactoryStore"
-import { useContract, useContractCall, useContractData } from "@thirdweb-dev/react"
+import { useContract, useContractWrite, useContractRead } from "@thirdweb-dev/react"
 import { cloneElement, ReactElement, useEffect } from "react"
 
 interface Props {
@@ -18,12 +18,12 @@ const NFTFactoryProvider = ({ children, ...rest }: Props) => {
 	const { contract } = useContract(process.env.NEXT_PUBLIC_NFT_FACTORY_CONTRACT_ADDRESS)
 
 	/* Contract Data */
-	const { data: nfts } = useContractData(contract, "nfts")
+	const { data: nfts } = useContractRead(contract, "nfts")
 
 	/* Contract Functions */
-	const { mutateAsync: toggleIsMintEnabled } = useContractCall(contract, "toggleIsMintEnabled")
-	const { mutateAsync: getNFTSForAddress } = useContractCall(contract, "getNFTSForAddress")
-	const { mutateAsync: mint } = useContractCall(contract, "mint")
+	const { mutateAsync: toggleIsMintEnabled } = useContractWrite(contract, "toggleIsMintEnabled")
+	const { mutateAsync: getNFTSForAddress } = useContractWrite(contract, "getNFTSForAddress")
+	const { mutateAsync: mint } = useContractWrite(contract, "mint")
 
 	// console.log({ contract })
 

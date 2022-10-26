@@ -31,7 +31,16 @@ function MyApp({ Component, pageProps }: any) {
 				<link rel="icon" href="/ethereum.png" />
 				<title>Crypto Lottery</title>
 			</Head>
-			<ThirdwebProvider desiredChainId={ChainId.Mumbai}>
+			<ThirdwebProvider
+				desiredChainId={ChainId.Mumbai}
+				dAppMeta={{
+					name: "ConSensys Lottery App",
+					description: "This is an example app created as the final project of the ConsenSys blockchain developer bootcamp",
+					isDarkMode: true,
+					logoUrl: "https://blockchain-bootcamp.constantine.dev/ethereum.png",
+					url: "https://blockchain-bootcamp.constantine.dev",
+				}}
+			>
 				<StoreProvider stores={createdStores}>
 					<MetaMaskProvider>
 						<NFTFactoryProvider>
