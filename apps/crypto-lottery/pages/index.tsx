@@ -1,4 +1,4 @@
-import { LoadingWrapper, Box, Flex, H13 } from "ui"
+import { LoadingWrapper, Box, Flex, H13, Span, Sup } from "ui"
 import HeaderBar from "@design/HeaderBar"
 import { SmartContract } from "@thirdweb-dev/sdk"
 import BuyTickets from "@design/BuyTickets"
@@ -25,11 +25,13 @@ const Home = ({ contract }: HomeProps) => {
 						<BuyTickets />
 					</Box>
 					<H13 className="ml-3 mb-3 block font-bold text-emerald-600 md:absolute md:bottom-3 md:left-3">
-						<sup>*</sup> Created as the final project of the
-						<span className="cursor-pointer hover:underline" onClick={() => window.open("https://consensys.net/academy/bootcamp/", "_blank")}>
-							{" "}
+						<Sup>*</Sup> Created as the final project of the{" "}
+						<Span
+							className="cursor-pointer hover:text-emerald-500 hover:underline"
+							onClick={() => window.open("https://consensys.net/academy/bootcamp/", "_blank")}
+						>
 							ConsenSys blockchain developer bootcamp
-						</span>
+						</Span>
 					</H13>
 				</Box>
 			</LoadingWrapper>

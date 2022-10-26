@@ -1,54 +1,57 @@
 # blockchain-developer-bootcamp-final-project
 
 <p align="center">
-  <a href="https://blockchain-bootcamp.constantine.dev/">
-    <picture>
-      <img src="./images/polygon.svg" width="48px" alt="polygon">
-    </picture>
-    <h1 style="font-weight: bold" align="center">ConsenSys Academy Final Project - Crypto Lottery</h1>
-	</a>
+ <a href="https://blockchain-bootcamp.constantine.dev/">
+  <picture>
+   <img src="./images/polygon.svg" width="48px" alt="polygon">
+  </picture>
+  <h1 style="font-weight: bold" align="center">
+   ConsenSys Academy Final Project - Crypto Lottery
+   <p align="center">
+    <img src="https://img.shields.io/github/license/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="licence" />
+    <img src="https://img.shields.io/github/stars/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="stars" />
+    <img src="https://img.shields.io/github/forks/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="forks" />
+    <img src="https://img.shields.io/github/issues/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="issues" />
+   </p>
+  </h1>
+ </a>
 </p>
 
-<p align="center">
-	<img src="https://img.shields.io/github/license/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="licence" />
-	<img src="https://img.shields.io/github/stars/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="stars" />
-	<img src="https://img.shields.io/github/forks/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="forks" />
-	<img src="https://img.shields.io/github/issues/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="issues" />
-</p>
+A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](https://nextjs.org), [`ReactJS`](https://reactjs.org/), [`TypeScript`](https://www.typescriptlang.org/), [`TailwindCSS`](https://tailwindcss.com/), [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/), [`Truffle`](https://trufflesuite.com/), [`ThirdWeb`](https://thirdweb.com/), [`Pinata`](https://www.pinata.cloud/) and [`Firebase`](https://firebase.google.com/).
 
-A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](https://nextjs.org), [`TypeScript`](https://www.typescriptlang.org/), [`ReactJS`](https://reactjs.org/), [`TailwindCSS`](https://tailwindcss.com/), [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/), [`Truffle`](https://trufflesuite.com/)  and [`ThirdWeb`](https://thirdweb.com/).
-
-A Polygon (MATIC) based app where any user can log in with his MetaMask wallet and buy lottery tickets. The duration of the lottery is 30 minutes. The more tickets a user have the more chances he has to win the prize.
+- A Polygon (MATIC) based app where you can log in with you MetaMask wallet, buy lottery tickets and push your luck to win.
+- The duration of the lottery is 30 minutes and the total available tickets to buy are 100.
+- The more tickets you buy, the more chances you have to win the prize.
+- The prize is the accumulated amount from all the lottery tickets bought, minus the lottery operator commission, plus a unique NFT for the user.
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
 <details>
-  <summary style="font-size: 1.7rem" id="tableOfContents">Sections</summary>
-	<ul>
-		<li><a href="#actions">Actions</a></li>
-		<li><a href="#demo">Demo Link</a></li>
-		<li><a href="#apps">Apps and Packages</a></li>
-		<li><a href="#utilities">Utilities</a></li>
-		<li><a href="#requirements">Prerequisites</a></li>
-		<li><a href="#ui">Frontend</a></li>
-		<ul>
-			<li><a href="#docker">Docker</a></li>
-		</ul>
-		<li><a href="#contract">Contract</a></li>
-		<li><a href="#test">Solidity Tests</a></li>
-		<ul>
-			<li><a href="#test-locally">Test locally with ganache</a></li>
-			<li><a href="#test-matic">Test in polygon's mumbai testnet</a></li>
-		</ul>
-			<li><a href="#deploy-thirdweb">Deploy the smart contract in thirdweb</a></li>
-			<li><a href="#deploy-docker">Deploy the frontend with Docker in a dedicated Server</a></li>
-			<li><a href="#deploy-vercel">Deploy the frontend to Vercel</a></li>
-			<li><a href="#releases">Releases</a></li>
-			<li><a href="#deployments">Deployments</a></li>
-			<li><a href="#public-address">Public Address</a></li>
-	</ul>
-
+ <summary style="font-size: 1.7rem" id="tableOfContents">Sections</summary>
+ <ul>
+  <li><a href="#actions">Actions</a></li>
+  <li><a href="#demo">Demo Link</a></li>
+  <li><a href="#apps">Apps and Packages</a></li>
+  <li><a href="#utilities">Utilities</a></li>
+  <li><a href="#requirements">Prerequisites</a></li>
+  <li><a href="#ui">Frontend</a></li>
+  <ul>
+   <li><a href="#docker">Docker</a></li>
+  </ul>
+  <li><a href="#contract">Contract</a></li>
+  <li><a href="#test">Solidity Tests</a></li>
+  <ul>
+   <li><a href="#test-locally">Test locally with ganache</a></li>
+   <li><a href="#test-matic">Test in polygon's mumbai testnet</a></li>
+  </ul>
+  <li><a href="#deploy-thirdweb">Deploy the smart contract in thirdweb</a></li>
+  <li><a href="#deploy-docker">Deploy the frontend with Docker in a dedicated Server</a></li>
+  <li><a href="#deploy-vercel">Deploy the frontend to Vercel</a></li>
+  <li><a href="#releases">Releases</a></li>
+  <li><a href="#deployments">Deployments</a></li>
+  <li><a href="#public-address">Public Address</a></li>
+ </ul>
 </details>
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
@@ -117,6 +120,7 @@ This turborepo has some additional tools already setup for you:
 - [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/) for the smart contract.
 - [`Truffle`](https://trufflesuite.com/) for the solidity tests.
 - [`ThirdWeb`](https://thirdweb.com/) for releasing and deploying the smart contract.
+- [`Pinata`](https://www.pinata.cloud/) for storing the image metadata for the NFT creation.
 - [`Docker`](https://www.docker.com/) for containerizing and running the app.
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
@@ -146,7 +150,22 @@ Create a .env.local file on the root of the apps/crypto-lottery app, based on th
 BROWSER=none
 NEXT_TELEMETRY_DISABLED=1
 NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
+NEXT_PUBLIC_NFT_FACTORY_CONTRACT_ADDRESS=
+NEXT_PUBLIC_PINATA_JWT=
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=
 ```
+
+The `NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=` is the third web url that the lottery contract is deployed.
+The `NEXT_PUBLIC_NFT_FACTORY_CONTRACT_ADDRESS=` is the third web url that the nft factory contract is deployed.
+The `NEXT_PUBLIC_PINATA_JWT=` is the pinata jwt token to upload the image metadata needed for creating the nfts.
+
+The rest configs are the firebase configs.
 
 ### Build
 
@@ -244,6 +263,7 @@ Run this command to deploy the contract migrations on the local blockchain __`(A
 
 ```bash
 cd apps/crypto-lottery-contract
+yarn truffle:compile
 yarn truffle:migrate
 ```
 

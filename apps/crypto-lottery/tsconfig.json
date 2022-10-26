@@ -21,6 +21,7 @@
 			"@stores/*": ["./stores/*"],
 			"@lib/*": ["./lib/*"],
 			"@utils/*": ["./utils/*"],
+			"@firebase": ["./lib/firebase.tsx"],
 			"@constants": ["./constants.ts"]
 		}
 	},

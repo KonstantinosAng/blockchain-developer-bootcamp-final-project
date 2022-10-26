@@ -8,7 +8,7 @@ interface Props {
 	children?: ReactElement
 }
 
-const MetaMaskProvider = ({ children }: Props) => {
+const MetaMaskProvider = ({ children, ...rest }: Props) => {
 	/* Store functions */
 	const setLogin = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setLogin)
 	const setAddress = useMetaMaskStore((state: MetamaskStoreStateProps) => state.setAddress)
@@ -20,7 +20,7 @@ const MetaMaskProvider = ({ children }: Props) => {
 	const disconnect = useDisconnect()
 	const address = useAddress()
 
-	const clonedChildren = children ? cloneElement(children, { address }) : null
+	const clonedChildren = children ? cloneElement(children, { ...rest }) : null
 
 	/* Set Store */
 	useEffect(() => {

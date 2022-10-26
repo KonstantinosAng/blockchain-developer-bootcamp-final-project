@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-pragma solidity >=0.8.0 <0.9.0;
+pragma solidity >=0.8.4 <0.9.0;
 
 // @title A Contract for making a Lottery
 // @author K. Angelopoulos
@@ -104,7 +104,7 @@ contract Lottery is ReentrancyGuard, AccessControl {
 
 	// @info Draw the winning ticket at random
 	// @notice Only the lottery owner can execute this
-	function DrawWinnerTicket() public isLotteryOwner {
+	function DrawWinnerTicket() public isLotteryOwner returns (address) {
 		// Check if there is at least one ticket
 		require(tickets.length > 0, "No tickets were purchased");
 		// Get the hash from the first block
@@ -129,6 +129,8 @@ contract Lottery is ReentrancyGuard, AccessControl {
 		expiration = block.timestamp + duration;
 		// Emit event for winning ticket drawn
 		emit WinnerTicketDrawn(winner, winnings[winner]);
+		// Return winning address
+		return winner;
 	}
 
 	// @info Restart the Lottery

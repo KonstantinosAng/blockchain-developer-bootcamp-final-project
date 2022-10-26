@@ -3,10 +3,12 @@ import Head from "next/head"
 import favicon from "ui/assets/ethereum.png"
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react"
 import { StoreProvider, useHydrate } from "@lib/store"
-import ContractProvider from "@lib/contractProvider"
+import ContractProvider from "@lib/ContractProvider"
 import MetaMaskProvider from "@lib/MetaMaskProvider"
 import stores from "@stores/index"
 import { Toaster } from "react-hot-toast"
+import FirebaseProvider from "@lib/FirebaseProvider"
+import NFTFactoryProvider from "@lib/NFTFactoryProvider"
 
 function MyApp({ Component, pageProps }: any) {
 	const createdStores = useHydrate(pageProps?.initialZustandState, stores)
@@ -32,9 +34,13 @@ function MyApp({ Component, pageProps }: any) {
 			<ThirdwebProvider desiredChainId={ChainId.Mumbai}>
 				<StoreProvider stores={createdStores}>
 					<MetaMaskProvider>
-						<ContractProvider>
-							<Component {...pageProps} />
-						</ContractProvider>
+						<NFTFactoryProvider>
+							<ContractProvider>
+								<FirebaseProvider>
+									<Component {...pageProps} />
+								</FirebaseProvider>
+							</ContractProvider>
+						</NFTFactoryProvider>
 					</MetaMaskProvider>
 				</StoreProvider>
 				<Toaster />
