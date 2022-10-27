@@ -48,7 +48,7 @@ const AdminTools = (props: Props) => {
 			setUserUID(winnerAddress, userFirebaseData?.uid + 1)
 
 			/* Create NFT */
-			mint(winnerAddress, uploadedFileURL)
+			const data = await mint([winnerAddress, uploadedFileURL])
 
 			toast.success("The winning NFT has been created!", {
 				id: notification,
@@ -67,7 +67,7 @@ const AdminTools = (props: Props) => {
 		try {
 			const winningAddress = await drawWinningTicket([{}])
 
-			await createWinningNFT(winningAddress)
+			await createWinningNFT(winningAddress?.receipt?.from)
 
 			toast.success("A winner has been selected!", {
 				id: notification,

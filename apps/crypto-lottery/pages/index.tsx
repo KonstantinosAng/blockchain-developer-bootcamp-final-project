@@ -6,6 +6,7 @@ import Pool from "@design/Pool"
 import Winnings from "@design/Winnings"
 import Banner from "@design/Banner"
 import AdminTools from "@design/AdminTools"
+import NFTSGallery from "@design/NFTSGallery"
 
 interface HomeProps {
 	contract: SmartContract
@@ -13,7 +14,7 @@ interface HomeProps {
 
 const Home = ({ contract }: HomeProps) => {
 	return (
-		<Flex className="bg-basicBackground relative min-h-screen flex-col">
+		<Flex className="bg-basicBackground relative min-h-screen flex-col overflow-x-hidden">
 			<LoadingWrapper loading={!contract}>
 				<HeaderBar />
 				<Banner />
@@ -24,7 +25,8 @@ const Home = ({ contract }: HomeProps) => {
 						<Pool contract={contract} />
 						<BuyTickets />
 					</Box>
-					<H13 className="ml-3 mb-3 block font-bold text-emerald-600 md:absolute md:bottom-3 md:left-3">
+					<NFTSGallery contract={contract} />
+					{/* <H13 className="ml-3 mb-3 block font-bold text-emerald-600 md:absolute md:top-3 md:left-3">
 						<Sup>*</Sup> Created as the final project of the{" "}
 						<Span
 							className="cursor-pointer hover:text-emerald-500 hover:underline"
@@ -32,7 +34,7 @@ const Home = ({ contract }: HomeProps) => {
 						>
 							ConsenSys blockchain developer bootcamp
 						</Span>
-					</H13>
+					</H13> */}
 				</Box>
 			</LoadingWrapper>
 		</Flex>

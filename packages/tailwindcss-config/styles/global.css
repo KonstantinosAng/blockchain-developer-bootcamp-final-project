@@ -22,11 +22,11 @@
 	}
 
 	.stats-container {
-		@apply bg-teal-600 bg-opacity-10 p-7 rounded-lg shadow-lg drop-shadow-lg md:w-2/5 md:max-w-4xl
+		@apply bg-teal-600 bg-opacity-10 p-7 rounded-lg shadow-lg drop-shadow-lg md:w-2/5 md:max-w-4xl min-h-[500px] lg:min-h-[450px] xl:min-h-[400px]
 	}
 
 	.countdown {
-		@apply p-8 text-center text-white rounded-lg bg-teal-600 bg-opacity-20
+		@apply p-8 md:p-6 text-center text-white rounded-lg bg-teal-600 bg-opacity-20
 	}
 
 	.countdown-label {

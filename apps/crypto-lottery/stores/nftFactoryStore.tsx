@@ -2,21 +2,32 @@ export interface NFTFactoryStoreStateProps {
 	mint: () => void
 	setMint: () => void
 	toggleIsMintEnabled: () => void
+	userNFTs: Array<NFT>
+	setUserNFTS: () => void
 	setToggleIsMintEnabled: () => void
 	getNFTSForAddress: () => void
 	setGetNFTSForAddress: () => void
+}
+
+export interface NFT {
+	_userAddress: string
+	uid: number
+	tokenId: number
+	metaDataURL: string
 }
 
 interface InitialStateProps {
 	mint: () => void
 	toggleIsMintEnabled: () => void
 	getNFTSForAddress: () => void
+	userNFTs: Array<NFT>
 }
 
 const initialState: InitialStateProps = {
 	mint: () => {},
 	toggleIsMintEnabled: () => {},
 	getNFTSForAddress: () => {},
+	userNFTs: [],
 }
 
 const state = (preloadedState: object) => (set: Function, get: Function) => ({
@@ -35,6 +46,11 @@ const state = (preloadedState: object) => (set: Function, get: Function) => ({
 	setGetNFTSForAddress: (getNFTSForAddress: () => void) => {
 		set({
 			getNFTSForAddress,
+		})
+	},
+	setUserNFTS: (userNFTs: Array<NFT>) => {
+		set({
+			userNFTs,
 		})
 	},
 })
