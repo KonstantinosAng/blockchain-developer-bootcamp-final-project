@@ -394,7 +394,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 `NFT Factory`
 
--
+- [v1.0.0 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/NFTFactory)
 
 `Lottery`
 
@@ -406,7 +406,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 `NFT Factory`
 
--
+- [v1.0.0 (latest)](https://thirdweb.com/mumbai/0x7c086B7a51E8a038e20456A079B52F3112d10345/)
 
 `Lottery`
 
