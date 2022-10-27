@@ -8,6 +8,7 @@
     "truffle:migrateRaw": "truffle migrate",
     "truffle:test": "truffle test --network development",
     "truffle:test-matic": "truffle test --network matic",
+    "truffle:dashboard": "truffle dashboard",
     "removeMigrations": "node ./scripts/remove-migrations.mjs",
     "tsc": "tsc --noEmit",
     "tsc:migrate": "tsc -p ./tsconfig.migrate.json --outDir migrations",

@@ -293,7 +293,6 @@ __`All tests are written in Typescript and must end in .test.ts`__
 
 ### <img src="./images/ganache.svg" id="test-locally" alt="ganache" width="20px" /> Run locally in ganache chain
 
-
 To run the tests start the ganache blockchain
 
 ```bash

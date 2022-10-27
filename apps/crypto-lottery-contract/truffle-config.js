@@ -57,6 +57,10 @@ const { MNEMONIC, MATIC_RPC_ID } = process.env;
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
+	/* Truffle Dashboard */
+	port: 24012,
+	host: "localhost",
+	verbose: false,
 	/**
 	 * Networks define how you connect to your ethereum client and let you set the
 	 * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -66,7 +70,9 @@ module.exports = {
 	 *
 	 * $ truffle test --network <network-name>
 	 */
-
+	migrations_directory: "./migrations",
+	contracts_build_directory: "./build/contracts",
+	contracts_directory: "./contracts",
 	networks: {
 		// Useful for testing. The `development` name is special - truffle uses it by default
 		// if it's defined here and no other network is specified at the command line.

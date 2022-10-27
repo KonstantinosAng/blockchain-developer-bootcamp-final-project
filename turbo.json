@@ -131,6 +131,10 @@
 				"build/contracts/**"
 			]
 		},
+		"truffle:dashboard": {
+			"dependsOn": [],
+			"outputs": []
+		},
 		"generate-types": {
 			"dependsOn": [],
 			"outputs": [

@@ -60,6 +60,7 @@
 		"truffle:test": "turbo run truffle:test --scope=crypto_lottery_contract",
 		"truffle:test-matic": "turbo run truffle:test-matic --scope=crypto_lottery_contract",
 		"truffle:compile": "turbo run truffle:compile --scope=crypto_lottery_contract",
+		"truffle:dashboard": "turbo run truffle:dashboard --scope=crypto_lottery_contract",
 		"generate-types": "turbo run generate-types --scope=crypto_lottery_contract",
 		"tsc:migrate": "turbo run tsc:migrate --scope=crypto_lottery_contract",
 		"truffle:migrateRaw": "turbo run truffle:migrateRaw --scope=crypto_lottery_contract",

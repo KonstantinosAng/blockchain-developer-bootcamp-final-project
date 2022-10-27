@@ -1,8 +1,12 @@
-import { getNotificationErrorMessage, loaderSize } from "@constants"
+import { getAvatarURL, getNotificationErrorMessage, loaderSize } from "@constants"
 import { useContractStore } from "@hooks/useContractStore"
+import useFirebaseDb from "@hooks/useFirebaseDb"
+import useIPFSUpload from "@hooks/useIPFS"
 import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
+import { useNFTFactoryStore } from "@hooks/useNFTFactoryStore"
 import { ContractStoreStateProps } from "@stores/contractStore"
 import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
+import { NFTFactoryStoreStateProps } from "@stores/nftFactoryStore"
 import formatValue from "@utils/formatValue"
 import React from "react"
 import toast from "react-hot-toast"
@@ -18,12 +22,52 @@ const AdminTools = (props: Props) => {
 	const withdrawCommission = useContractStore((state: ContractStoreStateProps) => state.withdrawCommission)
 	const restartLottery = useContractStore((state: ContractStoreStateProps) => state.restartLottery)
 	const refundAll = useContractStore((state: ContractStoreStateProps) => state.refundAll)
+	const mint = useNFTFactoryStore((state: NFTFactoryStoreStateProps) => state.mint)
+	const { getUserUID, setUserUID } = useFirebaseDb()
+	const { uploadFile } = useIPFSUpload()
+
+	const createWinningNFT = async (winnerAddress: string) => {
+		const notification = toast.loading("Creating the winning NFT...")
+
+		try {
+			/* Get user UID */
+			const userFirebaseData = await getUserUID(winnerAddress)
+			/* Create NFT metadata */
+			const metadata = {
+				name: winnerAddress,
+				description: `${userFirebaseData?.uid ?? 0}. ConsenSys Lottery Winner ${winnerAddress}`,
+				image: getAvatarURL(`${winnerAddress}${userFirebaseData?.uid}`),
+			}
+
+			// const file = new File([new Blob([JSON.stringify(metadata)], { type: "application/json" })], `${winnerAddress}${userFirebaseData?.uid}.json`)
+
+			/* Upload json with nft metadata */
+			const uploadedFileURL = await uploadFile(metadata)
+
+			/* Update user uid */
+			setUserUID(winnerAddress, userFirebaseData?.uid + 1)
+
+			/* Create NFT */
+			mint(winnerAddress, uploadedFileURL)
+
+			toast.success("The winning NFT has been created!", {
+				id: notification,
+			})
+		} catch (e) {
+			console.error(e)
+			toast.error(getNotificationErrorMessage(), {
+				id: notification,
+			})
+		}
+	}
 
 	const handleDrawingTheWinningTicket = async () => {
 		const notification = toast.loading("Drawing winning ticket...")
 
 		try {
-			await drawWinningTicket([{}])
+			const winningAddress = await drawWinningTicket([{}])
+
+			await createWinningNFT(winningAddress)
 
 			toast.success("A winner has been selected!", {
 				id: notification,

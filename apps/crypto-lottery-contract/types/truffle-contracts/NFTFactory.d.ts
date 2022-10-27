@@ -34,6 +34,13 @@ export interface ApprovalForAll {
   };
 }
 
+export interface MintToggle {
+  name: "MintToggle";
+  args: {
+    0: boolean;
+  };
+}
+
 export interface NFTMinted {
   name: "NFTMinted";
   args: {
@@ -66,6 +73,7 @@ export interface Transfer {
 type AllEvents =
   | Approval
   | ApprovalForAll
+  | MintToggle
   | NFTMinted
   | OwnershipTransferred
   | Transfer;
