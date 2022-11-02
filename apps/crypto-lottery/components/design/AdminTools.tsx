@@ -140,25 +140,25 @@ const AdminTools = (props: Props) => {
 				<Flex className="flex-col gap-y-2 gap-x-0 md:flex-row md:gap-x-4 md:gap-y-0">
 					<LoadingWrapper size={loaderSize} loading={!drawWinningTicket}>
 						<Button className="stats adminButton" onClick={handleDrawingTheWinningTicket}>
-							<Star className="mb-2 h-6 md:mx-auto" />
+							<Star className="mb-2 h-8 md:mx-auto md:h-10" />
 							<H11>Draw winning ticket</H11>
 						</Button>
 					</LoadingWrapper>
 					<LoadingWrapper size={loaderSize} loading={!withdrawCommission}>
 						<Button className="stats adminButton" onClick={handleWithdrawingCommission}>
-							<CurrencyIcon className="mb-2 h-6 md:mx-auto" />
+							<CurrencyIcon className="mb-2 h-8 md:mx-auto md:h-10" />
 							<H11>Withdraw Commission</H11>
 						</Button>
 					</LoadingWrapper>
 					<LoadingWrapper size={loaderSize} loading={!restartLottery}>
 						<Button className="stats adminButton" onClick={handleRestartingLottery}>
-							<ArrowIcon className="mb-2 h-6 md:mx-auto" />
+							<ArrowIcon className="mb-2 h-8 md:mx-auto md:h-10" />
 							<H11>Restart Lottery</H11>
 						</Button>
 					</LoadingWrapper>
 					<LoadingWrapper size={loaderSize} loading={!refundAll}>
 						<Button className="stats adminButton" onClick={handleRefundAll}>
-							<ArrowTurnDownIcon className="mb-2 h-6 md:mx-auto" />
+							<ArrowTurnDownIcon className="mb-2 h-8 md:mx-auto md:h-10" />
 							<H11>Refund All</H11>
 						</Button>
 					</LoadingWrapper>
