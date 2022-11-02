@@ -2,7 +2,7 @@ import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
 import { useNFTFactoryStore } from "@hooks/useNFTFactoryStore"
 import { SmartContract } from "@thirdweb-dev/sdk"
 import React from "react"
-import { Box, Flex, H9, LoadingWrapper, Span, Tooltip } from "ui"
+import { Box, Flex, H9, LoadingWrapper, Tooltip } from "ui"
 import NavButton from "./NavButton"
 import NFTIcon from "./NFTIcon"
 
