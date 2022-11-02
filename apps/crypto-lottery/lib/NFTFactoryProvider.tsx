@@ -1,7 +1,5 @@
 import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
 import { useNFTFactoryStore } from "@hooks/useNFTFactoryStore"
-import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
-import { NFTFactoryStoreStateProps } from "@stores/nftFactoryStore"
 import { useContract, useContractWrite, useContractRead } from "@thirdweb-dev/react"
 import { cloneElement, ReactElement, useEffect } from "react"
 

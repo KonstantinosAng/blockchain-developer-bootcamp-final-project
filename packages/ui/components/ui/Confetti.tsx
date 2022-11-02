@@ -4,9 +4,14 @@ import Confetti from "react-confetti"
 
 interface Props {
 	run?: boolean
+	customWidth?: number
+	customHeight?: number
+	className?: string
+	style?: object
+	onClick?: () => void
 }
 
-export const WindowConfetti = ({ run, ...rest }: Props) => {
+export const WindowConfetti = ({ run, customWidth, customHeight, ...rest }: Props) => {
 	const { width, height } = useWindowSize()
-	return <Confetti run={run} numberOfPieces={400} width={width} height={height} {...rest} />
+	return <Confetti run={run} numberOfPieces={400} width={customWidth ?? width} height={customHeight ?? height} {...rest} />
 }

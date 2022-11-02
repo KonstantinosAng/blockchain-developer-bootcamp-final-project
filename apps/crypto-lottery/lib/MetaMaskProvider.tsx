@@ -2,7 +2,6 @@ import { ReactElement, cloneElement, useEffect } from "react"
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react"
 import Login from "@pages/Login"
 import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
-import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 
 interface Props {
 	children?: ReactElement

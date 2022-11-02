@@ -1,10 +1,8 @@
 import { useContract, useContractWrite, useContractRead } from "@thirdweb-dev/react"
 import { cloneElement, ReactElement, useEffect } from "react"
 import { useContractStore } from "@hooks/useContractStore"
-import { ContractStoreStateProps } from "@stores/contractStore"
 import formatValue from "@utils/formatValue"
 import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
-import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 
 interface Props {
 	children?: ReactElement

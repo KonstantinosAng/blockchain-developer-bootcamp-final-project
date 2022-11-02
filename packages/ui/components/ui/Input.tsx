@@ -6,6 +6,7 @@ interface Props {
 	value?: number
 	name?: string
 	onChange?: (event: Event) => void
+	onClick?: () => void
 }
 
 interface Event {

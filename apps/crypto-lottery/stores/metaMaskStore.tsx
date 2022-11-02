@@ -1,14 +1,3 @@
-export interface MetamaskStoreStateProps {
-	address: string
-	setAddress: () => void
-	isConnected: boolean | null
-	login: () => void | null
-	disconnect: () => void | null
-	setLogin: () => void
-	setDisconnect: () => void
-	setIsConnected: () => void
-}
-
 interface InitialStateProps {
 	address: string | null
 	isConnected: boolean | null

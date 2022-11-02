@@ -3,7 +3,6 @@ import { Box, Flex, H12, H5, H9, LoadingWrapper } from "ui"
 import CountDown from "./CountDown"
 import { currency, loaderSize } from "@constants"
 import { useContractStore } from "@hooks/useContractStore"
-import { ContractStoreStateProps } from "@stores/contractStore"
 import { SmartContract } from "@thirdweb-dev/sdk"
 
 interface Props {

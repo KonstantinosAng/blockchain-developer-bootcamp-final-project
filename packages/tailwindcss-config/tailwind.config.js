@@ -46,10 +46,18 @@ module.exports = {
           },
         ],
       },
+			fontFamily: {
+				'Castoro-Regular': 'Castoro-Regular',
+				'Castoro-Italic': 'Castoro-Italic',
+				'IslandMoments': 'IslandMoments',
+			},
       colors: {
         basicBackground: "#0d082d",
         headerBackground: "#222050"
-      }
+      },
+			cursor: {
+				eth: "url('../cursors/coin.png') 24 24, pointer",
+			},
     },
   },
   plugins: [],

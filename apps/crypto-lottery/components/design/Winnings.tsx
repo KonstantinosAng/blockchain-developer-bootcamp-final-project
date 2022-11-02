@@ -1,6 +1,5 @@
 import { currency, getNotificationErrorMessage } from "@constants"
 import { useContractStore } from "@hooks/useContractStore"
-import { ContractStoreStateProps } from "@stores/contractStore"
 import formatValue from "@utils/formatValue"
 import { useEffect, useState } from "react"
 import { Button, Flex, H10, H12, H9, WindowConfetti } from "ui"
@@ -46,7 +45,7 @@ const Winnings = (props: Props) => {
 
 	return winnings > 0 ? (
 		<Flex className="mt-5 w-full items-center justify-center text-center text-slate-100">
-			{animation && <WindowConfetti run={animation} />}
+			{animation && <WindowConfetti run={animation} className="!fixed" />}
 			<Button
 				className="w-full rounded-md bg-sky-600 px-6 py-4 shadow-lg drop-shadow-lg motion-safe:animate-pulse md:w-[calc(80%+20px)]"
 				onClick={handleWithdrawWinnings}

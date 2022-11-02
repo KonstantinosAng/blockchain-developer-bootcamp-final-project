@@ -1,4 +1,3 @@
-import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 import { useMetaMaskStore } from "./useMetaMaskStore"
 import { db, setDoc, doc, getDoc } from "@firebase"
 

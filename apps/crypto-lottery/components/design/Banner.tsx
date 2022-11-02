@@ -1,6 +1,5 @@
 import { currency } from "@constants"
 import { useContractStore } from "@hooks/useContractStore"
-import { ContractStoreStateProps } from "@stores/contractStore"
 import formatValue from "@utils/formatValue"
 import React from "react"
 import { Flex, H12, LoadingWrapper, MarqueeBanner } from "ui"
@@ -11,7 +10,7 @@ const Banner = (props: Props) => {
 	const lastWinner = useContractStore((state: ContractStoreStateProps) => state.lastWinner)
 
 	return (
-		<MarqueeBanner>
+		<MarqueeBanner className="mt-[120px]">
 			<LoadingWrapper loading={!lastWinner}>
 				<Flex className="gap-8 font-bold">
 					<H12 className="">{`Last Winner: ${lastWinner?._lastWinnerAddress ?? "-"}`}</H12>

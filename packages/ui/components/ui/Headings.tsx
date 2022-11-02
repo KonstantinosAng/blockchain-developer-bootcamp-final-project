@@ -3,6 +3,7 @@ import { ReactNode } from "react"
 interface Props {
 	children?: ReactNode | string
 	className?: string
+	onClick?: () => void
 }
 
 const common = "font-bold"

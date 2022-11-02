@@ -1,5 +1,4 @@
 import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
-import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 import { ReactElement, cloneElement, useEffect } from "react"
 import { db, onSnapshot, doc } from "@firebase"
 import useFirebaseDb from "@hooks/useFirebaseDb"

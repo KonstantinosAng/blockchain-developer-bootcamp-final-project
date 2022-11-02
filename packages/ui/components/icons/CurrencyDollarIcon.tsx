@@ -3,6 +3,7 @@ import { CurrencyDollarIcon } from "@heroicons/react/24/solid"
 
 interface Props {
 	className?: string
+	onClick?: () => void
 }
 
 export const CurrencyIcon = ({ ...rest }: Props) => {

@@ -5,11 +5,16 @@ interface Props {
 	children: ReactNode
 	isActive?: boolean
 	onClick?: () => void
+	className?: string
 }
 
-const NavButton = ({ isActive, onClick, children, ...rest }: Props): JSX.Element => {
+const NavButton = ({ isActive, onClick, className, children, ...rest }: Props): JSX.Element => {
 	return (
-		<Button onClick={onClick} className={`${isActive && "bg-teal-600"} rounded py-2 px-4 font-semibold text-slate-100 hover:bg-teal-500`} {...rest}>
+		<Button
+			onClick={onClick}
+			className={`${isActive && "bg-teal-600"} 450:py-2 450:px-4 rounded px-3 py-1 font-semibold text-slate-100 hover:bg-teal-500 ${className}`}
+			{...rest}
+		>
 			{children}
 		</Button>
 	)

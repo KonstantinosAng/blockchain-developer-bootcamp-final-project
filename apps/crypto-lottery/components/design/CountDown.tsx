@@ -3,7 +3,6 @@ import React from "react"
 import { Box, Flex, H10, H12, H5, H9, LoadingWrapper } from "ui"
 import Countdown from "react-countdown"
 import { useContractStore } from "@hooks/useContractStore"
-import { ContractStoreStateProps } from "@stores/contractStore"
 import { loaderSize } from "@constants"
 
 interface Props {

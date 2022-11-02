@@ -5,6 +5,7 @@ type Props = {
 	loading?: boolean
 	children: ReactNode
 	size?: number
+	onClick?: () => void
 }
 
 export const LoadingWrapper = ({ loading, children, size = 50 }: Props): JSX.Element => {

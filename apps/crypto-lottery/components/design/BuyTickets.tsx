@@ -3,12 +3,10 @@ import { Box, Button, Flex, H12, H9, Input, LoadingWrapper, Label, H11, H10 } fr
 import Ticket from "ui/assets/tickets.png"
 import { currency, getNotificationErrorMessage, loaderSize } from "@constants"
 import { useContractStore } from "@hooks/useContractStore"
-import { ContractStoreStateProps } from "@stores/contractStore"
 import toast from "react-hot-toast"
 import { parseValue } from "@utils/formatValue"
 import Image from "next/future/image"
 import { useMetaMaskStore } from "@hooks/useMetaMaskStore"
-import { MetamaskStoreStateProps } from "@stores/metaMaskStore"
 
 interface Props {}
 
