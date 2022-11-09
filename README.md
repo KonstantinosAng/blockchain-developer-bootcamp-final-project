@@ -28,7 +28,7 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
 #
 
 <details>
- <summary style="font-size: 1.7rem" id="tableOfContents">Sections</summary>
+ <summary id="tableOfContents"><b><h3>Sections</h3></b></summary>
  <ul>
   <li><a href="#actions">Actions</a></li>
   <li><a href="#demo">Demo Link</a></li>
