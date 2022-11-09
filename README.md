@@ -285,7 +285,7 @@ Copy a private key from a ganache account and click on MetaMask import account
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
 
-## <img src="./images/test.png" id="test" alt="test" width="20px" /> Solidity Tests
+## <img src="./images/test.png" id="test" alt="test" width="20px" /> [`Solidity Tests`](app/../apps/crypto-lottery-contract/test)
 
 The tests are located in `apps/crypto-lottery-contract/test`
 
