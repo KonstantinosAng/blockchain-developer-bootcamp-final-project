@@ -51,6 +51,7 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
   <li><a href="#releases">Releases</a></li>
   <li><a href="#deployments">Deployments</a></li>
   <li><a href="#public-address">Public Address</a></li>
+  <li><a href="#responsive-mocks">Mocks</a></li>
  </ul>
 </details>
 
@@ -356,22 +357,16 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=
 
 ## <img src="./images/deploy.png" id="deploy-docker" alt="deploy" width="20px" /> Deploy the frontend with Docker in a dedicated Server
 
-Create a .env.production.local file on the root of the apps/crypto-lottery app, based on the .env.example file
+1. Create a .env.production.local file on the root of the apps/crypto-lottery app, based on the .env.example file
 
-```bash
-BROWSER=none
-NEXT_TELEMETRY_DISABLED=1
-NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
-```
-
-Run the following commands to build and run the docker image from the server's terminal
+2. Run the following commands to build and run the docker image from the server's terminal
 
 ```bash
 yarn docker:compose:build
 yarn docker:compose:up
 ```
 
-Navigate to http://localhost:1237 from the server or expose the 1237 server's port and go to http://<serverIp>:1237 from anywhere you want.
+3. Navigate to [`localhost`](http://localhost:1237) from the server or expose the 1237 server's port and go to http://<serverIp>:1237 from anywhere you want.
 
 ## <img src="./images/vercel.png" id="deploy-vercel" alt="vercel" width="24px" /> Deploy the frontend to [`Vercel`](https://vercel.com/)
 
@@ -421,5 +416,50 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 ```bash
 0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605
 ```
+
+## <img src="./images/responsive.png" id="responsive-mocks" alt="responsive" width="38px" /> Mocks
+
+<h3 align="center"> Login </h3>
+<div>
+ <table>
+  <tr>
+   <td align="center" style="font-weight:bold"> Laptop </td>
+   <td align="center" style="font-weight:bold"> Mobile </td>
+  </tr>
+  <tr>
+   <td><img src="./images/mocks/login.png" alt="login-laptop"></td>
+   <td><img src="./images/mocks/login-mobile.png" alt="login-mobile"></td>
+  </tr>
+ </table>
+</div>
+
+<h3 align="center"> Home (Admin) </h3>
+<div>
+ <table>
+  <tr>
+   <td align="center" style="font-weight:bold"> Laptop </td>
+   <td align="center" style="font-weight:bold"> Mobile </td>
+  </tr>
+  <tr>
+   <td><img src="./images/mocks/home.png" alt="home-laptop"></td>
+   <td><img src="./images/mocks/home-mobile.png" alt="home-mobile"></td>
+  </tr>
+ </table>
+</div>
+
+<h3 align="center"> Home (User) </h4>
+<div>
+ <table>
+  <tr>
+   <td align="center" style="font-weight:bold"> Laptop </td>
+   <td align="center" style="font-weight:bold"> Mobile </td>
+  </tr>
+  <tr>
+   <td><img src="./images/mocks/home-user.png" alt="home-user-laptop"></td>
+   <td><img src="./images/mocks/home-user-mobile.png" alt="home-user-mobile"></td>
+  </tr>
+ </table>
+</div>
+
 
 ##### * Created as the final project of the [`ConsenSys blockchain developer bootcamp`](https://consensys.net/academy/bootcamp/)
