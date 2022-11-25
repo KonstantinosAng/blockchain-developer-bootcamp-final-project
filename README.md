@@ -77,6 +77,8 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
 
 > Draw winner ticket.
 
+> Create a winning NFT.
+
 > Withdraw commission.
 
 > Restart lottery.
