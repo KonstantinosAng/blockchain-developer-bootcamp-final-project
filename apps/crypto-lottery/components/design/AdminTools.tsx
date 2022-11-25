@@ -63,8 +63,9 @@ const AdminTools = (props: Props) => {
 
 		try {
 			const winningAddress = await drawWinningTicket([{}])
+			const winner = winningAddress?.receipt?.events?.length ? winningAddress?.receipt?.events[0]?.args[0] : winningAddress?.receipt?.from
 
-			await createWinningNFT(winningAddress?.receipt?.from)
+			await createWinningNFT(winner)
 
 			toast.success("A winner has been selected!", {
 				id: notification,
