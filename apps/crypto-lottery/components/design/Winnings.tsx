@@ -1,16 +1,20 @@
 import { currency, getNotificationErrorMessage } from "@constants"
 import { useContractStore } from "@hooks/useContractStore"
 import formatValue from "@utils/formatValue"
-import { useEffect, useState } from "react"
+import { memo, useCallback, useEffect } from "react"
 import { Button, Flex, H10, H12, H9, WindowConfetti } from "ui"
 import toast from "react-hot-toast"
+import { useUiStore } from "@hooks/useUiStore"
 
 interface Props {}
 
 const Winnings = (props: Props) => {
 	const winnings = useContractStore((state: ContractStoreStateProps) => state.winnings)
 	const withdrawWinnings = useContractStore((state: ContractStoreStateProps) => state.withdrawWinnings)
-	const [animation, setAnimation] = useState<boolean>(true)
+	const setWinner = useUiStore((state: UiStoreStateProps) => state.setWinner)
+	const setWinnings = useUiStore((state: UiStoreStateProps) => state.setWinnings)
+	const winner = useUiStore((state: UiStoreStateProps) => state.winner)
+	const storeWinnings = useUiStore((state: UiStoreStateProps) => state.winnings)
 
 	const handleWithdrawWinnings = async () => {
 		const notification = toast.loading("Withdraw winnings...")
@@ -28,24 +32,25 @@ const Winnings = (props: Props) => {
 		}
 	}
 
-	useEffect(() => {
-		let timer: any
-		if (animation) {
-			timer = setTimeout(() => {
-				setAnimation(false)
-			}, 8000)
-		}
-		return () => clearTimeout(timer)
-	}, [animation])
+	const handleAnimation = useCallback(() => {
+		setWinner(true)
+		setWinnings(formatValue(winnings?.toString()))
+		const timer = setTimeout(() => {
+			setWinner(false)
+		}, 10000)
+		return timer
+	}, [winnings, setWinnings, setWinner])
 
 	useEffect(() => {
-		if (winnings > 0) setAnimation(true)
-		else setAnimation(false)
-	}, [winnings])
+		let timer: ReturnType<typeof setTimeout>
+		if (winnings > 0 && formatValue(winnings?.toString()) !== storeWinnings) {
+			const timer = handleAnimation()
+		}
+	}, [winnings, setWinner, handleAnimation, storeWinnings])
 
 	return winnings > 0 ? (
 		<Flex className="mt-5 w-full items-center justify-center text-center text-slate-100">
-			{animation && <WindowConfetti run={animation} className="!fixed" />}
+			{winner && <WindowConfetti run={winner} className="!fixed" />}
 			<Button
 				className="w-full rounded-md bg-sky-600 px-6 py-4 shadow-lg drop-shadow-lg motion-safe:animate-pulse md:w-[calc(80%+20px)]"
 				onClick={handleWithdrawWinnings}
@@ -58,4 +63,4 @@ const Winnings = (props: Props) => {
 	) : null
 }
 
-export default Winnings
+export default memo(Winnings)

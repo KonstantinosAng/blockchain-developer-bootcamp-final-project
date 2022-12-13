@@ -61,3 +61,10 @@ interface NFT {
 	tokenId: number
 	metaDataURL: string
 }
+
+interface UiStoreStateProps {
+	winner: boolean
+	winnings: number | null
+	setWinnings: () => void
+	setWinner: () => void
+}

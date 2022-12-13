@@ -65,11 +65,11 @@ const AdminTools = (props: Props) => {
 			const winningAddress = await drawWinningTicket([{}])
 			const winner = winningAddress?.receipt?.events?.length ? winningAddress?.receipt?.events[0]?.args[0] : winningAddress?.receipt?.from
 
-			await createWinningNFT(winner)
-
 			toast.success("A winner has been selected!", {
 				id: notification,
 			})
+
+			await createWinningNFT(winner)
 		} catch (err) {
 			console.error(err)
 			toast.error(getNotificationErrorMessage(), {
