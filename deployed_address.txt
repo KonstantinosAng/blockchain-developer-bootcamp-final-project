@@ -2,7 +2,7 @@ The contract is deployed on the MUMBAI (MATIC) testnet.
 The contract is being configured from thirdweb (i.e: https://thirdweb.com/mumbai/0x7405Cd42C72F36601773172E0263976aa45b930F/), more details in README.md.
 
 The address for the lottery contract is:
-LOTTERY_CONTRACT_ADDRESS: 0x7405Cd42C72F36601773172E0263976aa45b930F
+LOTTERY_CONTRACT_ADDRESS: 0x75012A1f5702FBee202b4EA0C07825fbD28E4294
 
 The address for the NFTFactory contract is:
 NFT_FACTORY_CONTRACT_ADDRESS: 0xc3Cc65B3AD8eF7572970154a1aC0c3FBe1fB18c2

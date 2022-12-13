@@ -413,7 +413,8 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 `Lottery`
 
-- [v1.0.2 (latest)](https://thirdweb.com/mumbai/0x7405Cd42C72F36601773172E0263976aa45b930F/)
+- [v1.0.3 (latest)](https://thirdweb.com/mumbai/0x75012A1f5702FBee202b4EA0C07825fbD28E4294/)
+- [v1.0.2](https://thirdweb.com/mumbai/0x7405Cd42C72F36601773172E0263976aa45b930F/)
 - [v1.0.1](https://thirdweb.com/mumbai/0x1d67A627b631ad0e96b14e30707f476FE0043bE2/)
 - [v1.0.0](https://thirdweb.com/mumbai/0x89208851Fcfb85E6d33084e4eADa4c639aCb0cbf/)
 
