@@ -64,7 +64,7 @@ interface NFT {
 
 interface UiStoreStateProps {
 	winner: boolean
-	winnings: number | null
-	setWinnings: () => void
+	winningsAmount: number | null
+	setWinningsAmount: () => void
 	setWinner: () => void
 }

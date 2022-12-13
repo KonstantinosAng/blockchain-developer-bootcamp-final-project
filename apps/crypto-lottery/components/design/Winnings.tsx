@@ -12,9 +12,9 @@ const Winnings = (props: Props) => {
 	const winnings = useContractStore((state: ContractStoreStateProps) => state.winnings)
 	const withdrawWinnings = useContractStore((state: ContractStoreStateProps) => state.withdrawWinnings)
 	const setWinner = useUiStore((state: UiStoreStateProps) => state.setWinner)
-	const setWinnings = useUiStore((state: UiStoreStateProps) => state.setWinnings)
+	const setWinningsAmount = useUiStore((state: UiStoreStateProps) => state.setWinningsAmount)
 	const winner = useUiStore((state: UiStoreStateProps) => state.winner)
-	const storeWinnings = useUiStore((state: UiStoreStateProps) => state.winnings)
+	const winningsAmount = useUiStore((state: UiStoreStateProps) => state.winningsAmount)
 
 	const handleWithdrawWinnings = async () => {
 		const notification = toast.loading("Withdraw winnings...")
@@ -34,19 +34,19 @@ const Winnings = (props: Props) => {
 
 	const handleAnimation = useCallback(() => {
 		setWinner(true)
-		setWinnings(formatValue(winnings?.toString()))
+		setWinningsAmount(formatValue(winnings?.toString()))
 		const timer = setTimeout(() => {
 			setWinner(false)
 		}, 10000)
 		return timer
-	}, [winnings, setWinnings, setWinner])
+	}, [winnings, setWinningsAmount, setWinner])
 
 	useEffect(() => {
 		let timer: ReturnType<typeof setTimeout>
-		if (winnings > 0 && formatValue(winnings?.toString()) !== storeWinnings) {
+		if (winnings > 0 && formatValue(winnings?.toString()) !== winningsAmount) {
 			const timer = handleAnimation()
 		}
-	}, [winnings, setWinner, handleAnimation, storeWinnings])
+	}, [winnings, setWinner, handleAnimation, winningsAmount])
 
 	return winnings > 0 ? (
 		<Flex className="mt-5 w-full items-center justify-center text-center text-slate-100">

@@ -1,11 +1,11 @@
 interface InitialStateProps {
 	winner: boolean
-	winnings: number | null
+	winningsAmount: number | null
 }
 
 const initialState: InitialStateProps = {
 	winner: false,
-	winnings: null,
+	winningsAmount: null,
 }
 
 const state = (preloadedState: object) => (set: Function, get: Function) => ({
@@ -16,9 +16,9 @@ const state = (preloadedState: object) => (set: Function, get: Function) => ({
 			winner,
 		})
 	},
-	setWinnings: (winnings: number) => {
+	setWinningsAmount: (winningsAmount: number) => {
 		set({
-			winnings,
+			winningsAmount,
 		})
 	},
 })
