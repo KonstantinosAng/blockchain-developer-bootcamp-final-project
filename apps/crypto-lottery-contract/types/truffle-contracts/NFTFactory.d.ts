@@ -263,6 +263,10 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
     ): Promise<number>;
   };
 
+  /**
+   * toggle nft factory mint
+   * toggle nft factory mint
+   */
   toggleIsMintEnabled: {
     (txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
@@ -272,6 +276,10 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
+  /**
+   * get nfts of specific address
+   * @param addr addres to get the nfts
+   */
   getNFTSForAddress(
     addr: string,
     txDetails?: Truffle.TransactionDetails
@@ -279,6 +287,11 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
     { _userAddress: string; uid: BN; tokenId: BN; metaDataURL: string }[]
   >;
 
+  /**
+   * Function to mint an NFT
+   * @param recipient Address that the NFT will go to
+   * @param tokenURI The NFT token uri
+   */
   mint: {
     (
       recipient: string,
@@ -490,6 +503,10 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
       ): Promise<number>;
     };
 
+    /**
+     * toggle nft factory mint
+     * toggle nft factory mint
+     */
     toggleIsMintEnabled: {
       (txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
@@ -499,6 +516,10 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
+    /**
+     * get nfts of specific address
+     * @param addr addres to get the nfts
+     */
     getNFTSForAddress(
       addr: string,
       txDetails?: Truffle.TransactionDetails
@@ -506,6 +527,11 @@ export interface NFTFactoryInstance extends Truffle.ContractInstance {
       { _userAddress: string; uid: BN; tokenId: BN; metaDataURL: string }[]
     >;
 
+    /**
+     * Function to mint an NFT
+     * @param recipient Address that the NFT will go to
+     * @param tokenURI The NFT token uri
+     */
     mint: {
       (
         recipient: string,

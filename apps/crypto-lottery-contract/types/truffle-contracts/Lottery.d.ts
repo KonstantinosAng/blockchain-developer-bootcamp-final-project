@@ -223,13 +223,26 @@ export interface LotteryInstance extends Truffle.ContractInstance {
 
   winnings(arg0: string, txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
+  /**
+   * return all the tickets
+   * return all the tickets
+   */
   getTickets(txDetails?: Truffle.TransactionDetails): Promise<string[]>;
 
+  /**
+   * return winnings for specific caller address
+   * return winnings for specific caller address
+   * @param addr Address to check their winnings.
+   */
   getWinningsForAddress(
     addr: string,
     txDetails?: Truffle.TransactionDetails
   ): Promise<BN>;
 
+  /**
+   * Buy tickets for the lottery
+   * Buy tickets for the lottery
+   */
   BuyTickets: {
     (txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
@@ -239,6 +252,10 @@ export interface LotteryInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
+  /**
+   * Draw the winning ticket at randomOnly the lottery owner can execute this
+   * Only the lottery owner can execute this
+   */
   DrawWinnerTicket: {
     (txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
@@ -248,6 +265,10 @@ export interface LotteryInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
+  /**
+   * Restart the LotteryOnly the lottery owner can execute this
+   * Only the lottery owner can execute this
+   */
   restartLottery: {
     (txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
@@ -257,8 +278,16 @@ export interface LotteryInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
+  /**
+   * Check the amassed ammount of winnings
+   * Check the amassed ammount of winnings
+   */
   checkWinningsAmount(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
+  /**
+   * Withdraw the callers winningsOnly a winner can call this function
+   * Only a winner can execute this
+   */
   WithdrawWinnings: {
     (txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
@@ -268,6 +297,10 @@ export interface LotteryInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
+  /**
+   * Refund all ticketsOnly the lottery owner can execute this
+   * Refund all tickets
+   */
   RefundAll: {
     (txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
@@ -277,6 +310,10 @@ export interface LotteryInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
+  /**
+   * Check if caller is winnerOnly the lottery owner can execute this
+   * Only the lottery owner can execute this
+   */
   WithdrawCommission: {
     (txDetails?: Truffle.TransactionDetails): Promise<
       Truffle.TransactionResponse<AllEvents>
@@ -286,10 +323,22 @@ export interface LotteryInstance extends Truffle.ContractInstance {
     estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
   };
 
+  /**
+   * Check if caller is winner
+   * Check if caller is winner
+   */
   IsWinner(txDetails?: Truffle.TransactionDetails): Promise<boolean>;
 
+  /**
+   * Get current winning reward
+   * Get current winning reward
+   */
   CurrentWinningReward(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
+  /**
+   * Get remaining lottery tickets
+   * Get remaining lottery tickets
+   */
   RemainingTickets(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   methods: {
@@ -425,13 +474,26 @@ export interface LotteryInstance extends Truffle.ContractInstance {
 
     winnings(arg0: string, txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
+    /**
+     * return all the tickets
+     * return all the tickets
+     */
     getTickets(txDetails?: Truffle.TransactionDetails): Promise<string[]>;
 
+    /**
+     * return winnings for specific caller address
+     * return winnings for specific caller address
+     * @param addr Address to check their winnings.
+     */
     getWinningsForAddress(
       addr: string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<BN>;
 
+    /**
+     * Buy tickets for the lottery
+     * Buy tickets for the lottery
+     */
     BuyTickets: {
       (txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
@@ -441,6 +503,10 @@ export interface LotteryInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
+    /**
+     * Draw the winning ticket at randomOnly the lottery owner can execute this
+     * Only the lottery owner can execute this
+     */
     DrawWinnerTicket: {
       (txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
@@ -450,6 +516,10 @@ export interface LotteryInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
+    /**
+     * Restart the LotteryOnly the lottery owner can execute this
+     * Only the lottery owner can execute this
+     */
     restartLottery: {
       (txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
@@ -459,8 +529,16 @@ export interface LotteryInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
+    /**
+     * Check the amassed ammount of winnings
+     * Check the amassed ammount of winnings
+     */
     checkWinningsAmount(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
+    /**
+     * Withdraw the callers winningsOnly a winner can call this function
+     * Only a winner can execute this
+     */
     WithdrawWinnings: {
       (txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
@@ -470,6 +548,10 @@ export interface LotteryInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
+    /**
+     * Refund all ticketsOnly the lottery owner can execute this
+     * Refund all tickets
+     */
     RefundAll: {
       (txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
@@ -479,6 +561,10 @@ export interface LotteryInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
+    /**
+     * Check if caller is winnerOnly the lottery owner can execute this
+     * Only the lottery owner can execute this
+     */
     WithdrawCommission: {
       (txDetails?: Truffle.TransactionDetails): Promise<
         Truffle.TransactionResponse<AllEvents>
@@ -488,10 +574,22 @@ export interface LotteryInstance extends Truffle.ContractInstance {
       estimateGas(txDetails?: Truffle.TransactionDetails): Promise<number>;
     };
 
+    /**
+     * Check if caller is winner
+     * Check if caller is winner
+     */
     IsWinner(txDetails?: Truffle.TransactionDetails): Promise<boolean>;
 
+    /**
+     * Get current winning reward
+     * Get current winning reward
+     */
     CurrentWinningReward(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
+    /**
+     * Get remaining lottery tickets
+     * Get remaining lottery tickets
+     */
     RemainingTickets(txDetails?: Truffle.TransactionDetails): Promise<BN>;
   };
 

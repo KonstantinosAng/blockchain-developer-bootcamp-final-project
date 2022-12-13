@@ -7,74 +7,94 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 pragma solidity >=0.8.4 <0.9.0;
 
-// @title A Contract for making a Lottery
-// @author K. Angelopoulos
-// @notice You can use this contract to construct new Lotteries
+/// @title A Contract for making a Lottery
+/// @author K. Angelopoulos
+/// @notice You can use this contract to construct new Lotteries
 contract Lottery is ReentrancyGuard, AccessControl {
-	using SafeMath for uint256;
+	using SafeMath for uint256; /// @notice Library to protect against overflows
 
-	// Struct to keep track of the last winner
+	/// @dev Struct to keep track of the last winner
 	struct LastWinner {
-		address _lastWinnerAddress; // last winner address
-		uint256 _lastWinnerWinnings; // last winner winnings
+		address _lastWinnerAddress; /// @dev last winner address
+		uint256 _lastWinnerWinnings; /// @dev last winner winnings
 	}
 
-	uint256 public constant ticketPrice = 0.01 ether; // price per ticket
-	uint256 public constant maxTickets = 100; // maximum tickets per lottery
-	uint256 public constant ticketCommission = 0.001 ether; // commition per ticket for the lottery owner
-	uint256 public constant duration = 30 minutes; // The duration set for the lottery
+	uint256 public constant ticketPrice = 0.01 ether; /// @dev price per ticket
+	uint256 public constant maxTickets = 100; /// @dev maximum tickets per lottery
+	uint256 public constant ticketCommission = 0.001 ether; /// @dev commition per ticket for the lottery owner
+	uint256 public constant duration = 30 minutes; /// @dev The duration set for the lottery
 
-	uint256 public expiration; // Timeout in case that the lottery was not carried out.
-	address public lotteryOwner; // the creator of the lottery
-	uint256 public lotteryOwnerTotalCommission = 0; // the total commission balance
-	LastWinner public lastWinner; // the last winner of the lottery
+	uint256 public expiration; /// @dev Timeout in case that the lottery was not carried out.
+	address public lotteryOwner; /// @dev the creator of the lottery
+	uint256 public lotteryOwnerTotalCommission = 0; /// @dev the total commission balance
+	LastWinner public lastWinner; /// @dev the last winner of the lottery
 
-	mapping(address => uint256) public winnings; // maps the winners to there winnings
-	address[] public tickets; //array of purchased Tickets
+	mapping(address => uint256) public winnings; /// @dev maps the winners to there winnings
+	address[] public tickets; /// @dev array of purchased Tickets
 
+	/// @dev Add Reentrancy Guard to protect against calling itself
 	constructor() ReentrancyGuard() {
-		lotteryOwner = msg.sender; // Address that deployed the contract
-		expiration = block.timestamp + duration; // lottery expiration time
+		lotteryOwner = msg.sender; /// @dev Address that deployed the contract
+		expiration = block.timestamp + duration; /// @dev lottery expiration time
 	}
 
-	// @event: BuyTickets - Event for buying tickets
+	/// @custom:event BuyTickets - Event for buying tickets
+	/// @param _buyerAddress Address that bought the tickets.
+	/// @param _ticketsBought Number of tickets bought.
+	/// @dev BuyTickets - Event for buying tickets
 	event TicketsBought(address _buyerAddress, uint256 _ticketsBought);
-	// @event: DrawWinnerTicket - Event for drawing the winning ticket
+
+	/// @custom:event DrawWinnerTicket - Event for drawing the winning ticket
+	/// @param _winnerAddress Address that won the lottery.
+	/// @param _winnersWinnings Amount won.
+	/// @dev DrawWinnerTicket - Event for drawing the winning ticket
 	event WinnerTicketDrawn(address _winnerAddress, uint256 _winnersWinnings);
-	// @event: RefundAll - Event for restarting the lottery
+
+	/// @custom:event LotteryRestart - Event for restarting the lottery
+	/// @param _newLotteryExpiration New lottery expiration time.
+	/// @dev LotteryRestart - Event for restarting the lottery
 	event LotteryRestart(uint256 _newLotteryExpiration);
-	// @event: RefundAll - Event for restarting the lottery
+
+	/// @custom:event RefundAllTickets - Event for refunding all lottery tickets
+	/// @param _refundAllTickets Boolean to emit that lottery tickets were refunded.
+	/// @dev LotteryRestart - Event for restarting the lottery
 	event RefundAllTickets(bool _refundAllTickets);
 
-	// @info modifier to check if caller is the lottery owner
+	/// @dev modifier to check if caller is the lottery owner
 	modifier isLotteryOwner() {
 		require((msg.sender == lotteryOwner), "Caller is not the lottery owner");
 		_;
 	}
 
-	// @info modifier to check if caller is a winner
+	/// @dev modifier to check if caller is a winner
 	modifier isWinner() {
 		require(IsWinner(), "Caller is not a winner");
 		_;
 	}
 
-	// @info return all the tickets
+	/// @notice return all the tickets
+	/// @dev return all the tickets
+	/// @return tickets the bought tickets
 	function getTickets() public view returns (address[] memory) {
 		return tickets;
 	}
 
-	// @info return winnings for specific caller address
+	/// @notice return winnings for specific caller address
+	/// @dev return winnings for specific caller address
+	/// @param addr Address to check their winnings.
+	/// @return uint256 Winnings of giver address
 	function getWinningsForAddress(address addr) public view returns (uint256) {
 		return winnings[addr];
 	}
 
-	// @info Buy tickets for the lottery
+	/// @notice Buy tickets for the lottery
+	/// @dev Buy tickets for the lottery
 	function BuyTickets() public payable {
-		// Check if buyer sends the correct amount of money
+		/// @dev Check if buyer sends the correct amount of money
 		require(
 			msg.value % ticketPrice == 0,
-			// use abi.encodePacked instead of string.concat to reduce the gas consumption
-			// https://ethereum.stackexchange.com/questions/729/how-to-concatenate-strings-in-solidity
+			/// @dev use abi.encodePacked instead of string.concat to reduce the gas consumption
+			/// @dev https://ethereum.stackexchange.com/questions/729/how-to-concatenate-strings-in-solidity
 			string(
 				abi.encodePacked(
 					"the value must be multiple of ",
@@ -84,134 +104,149 @@ contract Lottery is ReentrancyGuard, AccessControl {
 			)
 		);
 
-		// Get number of tickets to buy
+		/// @dev Get number of tickets to buy
 		uint256 numOfTicketsToBuy = msg.value / ticketPrice;
 
-		// Check if there are enough tickets to buy
+		/// @dev Check if there are enough tickets to buy
 		require(
 			numOfTicketsToBuy <= RemainingTickets(),
 			"Not enough tickets available."
 		);
 
-		// Push buyer to tickets array
+		/// @dev Push buyer to tickets array
 		for (uint256 i = 0; i < numOfTicketsToBuy; i++) {
 			tickets.push(msg.sender);
 		}
 
-		// Emit event for tickets bought
+		/// @dev Emit event for tickets bought
 		emit TicketsBought(msg.sender, numOfTicketsToBuy);
 	}
 
-	// @info Draw the winning ticket at random
-	// @notice Only the lottery owner can execute this
+	/// @notice Only the lottery owner can execute this
+	/// @dev Draw the winning ticket at random
+	/// @dev Only the lottery owner can execute this
+	/// @return address Return the winner struct
 	function DrawWinnerTicket() public isLotteryOwner returns (address) {
-		// Check if there is at least one ticket
+		/// @dev Check if there is at least one ticket
 		require(tickets.length > 0, "No tickets were purchased");
-		// Get the hash from the first block
+		/// @dev Get the hash from the first block
 		bytes32 blockHash = blockhash(block.number - tickets.length);
-		// generate a random nonce from the first lottery block hash and the last lottery block timestamp
+		/// @dev generate a random nonce from the first lottery block hash and the last lottery block timestamp
 		uint256 randomNumber = uint256(
 			keccak256(abi.encodePacked(block.timestamp, blockHash))
 		);
-		// calculate the mod of the randomNumber in order for the winning ticket to be in range of the bought tickets
+		/// @dev calculate the mod of the randomNumber in order for the winning ticket to be in range of the bought tickets
 		uint256 winningTicket = randomNumber % tickets.length;
-		// get the address of the winner
+		/// @dev get the address of the winner
 		address winner = tickets[winningTicket];
-		// update winnings map with {winner: winnings}
+		/// @dev update winnings map with {winner: winnings}
 		winnings[winner] += (tickets.length * (ticketPrice - ticketCommission));
-		// update last winner
+		/// @dev update last winner
 		lastWinner = LastWinner(winner, winnings[winner]);
-		// update lottery owner total commission
+		/// @dev update lottery owner total commission
 		lotteryOwnerTotalCommission += (tickets.length * ticketCommission);
-		// empty tickets in order for the new lottery to start
+		/// @dev empty tickets in order for the new lottery to start
 		delete tickets;
-		// update lottery expiration time
+		/// @dev update lottery expiration time
 		expiration = block.timestamp + duration;
-		// Emit event for winning ticket drawn
+		/// @dev Emit event for winning ticket drawn
 		emit WinnerTicketDrawn(winner, winnings[winner]);
-		// Return winning address
+		/// @dev Return winning address
 		return winner;
 	}
 
-	// @info Restart the Lottery
-	// @notice Only the lottery owner can execute this
+	/// @notice Only the lottery owner can execute this
+	/// @dev Restart the Lottery
+	/// @dev Only the lottery owner can execute this
 	function restartLottery() public isLotteryOwner {
-		// check if lottery tickets are empty
+		/// @dev check if lottery tickets are empty
 		require(
 			tickets.length == 0,
 			"Cannot Restart Lottery as Lottery is in play"
 		);
-		// delete tickets again in order to be sure
+		/// @dev delete tickets again in order to be sure
 		delete tickets;
-		// update lottery expiration time
+		/// @dev update lottery expiration time
 		expiration = block.timestamp + duration;
-		// Emit event for lottery restarting
+		/// @dev Emit event for lottery restarting
 		emit LotteryRestart(expiration);
 	}
 
-	// @info Check the amassed ammount of winnings
+	/// @notice Check the amassed ammount of winnings
+	/// @dev Check the amassed ammount of winnings
+	/// @return uint256 Return the winning amount
 	function checkWinningsAmount() public view returns (uint256) {
-		// get the caller address
+		/// @dev get the caller address
 		address payable winner = payable(msg.sender);
-		// get the caller winnings
+		/// @dev get the caller winnings
 		uint256 reward2Transfer = winnings[winner];
-		// return the caller winning
+		/// @dev return the caller winning
 		return reward2Transfer;
 	}
 
-	// @info Withdraw the callers winnings
-	// @notice Only a winner can execute this
+	/// @notice Only a winner can execute this
+	/// @dev Withdraw the callers winnings
+	/// @dev Only a winner can call this function
 	function WithdrawWinnings() public isWinner nonReentrant {
-		// get the caller address
+		/// @dev get the caller address
 		address payable winner = payable(msg.sender);
-		// get the caller winnings
+		/// @dev get the caller winnings
 		uint256 reward2Transfer = winnings[winner];
-		// transfer winnings to caller
+		/// @dev transfer winnings to caller
 		winner.transfer(reward2Transfer);
-		// delete the callers winnings after transferring the winnings
+		/// @dev delete the callers winnings after transferring the winnings
 		winnings[winner] = 0;
 	}
 
-	// @info Refund all tickets
+	/// @notice Refund all tickets
+	/// @dev Refund all tickets
+	/// @dev Only the lottery owner can execute this
 	function RefundAll() public isLotteryOwner {
-		// check if lottery is active
+		/// @dev check if lottery is active
 		require(block.timestamp >= expiration, "the lottery has not expired yet");
-		// Loop over all tickets and for each ticket buyer address transfer back the ticket amount
+		/// @dev Loop over all tickets and for each ticket buyer address transfer back the ticket amount
 		for (uint256 i = 0; i < tickets.length; i++) {
-			address payable to = payable(tickets[i]); // Get ticket buyer address
-			tickets[i] = address(0); // replace ticket address with null address
-			to.transfer(ticketPrice); // send to ticket buyer address the ticket price back to refund them
+			address payable to = payable(tickets[i]); /// @dev Get ticket buyer address
+			tickets[i] = address(0); /// @dev replace ticket address with null address
+			to.transfer(ticketPrice); /// @dev send to ticket buyer address the ticket price back to refund them
 		}
-		// empty lottery tickets
+		/// @dev empty lottery tickets
 		delete tickets;
-		// emit event for refunding all tickets
+		/// @dev emit event for refunding all tickets
 		emit RefundAllTickets(true);
 	}
 
-	// @info Check if caller is winner
-	// @notice Only the lottery owner can execute this
+	/// @notice Only the lottery owner can execute this
+	/// @dev Check if caller is winner
+	/// @dev Only the lottery owner can execute this
 	function WithdrawCommission() public isLotteryOwner {
-		// get the caller address (owner address)
+		/// @dev get the caller address (owner address)
 		address payable lotterOwner = payable(msg.sender);
-		// get the lottery owner commission
+		///  @dev get the lottery owner commission
 		uint256 totalCommissionToTransfer = lotteryOwnerTotalCommission;
-		// transfer winnings to lottery owner address
+		/// @dev transfer winnings to lottery owner address
 		lotterOwner.transfer(totalCommissionToTransfer);
-		// delete the operators commission after transferring the commission
+		/// @dev delete the operators commission after transferring the commission
 		lotteryOwnerTotalCommission = 0;
 	}
 
-	// @info Check if caller is winner
+	/// @notice Check if caller is winner
+	/// @dev Check if caller is winner
+	/// @return bool return if address is winner
 	function IsWinner() public view returns (bool) {
 		return winnings[msg.sender] > 0;
 	}
 
-	// @info Get current winning reward
+	/// @notice Get current winning reward
+	/// @dev Get current winning reward
+	/// @return uint256 returns current winning reward
 	function CurrentWinningReward() public view returns (uint256) {
 		return tickets.length * ticketPrice;
 	}
 
-	// @info Get remaining lottery tickets
+	/// @notice Get remaining lottery tickets
+	/// @dev Get remaining lottery tickets
+	/// @return uint256 returns remainig available tickets
 	function RemainingTickets() public view returns (uint256) {
 		return maxTickets - tickets.length;
 	}
