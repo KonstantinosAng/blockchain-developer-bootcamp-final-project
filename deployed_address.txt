@@ -1,4 +1,5 @@
 The contract is deployed on the MUMBAI (MATIC) testnet.
+The contract is being configured from thirdweb (i.e: https://thirdweb.com/mumbai/0x7405Cd42C72F36601773172E0263976aa45b930F/), more details in README.md.
 
 The address is:
-LOTTERY_CONTRACT_ADDRESS: 0x89208851Fcfb85E6d33084e4eADa4c639aCb0cbf
+LOTTERY_CONTRACT_ADDRESS: 0x7405Cd42C72F36601773172E0263976aa45b930F
