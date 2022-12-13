@@ -71,7 +71,7 @@ contract NFTFactory is ERC721URIStorage, Ownable, ReentrancyGuard {
 		///@dev Get the latest nft token id from the list
 		uint256 newTokenId = _tokenIds.current();
 		/// @dev Mint an nft and link it to the recipient address
-		_safeMint(recipient, newTokenId);
+		_mint(recipient, newTokenId);
 		///@dev get nfts of winner
 		uint256 newNFTUid = getNFTSForAddress(recipient).length;
 		/// @dev Linkg the nft to a URI
