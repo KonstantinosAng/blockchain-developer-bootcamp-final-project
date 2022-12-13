@@ -50,6 +50,8 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
   <li><a href="#deploy-vercel">Deploy the frontend to Vercel</a></li>
   <li><a href="#releases">Releases</a></li>
   <li><a href="#deployments">Deployments</a></li>
+  <li><a href="#attacks">Avoiding Common Attacks</a></li>
+  <li><a href="#design">Design Pattern Decisions</a></li>
   <li><a href="#public-address">Public Address</a></li>
   <li><a href="#responsive-mocks">Mocks</a></li>
  </ul>
@@ -390,6 +392,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 `NFT Factory`
 
+- [v1.0.1 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/NFTFactory)
 - [v1.0.0 (latest)](https://thirdweb.com/0x43E9a680aedc9Ad401C9E3e06D2C48EAE1D2B605/NFTFactory)
 
 `Lottery`
@@ -402,7 +405,8 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 `NFT Factory`
 
-- [v1.0.0 (latest)](https://thirdweb.com/mumbai/0x7c086B7a51E8a038e20456A079B52F3112d10345/)
+- [v1.0.1 (latest)](https://thirdweb.com/mumbai/0xc3Cc65B3AD8eF7572970154a1aC0c3FBe1fB18c2/)
+- [v1.0.0](https://thirdweb.com/mumbai/0x7c086B7a51E8a038e20456A079B52F3112d10345/)
 
 `Lottery`
 
@@ -412,6 +416,10 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
 #
+
+## <img src="./images/battle.png" id="attacks" alt="avoiding common attacks" width="24px" /> [`Avoiding Common Attacks`](avoiding_common_attacks.md)
+
+## <img src="./images/design.png" id="design" alt="design pattern decisions" width="24px" /> [`Design Pattern Decisions`](design_pattern_decisions.md)
 
 ## <img src="./images/metamask.svg" id="public-address" alt="vercel" width="24px" /> Public Address for verification
 
