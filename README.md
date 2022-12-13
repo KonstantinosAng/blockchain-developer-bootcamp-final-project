@@ -52,6 +52,8 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
   <li><a href="#deployments">Deployments</a></li>
   <li><a href="#attacks">Avoiding Common Attacks</a></li>
   <li><a href="#design">Design Pattern Decisions</a></li>
+  <li><a href="#changes">Changelog</a></li>
+  <li><a href="#issues">Issues</a></li>
   <li><a href="#public-address">Public Address</a></li>
   <li><a href="#responsive-mocks">Mocks</a></li>
  </ul>
@@ -420,6 +422,10 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 ## <img src="./images/battle.png" id="attacks" alt="avoiding common attacks" width="24px" /> [`Avoiding Common Attacks`](avoiding_common_attacks.md)
 
 ## <img src="./images/design.png" id="design" alt="design pattern decisions" width="24px" /> [`Design Pattern Decisions`](design_pattern_decisions.md)
+
+## <img src="./images/changes.png" id="changes" alt="changelog" width="24px" /> [`Changelog`](CHANGELOG.md)
+
+## <img src="./images/issues.png" id="issues" alt="issues" width="24px" /> [`Issues`](ISSUES.md)
 
 ## <img src="./images/metamask.svg" id="public-address" alt="vercel" width="24px" /> Public Address for verification
 
