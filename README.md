@@ -149,6 +149,9 @@ Install these globally on your computer
 
 ```bash
 yarn install or npm install
+cd packages/ui && yarn install
+cd packages/eslint-config-custom && yarn install
+cd apps/crypto-lottery && yarn install
 ```
 
 Create a .env.local file on the root of the apps/crypto-lottery app, based on the .env.example file
