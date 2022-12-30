@@ -46,6 +46,10 @@
 		@apply flex flex-wrap items-center justify-center gap-x-2 hover:bg-opacity-50 md:block md:flex-nowrap
 	}
 
+	.loginButton {
+		@apply 300:p-4 flex items-center justify-center gap-2 rounded-lg bg-teal-600 p-2 text-lg font-bold text-slate-100 shadow-lg drop-shadow-lg hover:bg-teal-500 sm:gap-4
+	}
+
 }
 
 * {

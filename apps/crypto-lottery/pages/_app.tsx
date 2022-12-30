@@ -4,7 +4,7 @@ import favicon from "ui/assets/ethereum.png"
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react"
 import { StoreProvider, useHydrate } from "@lib/store"
 import ContractProvider from "@lib/contractProvider"
-import MetaMaskProvider from "@lib/MetaMaskProvider"
+import WalletProvider from "@lib/WalletProvider"
 import stores from "@stores/index"
 import { Toaster } from "react-hot-toast"
 import FirebaseProvider from "@lib/FirebaseProvider"
@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: any) {
 				}}
 			>
 				<StoreProvider stores={createdStores}>
-					<MetaMaskProvider>
+					<WalletProvider>
 						<NFTFactoryProvider>
 							<ContractProvider>
 								<FirebaseProvider>
@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }: any) {
 								</FirebaseProvider>
 							</ContractProvider>
 						</NFTFactoryProvider>
-					</MetaMaskProvider>
+					</WalletProvider>
 				</StoreProvider>
 				<Toaster />
 			</ThirdwebProvider>
