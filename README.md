@@ -7,14 +7,14 @@
   </picture>
   <h1 style="font-weight: bold" align="center">
    ConsenSys Academy Final Project - Crypto Lottery
-   <p align="center">
-    <img src="https://img.shields.io/github/license/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="licence" />
-    <img src="https://img.shields.io/github/stars/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="stars" />
-    <img src="https://img.shields.io/github/forks/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="forks" />
-    <img src="https://img.shields.io/github/issues/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="issues" />
-   </p>
   </h1>
  </a>
+  <p align="center">
+   <img src="https://img.shields.io/github/license/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="licence" />
+   <img src="https://img.shields.io/github/stars/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="stars" />
+   <img src="https://img.shields.io/github/forks/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="forks" />
+   <img src="https://img.shields.io/github/issues/KonstantinosAng/blockchain-developer-bootcamp-final-project" alt="issues" />
+  </p>
 </p>
 
 A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](https://nextjs.org), [`ReactJS`](https://reactjs.org/), [`TypeScript`](https://www.typescriptlang.org/), [`TailwindCSS`](https://tailwindcss.com/), [`Solidity`](https://docs.soliditylang.org/en/v0.8.17/), [`Truffle`](https://trufflesuite.com/), [`ThirdWeb`](https://thirdweb.com/), [`Pinata`](https://www.pinata.cloud/) and [`Firebase`](https://firebase.google.com/).
@@ -54,6 +54,8 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
   <li><a href="#design">Design Pattern Decisions</a></li>
   <li><a href="#changes">Changelog</a></li>
   <li><a href="#issues">Issues</a></li>
+  <li><a href="#requirementsConsensys">Requirements</a></li>
+  <li><a href="#walkthrough">Walkthrough</a></li>
   <li><a href="#public-address">Public Address</a></li>
   <li><a href="#responsive-mocks">Mocks</a></li>
  </ul>
@@ -72,13 +74,13 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
 > Withdraw winnings.
 
 > Check winnings amount.
+
+> See the winning NFTs.
 ```
 
 #### ***`Lottery bank actions`***
 
 ```md
-> Refund all tickets before the lottery ends.
-
 > Draw winner ticket.
 
 > Create a winning NFT.
@@ -90,6 +92,8 @@ A crypto lottery WEB3 [`turborepo`](https://turborepo.org/) using [`NextJS`](htt
 > Calculate current winning reward.
 
 > Find the winner.
+
+> Refund all tickets before the lottery ends.
 ```
 
 <!-- [//]: # (below line is for horizontal line DO NOT DELETE) -->
@@ -431,6 +435,12 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 ## <img src="./images/changes.png" id="changes" alt="changelog" width="24px" /> [`Changelog`](CHANGELOG.md)
 
 ## <img src="./images/issues.png" id="issues" alt="issues" width="24px" /> [`Issues`](ISSUES.md)
+
+## <img src="./images/requirements.png" id="requirementsConsensys" alt="issues" width="24px" /> [`Requirements`](final-project-checklist.txt)
+
+## <img src="./images/walkthrough.png" id="walkthrough" alt="issues" width="24px" /> [`Walkthrough`](https://drive.google.com/file/d/1n-k7qqaKyz64f7Wata8kqmvl1zEPSM82/view?usp=share_link)
+
+<iframe src="https://drive.google.com/file/d/1n-k7qqaKyz64f7Wata8kqmvl1zEPSM82/view?usp=share_link" width="100%" allow="autoplay"></iframe>
 
 ## <img src="./images/metamask.svg" id="public-address" alt="vercel" width="24px" /> Public Address for verification
 
