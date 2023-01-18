@@ -440,7 +440,7 @@ NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=<ThirdWebDeployedAddress>
 
 ## <img src="./images/walkthrough.png" id="walkthrough" alt="issues" width="24px" /> [`Walkthrough`](https://drive.google.com/file/d/1n-k7qqaKyz64f7Wata8kqmvl1zEPSM82/view?usp=share_link)
 
-<iframe src="https://drive.google.com/file/d/1n-k7qqaKyz64f7Wata8kqmvl1zEPSM82/preview" width="100%" height="480" allow="autoplay"></iframe>
+[![Walkthrough Video](./images/walkthrough-preview.png)](https://drive.google.com/file/d/1n-k7qqaKyz64f7Wata8kqmvl1zEPSM82/preview)
 
 ## <img src="./images/metamask.svg" id="public-address" alt="vercel" width="24px" /> Public Address for verification
 
